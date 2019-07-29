@@ -1,5 +1,6 @@
 {
     "appName": "varnish",
     "httpPort": 8000,
-    "contact": "reviz"
+    "contact": "reviz",
+    "team": "reviz"
 }
