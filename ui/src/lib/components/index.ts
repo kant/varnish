@@ -8,3 +8,4 @@ export * from './link';
 export * from './MaxWidthCenteredContent';
 export * from './typography';
 export * from './icon';
+export * from './Table';

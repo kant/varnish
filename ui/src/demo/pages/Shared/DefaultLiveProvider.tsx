@@ -38,6 +38,7 @@ import {
     SelectOption,
     Spacer,
     SvgIcon,
+    Table,
     TextArea,
     TopMenu
  } from '../../../lib/components';
@@ -89,7 +90,8 @@ const globalScope = {
     Quote,
     Author,
     Code,
-    InlineCode
+    InlineCode,
+    Table
 };
 
 const StyledProvider = styled(LiveProvider)`
