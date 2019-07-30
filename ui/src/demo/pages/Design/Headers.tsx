@@ -25,25 +25,39 @@ render(
                 <Menu.Item key="2"><ExternalLink>Link 2</ExternalLink></Menu.Item>
             </TopMenu>
         </Header>
-        <PaddedContent>
+        <Examples.WhitePaper>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a molestic
             metus. Suspendisse pharetra lobortis varius. Cras vulputate felis et mauris
             tincidunt, elementum volutpat urna euismod. Phasellus lacinia fringilla
             sapien. Quisque ac convallis elit, eget fringilla metus.
-        </PaddedContent>
+        </Examples.WhitePaper>
+
     </div>
 )
 `.trim(),
 footer: `
 render(
     <div>
-        <PaddedContent>
+        <Examples.WhitePaper>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a molestic
             metus. Suspendisse pharetra lobortis varius. Cras vulputate felis et mauris
             tincidunt, elementum volutpat urna euismod. Phasellus lacinia fringilla
             sapien. Quisque ac convallis elit, eget fringilla metus.
-        </PaddedContent>
+        </Examples.WhitePaper>
         <Footer />
+    </div>
+)
+`.trim(),
+darkFooter: `
+render(
+    <div>
+        <Examples.WhitePaper>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a molestic
+            metus. Suspendisse pharetra lobortis varius. Cras vulputate felis et mauris
+            tincidunt, elementum volutpat urna euismod. Phasellus lacinia fringilla
+            sapien. Quisque ac convallis elit, eget fringilla metus.
+        </Examples.WhitePaper>
+        <Footer variant="dark"/>
     </div>
 )
 `.trim()
@@ -65,8 +79,15 @@ export class Headers extends React.PureComponent<RouteComponentProps> {
                 </SectionWithDivider>
 
                 <SectionWithDivider>
-                    <h4>Footer</h4>
+                    <h4>Default Footer</h4>
+                    Use for demos and applications
                     <DefaultLiveProvider code={examples.footer} />
+                </SectionWithDivider>
+
+                <SectionWithDivider>
+                    <h4>Dark Footer</h4>
+                    Use for marketing
+                    <DefaultLiveProvider code={examples.darkFooter} />
                 </SectionWithDivider>
             </React.Fragment>
         )

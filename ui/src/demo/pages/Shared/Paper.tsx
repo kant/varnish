@@ -12,3 +12,7 @@ export const DarkPaper = styled(LightPaper)`
     background: ${({theme}) => theme.palette.background.dark};
     color: ${({theme}) => theme.palette.text.contrast};
 `;
+
+export const WhitePaper = styled(LightPaper)`
+    background: ${({theme}) => theme.palette.common.white};
+`;

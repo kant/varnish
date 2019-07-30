@@ -72,7 +72,9 @@ export const Author = styled.span`
 `;
 
 
-const baseCodeStyles = (_:any) => css<{variant?: string}>`
+export type CodeVariant = 'default' | 'dark';
+
+const baseCodeStyles = (_:any) => css<{variant?: CodeVariant}>`
     font-family: ${({theme}) => theme.typography.code.fontFamily};
     font-size: ${({theme}) => theme.typography.code.fontSize};
     line-height: ${({theme}) => theme.typography.code.lineHeight};
@@ -92,14 +94,14 @@ const baseCodeStyles = (_:any) => css<{variant?: string}>`
 `;
 
 // code
-export const Code = styled.pre<{variant?: string}>`
+export const Code = styled.pre<{variant?: CodeVariant}>`
     ${baseCodeStyles}
 
     padding: ${({theme}) => theme.typography.code.padding};
 `;
 
 // inline code
-export const InlineCode = styled.code<{variant?: string}>`
+export const InlineCode = styled.code<{variant?: CodeVariant}>`
     ${baseCodeStyles}
 
     padding: 0 ${({theme}) => theme.spacing.xxs};
