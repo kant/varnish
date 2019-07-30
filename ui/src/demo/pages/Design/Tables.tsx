@@ -10,6 +10,7 @@ basic: `
 render(
   <div>
     <Table 
+      pagination={false}
       dataSource={[
         {
           key: '1',
