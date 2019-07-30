@@ -106,7 +106,7 @@ Varnish can be used in one of three ways:
 
 ## Components
 
-Varnish is built on top of [Ant Design](https://ant.design/components/).
+Varnish is built on top of [Ant Design](https://ant.design/).
 If Varnish does not have a component, use an Ant Design component instead.
 A list of Ant Design components is available [here](https://ant.design/docs/react/introduce).
 If you end up using an Ant Design component, but feel the output could be 
