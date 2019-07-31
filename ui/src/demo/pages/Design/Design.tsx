@@ -12,7 +12,8 @@ import {
     Links,
     Palette,
     Spacing,
-    Typography
+    Typography,
+    Tables
 } from '..';
 import {  LeftMenuPage } from '../Shared';
 import { AppRoute } from '../../AppRoute';
@@ -70,6 +71,11 @@ export class Design extends React.PureComponent<RouteComponentProps> {
             path: `${this.parentPath}/headers`,
             label: 'Header & Footer',
             component: Headers
+        },
+        {
+            path: `${this.parentPath}/tables`,
+            label: 'Tables',
+            component: Tables
         }
     ];
 

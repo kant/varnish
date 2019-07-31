@@ -10,3 +10,4 @@ export * from './Design/Links';
 export * from './Design/Palette';
 export * from './Design/Spacing';
 export * from './Design/Typography';
+export * from './Design/Tables';
