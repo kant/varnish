@@ -2,7 +2,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Layout } from 'antd';
 
-import { ExternalLink, Body } from '.';
+import { Body } from './typography';
+import { ExternalLink } from './link/ExternalLink';
 
 export type FooterVariant = 'default' | 'dark';
 
