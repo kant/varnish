@@ -11,11 +11,12 @@ services:
   ui:
     build: ./ui
     volumes:
-      - './ui:/usr/local/src/skiff/app/ui'
-      - 'node_modules:/usr/local/src/skiff/app/ui/node_modules'
+      - './ui/src:/usr/local/src/skiff/app/ui/src'
+      - './ui/public:/usr/local/src/skiff/app/ui/public'
+      - './ui/package.json:/usr/local/src/skiff/app/ui/package.json'
+      - './ui/tsconfig.json:/usr/local/src/skiff/app/ui/tsconfig.json'
+      - './ui/yarn.lock:/usr/local/src/skiff/app/ui/yarn.lock'
     ports:
       - '3000:3000'
     stdin_open: true
     tty: true
-volumes:
-  node_modules:
