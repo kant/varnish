@@ -5,7 +5,8 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import { Menu } from 'antd';
 
 import { AppRoute } from '../../AppRoute';
-import { ExternalLink,
+import {
+    WhiteBackground,
     TransparentLayout,
     LeftMenu,
     LeftSider,
@@ -34,16 +35,18 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                     </LeftMenu>
                 </LeftSider>
                 <ContentAndFooterArea>
-                    <PaddedContent>
-                        <Page>
-                            <Switch>
-                                <Redirect from={this.props.parentPath} exact to={this.props.routes[0].path} />
-                                {this.props.routes.map(({ path, component }) => (
-                                    <Route key={path} path={path} component={component} />
-                                ))}
-                            </Switch>
-                        </Page>
-                    </PaddedContent>
+                    <WhiteBackground>
+                        <PaddedContent>
+                            <Page>
+                                <Switch>
+                                    <Redirect from={this.props.parentPath} exact to={this.props.routes[0].path} />
+                                    {this.props.routes.map(({ path, component }) => (
+                                        <Route key={path} path={path} component={component} />
+                                    ))}
+                                </Switch>
+                            </Page>
+                        </PaddedContent>
+                    </WhiteBackground>
                     <Footer />
                 </ContentAndFooterArea>
             </TransparentLayout>

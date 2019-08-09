@@ -1,10 +1,10 @@
 import * as React from 'react';
-import styled from 'styled-components';
 import { RouteComponentProps } from 'react-router';
 
-import { ExternalLink,
+import {
     TransparentLayout,
     PaddedContent,
+    WhiteBackground,
     Page,
     Footer
 } from '../../../lib/components';
@@ -18,11 +18,13 @@ export class FullPage extends React.PureComponent<RouteComponentProps & Props> {
     render() {
         return (
             <TransparentLayout>
-                <PaddedContent>
-                    <Page>
-                        {this.props.children}
-                    </Page>
-                </PaddedContent>
+                <WhiteBackground>
+                    <PaddedContent>
+                        <Page>
+                            {this.props.children}
+                        </Page>
+                    </PaddedContent>
+                </WhiteBackground>
                 <Footer />
             </TransparentLayout>
         )

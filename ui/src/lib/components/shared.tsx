@@ -13,6 +13,10 @@ export const TransparentLayout = styled(Layout)`
     }
 `;
 
+export const WhiteBackground = styled.div`
+    background: ${({ theme }) => theme.palette.common.white};
+`;
+
 export const TopMenu = styled(Menu).attrs({
     mode: "horizontal"
 })`
@@ -47,8 +51,8 @@ export const LeftSider = styled(Layout.Sider).attrs({
 export const PaddedContent = styled(Layout.Content)`
     && {
         max-width: ${({theme}) => theme.breakpoints.xl};
-        margin: 0 auto 4rem auto;
-        padding: ${({theme}) => `0 ${theme.spacing.lg}`};
+        margin: 0 auto;
+        padding: ${({theme}) => `0 ${theme.spacing.lg} ${theme.spacing.xxl}`};
         width: 100%;
 
         @media (max-width: ${({theme}) => theme.breakpoints.sm}) {

@@ -1,6 +1,8 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { Layout } from 'antd';
+import { palette } from '../theme/palette'
+import { Color } from '../theme/colors';
 
 import { Body } from './typography';
 import { ExternalLink } from './link/ExternalLink';
@@ -10,13 +12,25 @@ export type FooterVariant = 'default' | 'dark';
 interface Props {
     variant?: FooterVariant;
     children?: React.ReactNode | React.ReactNodeArray;
+    /* If true, the background of the parent "page" (the body and html elements)
+       is adjusted to match that of the footer. */
+    setPageBackground?: boolean;
 }
 
 export class Footer extends React.PureComponent<Props> {
+    static defaultProps = {
+        setPageBackground: true
+    }
     render() {
-        let contrast = this.props.variant === 'dark';
+        let contrast = this.props.variant === 'dark' ? true : undefined
         return (
             <StyledFooter contrast={contrast}>
+                {this.props.setPageBackground ? (
+                    <WithPageBackground
+                        color={contrast
+                            ? palette.background.dark
+                            : palette.background.light} />
+                ) : null}
                 {this.props.children
                     ? this.props.children
                     : (
@@ -33,7 +47,13 @@ export class Footer extends React.PureComponent<Props> {
     }
 }
 
-const StyledFooter = styled(Layout.Footer)<({contrast: boolean})>`
+const WithPageBackground = createGlobalStyle<{ color: Color }>`
+    html, body {
+        background: ${({ color }) => `${color}`};
+    }
+`;
+
+const StyledFooter = styled(Layout.Footer)<{contrast?: boolean}>`
     && {
         background: ${({theme, contrast}) => contrast ? theme.palette.background.dark : theme.palette.background.light};
         color: ${({theme, contrast}) => contrast ? theme.palette.text.contrast : theme.palette.text.default};

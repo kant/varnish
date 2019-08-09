@@ -1,8 +1,13 @@
 import { css } from 'styled-components';
 
-export function baseLinkStyles(_:any) {
+interface BaseLinkProps {
+    active?: boolean;
+    contrast?: boolean;
+}
+
+export function baseLinkStyles(_: BaseLinkProps) {
     return (
-        css<{active?: boolean, contrast?: boolean}>`
+        css<BaseLinkProps>`
             color: ${({ theme, active, contrast }) => (
                 active
                 ? (contrast ? theme.link.contrastActiveColor : theme.link.activeColor)
