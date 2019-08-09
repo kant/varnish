@@ -1,9 +1,9 @@
+import React from 'react';
 import styled from 'styled-components';
 import { Modal as AntModal } from 'antd';
 import { ModalProps } from 'antd/lib/modal';
-import { Button, ButtonVariant } from './button';
 
-import React from 'react';
+import { Button, ButtonVariant } from './button';
 
 interface Props extends ModalProps {
   okVariant?: ButtonVariant;
@@ -62,16 +62,16 @@ const StyledAntModal = styled(AntModal)`
     display: none;
   }
   .ant-modal-header {
-    background-color: ${props => props.theme.palette.background.light.hex};
-    border-bottom: 1px solid ${props => props.theme.palette.border.main.hex};
-    padding: 16px;
+    background-color: ${props => props.theme.palette.background.light};
+    border-bottom: 1px solid ${props => props.theme.palette.border.main};
+    padding: ${props => props.theme.spacing.md};
   }
   .ant-modal-body {
-    padding: 16px;
+    padding: ${props => props.theme.spacing.md};
   }
   .ant-modal-footer {
     border-top: none;
     text-align: left;
-    padding: 16px;
+    padding: ${props => props.theme.spacing.md};
   }
 `;

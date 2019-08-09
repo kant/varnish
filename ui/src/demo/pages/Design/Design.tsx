@@ -10,7 +10,7 @@ import {
     Headers,
     Icons,
     Links,
-    Modals,
+    Modal,
     Palette,
     Spacing,
     Typography,
@@ -80,8 +80,8 @@ export class Design extends React.PureComponent<RouteComponentProps> {
         },
         {
             path: `${this.parentPath}/modals`,
-            label: 'Modals',
-            component: Modals
+            label: 'Modal',
+            component: Modal
         }
     ];
 

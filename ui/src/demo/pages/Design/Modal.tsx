@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
+
 import { BodySmall, ExternalLink } from '../../../lib/components';
 import { PageTitle, SectionWithDivider, DefaultLiveProvider } from '../Shared';
 
@@ -32,7 +33,7 @@ class MyModal extends React.Component {
 `.trim(),
 }
 
-export class Modals extends React.PureComponent<RouteComponentProps> {
+export class Modal extends React.PureComponent<RouteComponentProps> {
     render() {
         return (
             <React.Fragment>
