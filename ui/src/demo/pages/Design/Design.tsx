@@ -10,6 +10,7 @@ import {
     Headers,
     Icons,
     Links,
+    Modal,
     Palette,
     Spacing,
     Typography,
@@ -76,6 +77,11 @@ export class Design extends React.PureComponent<RouteComponentProps> {
             path: `${this.parentPath}/tables`,
             label: 'Tables',
             component: Tables
+        },
+        {
+            path: `${this.parentPath}/modals`,
+            label: 'Modal',
+            component: Modal
         }
     ];
 
