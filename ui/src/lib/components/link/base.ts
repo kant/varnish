@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-interface BaseLinkProps {
+export interface BaseLinkProps {
     active?: boolean;
     contrast?: boolean;
 }
