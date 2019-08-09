@@ -40,7 +40,8 @@ import {
     SvgIcon,
     Table,
     TextArea,
-    TopMenu
+    TopMenu,
+    Modal
  } from '../../../lib/components';
 
 const InlineSvg = () => {
@@ -92,7 +93,8 @@ const globalScope = {
     Author,
     Code,
     InlineCode,
-    Table
+    Table, 
+    Modal
 };
 
 const StyledProvider = styled(LiveProvider)`

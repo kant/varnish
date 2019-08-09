@@ -9,3 +9,4 @@ export * from './MaxWidthCenteredContent';
 export * from './typography';
 export * from './icon';
 export * from './Table';
+export * from './Modal';
