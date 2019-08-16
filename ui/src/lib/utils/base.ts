@@ -1,3 +1,5 @@
+export type Dictionary<T> = { [id:string]: T };
+
 function getRootFontSize(dynamic = false): number {
     return parseFloat((dynamic && typeof getComputedStyle !== 'undefined' && getComputedStyle(document.documentElement).fontSize) || '16');
 }
@@ -16,4 +18,10 @@ export function convertPixelsToRem(px: number, dynamic = false): string {
 }
 export function convertPixelsStrToRem(pxStr: string, dynamic = false): string {
     return convertPixelsToRem(parseFloat(pxStr), dynamic);
+}
+
+export const log = (val: any, force?: boolean) => {
+    if (force || process.env.NODE_ENV !== 'production') {
+        console.log(val);
+    }
 }
