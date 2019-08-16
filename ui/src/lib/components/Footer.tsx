@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Layout } from 'antd';
 import { palette } from '../theme/palette'
 import { Color } from '../theme/colors';
 
+import { ExternalLink } from './link';
 import { Body } from './typography';
-import { ExternalLink } from './link/ExternalLink';
+import { LayoutFooter } from './Layout';
 
 export type FooterVariant = 'default' | 'dark';
 
@@ -53,7 +53,7 @@ const WithPageBackground = createGlobalStyle<{ color: Color }>`
     }
 `;
 
-const StyledFooter = styled(Layout.Footer)<{contrast?: boolean}>`
+const StyledFooter = styled(LayoutFooter)<{contrast?: boolean}>`
     && {
         background: ${({theme, contrast}) => contrast ? theme.palette.background.dark : theme.palette.background.light};
         color: ${({theme, contrast}) => contrast ? theme.palette.text.contrast : theme.palette.text.default};

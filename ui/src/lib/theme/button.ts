@@ -3,6 +3,7 @@ import { spacing } from './spacing';
 import { color, Color } from './colors';
 import { fontWeight } from './fontWeight';
 import { palette } from './palette';
+import { ContentAndFooterLayout } from '../components';
 
 export interface ButtonStyle {
     padding?: string;

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-import { Menu } from 'antd';
 
 import { DarkPaper, LightPaper, WhitePaper } from './Paper';
 import logoWithText from '../../varnishLogo.svg';
@@ -26,6 +25,10 @@ import {
     InlineCode,
     Input,
     InternalLink,
+    MenuItem,
+    TopMenuItem,
+    LeftMenuItem,
+    Modal,
     Notification,
     NotificationBold,
     PaddedContent,
@@ -40,8 +43,7 @@ import {
     SvgIcon,
     Table,
     TextArea,
-    TopMenu,
-    Modal
+    TopMenu
  } from '../../../lib/components';
 
 const InlineSvg = () => {
@@ -70,7 +72,9 @@ const globalScope = {
     ResponsiveWindowImage,
     Spacer,
     TopMenu,
-    Menu,
+    MenuItem,
+    TopMenuItem,
+    LeftMenuItem,
     PaddedContent,
     logoWithText,
     DefaultVarnishTheme,
@@ -93,7 +97,7 @@ const globalScope = {
     Author,
     Code,
     InlineCode,
-    Table, 
+    Table,
     Modal
 };
 

@@ -21,8 +21,8 @@ render(
                 />
             <Spacer />
             <TopMenu defaultSelectedKeys={[1]}>
-                <Menu.Item key="1"><ExternalLink>Link 1</ExternalLink></Menu.Item>
-                <Menu.Item key="2"><ExternalLink>Link 2</ExternalLink></Menu.Item>
+                <TopMenuItem key="1"><ExternalLink>Link 1</ExternalLink></TopMenuItem>
+                <TopMenuItem key="2"><ExternalLink>Link 2</ExternalLink></TopMenuItem>
             </TopMenu>
         </Header>
         <Examples.WhitePaper>
@@ -57,7 +57,7 @@ render(
             tincidunt, elementum volutpat urna euismod. Phasellus lacinia fringilla
             sapien. Quisque ac convallis elit, eget fringilla metus.
         </Examples.WhitePaper>
-        <Footer variant="dark"/>
+        <Footer variant="dark" setPageBackground={false}/>
     </div>
 )
 `.trim()

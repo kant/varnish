@@ -40,6 +40,9 @@ const gridCss = css\`
     grid-template-columns: repeat(4, min-content);
     grid-gap: \${({theme}) => theme.spacing.sm };
     padding: \${({theme}) => theme.spacing.sm };
+    \${Button} {
+        height: min-content;
+    }
 \`;
 
 const LightGrid = styled(Examples.LightPaper)\`
@@ -183,9 +186,6 @@ interface ButtonRowProps{
 }
 class ButtonRow extends React.PureComponent<ButtonRowProps> {
     render() {
-        const color = this.props.contrast
-            ? DefaultVarnishTheme.link.contrastColor
-            : DefaultVarnishTheme.link.color;
         const Paper = styled(this.props.contrast ? DarkPaper : LightPaper)`
             margin-bottom: ${({theme}) => theme.spacing.md};`;
         const { variant, contrast } = this.props;
@@ -201,7 +201,7 @@ class ButtonRow extends React.PureComponent<ButtonRowProps> {
                         </Disabled>
                         <Default>
                             <Button variant={variant} contrast={contrast} icon="form">
-                                Default
+                                {variant}
                             </Button>
                         </Default>
                     </ButtonGrid>

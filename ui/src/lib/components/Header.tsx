@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Layout } from 'antd';
 
+import { LayoutHeader } from './Layout';
 import { MaxWidthCenteredContent } from './MaxWidthCenteredContent';
 import { AI2Banner } from './AI2Banner';
 
@@ -80,7 +80,7 @@ const Content = styled(MaxWidthCenteredContent)`
     align-items: center;
 `;
 
-const Sticky = styled(Layout.Header)`
+const Sticky = styled(LayoutHeader)`
     && {
         position: sticky;
         top: 0;
@@ -92,6 +92,10 @@ const Sticky = styled(Layout.Header)`
         padding: 0;
         transition: top 200ms ease-in-out;
     }
+`;
+
+export const Logo = styled.img`
+    margin-right: ${({theme}) => theme.spacing.sm};
 `;
 
 export const HeaderTitle = styled.h5`
