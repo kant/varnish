@@ -7,7 +7,7 @@ import { BodyJumbo, Body, BodyMicro } from '../../../lib/components';
 import { DefaultVarnishTheme, Color } from '../../../lib/theme';
 import { convertPixelsToRem } from '../../../lib/utils/base';
 
-const { color } = DefaultVarnishTheme;
+const { color, chartingColor } = DefaultVarnishTheme;
 const colorGroups = {
     blues: [
         color.B10,
@@ -104,7 +104,8 @@ const colorGroups = {
         color.N3,
         color.N2,
         color.N1
-    ]
+    ],
+    charting: Object.keys(chartingColor).map(c => chartingColor[c]),
 };
 
 const examples = {
@@ -231,7 +232,16 @@ class ColorRow extends React.PureComponent<ColorRowProps> {
     render() {
         return (
             <React.Fragment>
-                <ColorBoxWrapper><ColorBox color={this.props.color.hex} /></ColorBoxWrapper>
+                <ColorBoxWrapper>
+                    <ColorBox color={this.props.color.hex} borderColor={
+                        this.props.color.useContrastText
+                        ? DefaultVarnishTheme.palette.text.contrast.hex
+                        : DefaultVarnishTheme.palette.text.primary.hex}>
+                        <ColorText color={this.props.color.useContrastText
+                            ? DefaultVarnishTheme.palette.text.contrast.hex
+                            : DefaultVarnishTheme.palette.text.primary.hex}>A</ColorText>
+                    </ColorBox>
+                </ColorBoxWrapper>
                 <ColorName>{this.props.color.displayName}</ColorName>
                 <ColorHex>{this.props.color.hex}</ColorHex>
                 {this.props.color.rgb
@@ -312,7 +322,7 @@ const ExtendedGrid = styled.div`
 const ExtendedHeadRow = styled.div`
     grid-column: 1 / span 4;
     align-self: end;
-    padding-bottom: ${({theme}) => theme.spacing.lg};
+    padding: ${({theme}) => `${theme.spacing.lg} 0`};
 `;
 
 const Label = styled(BodyJumbo)`
@@ -325,11 +335,18 @@ const Col = styled(Body)`
     border-top: 1px solid ${({theme}) => theme.palette.border.main};
 `;
 
-const ColorBox = styled.div`
+const ColorBox = styled.div<{color: string, borderColor: string}>`
     background: ${(props) => props.color};
     width: ${props => convertPixelsToRem(40)};
     height: ${props => convertPixelsToRem(40)};
     border-radius: ${({theme}) => `${theme.shape.borderRadius}px`};
+    border: ${(props) => `1px solid ${props.borderColor}`};
+`;
+
+const ColorText = styled.div`
+    margin-top: 7px;
+    margin-left: 13px;
+    color: ${(props) => props.color};
 `;
 
 const ColorBoxWrapper = styled(Col)`

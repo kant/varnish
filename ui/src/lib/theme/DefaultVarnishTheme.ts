@@ -1,5 +1,5 @@
 import { breakpoints } from './breakpoints';
-import { color, Color, RGB } from './colors';
+import { color, chartingColor, Color, RGB } from './colors';
 import { typography } from './typography';
 import { link } from './link';
 import { spacing } from './spacing';
@@ -12,6 +12,7 @@ export { Color, RGB };
 export const DefaultVarnishTheme = {
     breakpoints,
     color,
+    chartingColor,
     palette,
     typography,
     link,
