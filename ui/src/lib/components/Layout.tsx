@@ -42,10 +42,10 @@ export const ContentAndFooterLayout = styled(TransparentLayout)<{marginleft?: st
     transition: margin-left 0.2s;
 `;
 
-export const PaddedContent = styled(Layout.Content)<{variant?: LayoutVariant}>`
+export const PaddedContent = styled(Layout.Content)<{layoutVariant?: LayoutVariant}>`
     && {
-        max-width: ${({theme, variant}) => (variant === 'app') ? 'initial' : theme.breakpoints.xl};
-        margin: ${({theme, variant}) => (variant === 'app') ? 0 : '0 auto'};
+        max-width: ${({theme, layoutVariant}) => (layoutVariant === 'app') ? 'initial' : theme.breakpoints.xl};
+        margin: ${({theme, layoutVariant}) => (layoutVariant === 'app') ? 0 : '0 auto'};
         padding: ${({theme}) => `0 ${theme.spacing.lg} ${theme.spacing.xxl}`};
         width: 100%;
 

@@ -37,7 +37,7 @@ export default class Home extends React.PureComponent<RouteComponentProps> {
     render() {
         return (
             <WhiteLayout>
-                <Header>
+                <Header layoutVariant={'app'}>
                     <ResponsiveWindowImage
                         src={logoWithText}
                         wideWidth={"194px"}

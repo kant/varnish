@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 import microLogo from './logo-ai2-micro-25.svg';
 import { MaxWidthCenteredContent } from './MaxWidthCenteredContent';
+import { LayoutVariant } from './Layout';
 
-export const AI2Banner = React.forwardRef<HTMLDivElement, any>(
-    (_, ref) => (
+export const AI2Banner = React.forwardRef<HTMLDivElement, {layoutVariant?: LayoutVariant}>(
+    (props, ref) => (
         <DarkBanner ref={ref}>
-            <MaxWidthCenteredContent>
+            <MaxWidthCenteredContent layoutVariant={props.layoutVariant}>
                 <a href="https://allenai.org">
                     <Logo
                         src={microLogo}

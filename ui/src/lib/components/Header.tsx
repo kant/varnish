@@ -1,13 +1,15 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { LayoutHeader } from './Layout';
+import { LayoutHeader, LayoutVariant } from './Layout';
 import { MaxWidthCenteredContent } from './MaxWidthCenteredContent';
 import { AI2Banner } from './AI2Banner';
+
 
 interface Props {
     alwaysVisible?: boolean;
     children: React.ReactNode | React.ReactNodeArray;
+    layoutVariant?: LayoutVariant;
 }
 
 interface State {
@@ -66,8 +68,8 @@ export class Header extends React.PureComponent<Props, State> {
     render() {
         return (
             <Sticky style={{ top: `${this.getTopOffset()}px` }}>
-                <AI2Banner ref={this.banner}/>
-                <Content>
+                <AI2Banner ref={this.banner} layoutVariant={this.props.layoutVariant} />
+                <Content layoutVariant={this.props.layoutVariant}>
                     {this.props.children}
                 </Content>
             </Sticky>
@@ -75,7 +77,7 @@ export class Header extends React.PureComponent<Props, State> {
     }
 }
 
-const Content = styled(MaxWidthCenteredContent)`
+const Content = styled(MaxWidthCenteredContent)<{layoutVariant?: LayoutVariant}>`
     display: flex;
     align-items: center;
 `;

@@ -81,7 +81,7 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                     </LeftMenu>
                 </LeftSider>
                 <ContentAndFooterLayout marginleft={this.state.menuCollapsed ? this.siderWidthCollapsed : this.siderWidthExpanded}>
-                    <PaddedContent variant={'app'}>
+                    <PaddedContent layoutVariant={'app'}>
                         <Page>
                             <Switch>
                                 <Redirect from={this.props.parentPath} exact to={this.props.routes[0].path} />
@@ -91,7 +91,7 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                             </Switch>
                         </Page>
                     </PaddedContent>
-                    <Footer />
+                    <Footer layoutVariant={'app'} />
                 </ContentAndFooterLayout>
             </TransparentLayout>
         )
