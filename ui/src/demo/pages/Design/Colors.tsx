@@ -336,6 +336,7 @@ const Col = styled(Body)`
 `;
 
 const ColorBox = styled.div<{color: string, borderColor: string}>`
+    display: flex;
     background: ${(props) => props.color};
     width: ${props => convertPixelsToRem(40)};
     height: ${props => convertPixelsToRem(40)};
@@ -344,8 +345,9 @@ const ColorBox = styled.div<{color: string, borderColor: string}>`
 `;
 
 const ColorText = styled.div`
-    margin-top: 7px;
-    margin-left: 13px;
+    align-self: center;
+    width: 100%;
+    text-align: center;
     color: ${(props) => props.color};
 `;
 

@@ -2,50 +2,31 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Layout } from 'antd';
+import { SiderProps } from 'antd/lib/layout/Sider';
+import { convertPixelsToRem } from '../utils/base';
 
 export type LayoutVariant = 'app' | 'default' | 'demo';
 
-export const TransparentLayout = styled(Layout)`
+export const LayoutHeader = styled(Layout.Header)``;
+
+export const LayoutFooter = styled(Layout.Footer)``;
+
+export const BackgroundLayout = styled(Layout)<{ color?: string }>`
     && {
-        background: none;
+        background: ${({theme, color}) => color ? theme.color[color] : 'none'}
     }
 `;
 
-export const WhiteLayout = styled(TransparentLayout)`
-    && {
-        background: ${({theme}) => theme.palette.common.white};
-    }
-`;
-
-// todo: left sider does should move up when ai2logo disappears
-export const LeftSider = styled(Layout.Sider).attrs({
-    breakpoint: "md",
-    trigger: null
-})`
-    && {
-        border-right: ${({theme}) => `1px solid ${theme.palette.border.main}`};
-        position: fixed;
-        background: white;
-        overflow-y: auto;
-        overflow-x: hidden;
-        height: calc(100vh - 100px);
-        ul {
-            border-right: none;
-            height: 100%;
-        }
-    }
-`;
-
-export const ContentAndFooterLayout = styled(TransparentLayout)<{marginleft?: string}>`
+export const ContentAndFooterLayout = styled(BackgroundLayout)<{marginleft?: string}>`
     margin-left: ${({marginleft}) => marginleft};
 
     transition: margin-left 0.2s;
 `;
 
-export const PaddedContent = styled(Layout.Content)<{layoutVariant?: LayoutVariant}>`
+export const PaddedContent = styled(Layout.Content)<{layout?: LayoutVariant}>`
     && {
-        max-width: ${({theme, layoutVariant}) => (layoutVariant === 'app') ? 'initial' : theme.breakpoints.xl};
-        margin: ${({theme, layoutVariant}) => (layoutVariant === 'app') ? 0 : '0 auto'};
+        max-width: ${({theme, layout}) => (layout === 'app') ? 'initial' : theme.breakpoints.xl};
+        margin: ${({theme, layout}) => (layout === 'app') ? 0 : '0 auto'};
         padding: ${({theme}) => `0 ${theme.spacing.lg} ${theme.spacing.xxl}`};
         width: 100%;
 
@@ -60,6 +41,81 @@ export const Page = styled.div`
     min-height: 44rem;
 `;
 
-export const LayoutHeader = styled(Layout.Header)``;
+const StyledSider = styled(Layout.Sider)`
+    && {
+        border-right: ${({theme}) => `1px solid ${theme.palette.border.main}`};
+        position: fixed;
+        background: white;
+        overflow-y: auto;
+        overflow-x: hidden;
+        ul {
+            border-right: none;
+            height: 100%;
+        }
+    }
+`;
 
-export const LayoutFooter = styled(Layout.Footer)``;
+interface LeftSiderProps extends SiderProps {
+    alwaysVisible?: boolean;
+    children: React.ReactNode | React.ReactNodeArray;
+}
+interface LeftSiderState {
+    isCollapsed: boolean;
+}
+export class LeftSider extends React.PureComponent<LeftSiderProps, LeftSiderState> {
+    private elRef: React.RefObject<React.PureComponent<LeftSiderProps>>;
+    private lastScrollY: number = 0;
+
+    constructor(props: LeftSiderProps) {
+        super(props);
+        this.state = {
+            isCollapsed: false
+        };
+        this.elRef = React.createRef();
+    }
+
+    onScroll = () => {
+        if (this.elRef.current !== null) {
+            const distance = window.scrollY - this.lastScrollY;
+            this.lastScrollY = window.scrollY;
+            if ( distance < 0 ) {
+                this.setState({ isCollapsed: false });
+            } else {
+                this.setState({ isCollapsed: true });
+            }
+        }
+    };
+
+    componentDidMount() {
+        window.addEventListener("scroll", this.onScroll);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.onScroll);
+    }
+
+    getStyle() {
+        let top = 113; // magic numbers are from inspecting the header.... we could pass them in
+        if (!this.props.alwaysVisible && this.state.isCollapsed && this.elRef.current !== null) {
+           top = 84;
+        }
+        return {
+            top: convertPixelsToRem(top),
+            height: `calc(100vh - ${convertPixelsToRem(top)})`,
+            transition: 'top 200ms ease-in-out, height 200ms ease-in-out'
+         };
+    }
+
+    render() {
+        return (
+            <StyledSider {
+                ...this.props}
+                breakpoint="md"
+                trigger={null}
+                ref={this.elRef}
+                style={this.getStyle()}>
+                {this.props.children}
+            </StyledSider>
+        )
+    }
+}
