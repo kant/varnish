@@ -16,6 +16,9 @@ paths=(
     "./src/lib/theme/spacing.js"
     "./src/lib/theme/typography.js"
     "./src/lib/utils/base.js"
+    "./src/lib/components/index.js"
+    "./src/lib/components/link/base.js"
+    "./src/lib/components/link/index.js"
 )
 for path in "${paths[@]}"
 do
