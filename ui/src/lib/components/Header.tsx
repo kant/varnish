@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
+import { Columns } from './Columns';
 import { LayoutHeader, LayoutVariant } from './Layout';
 import { MaxWidthCenteredContent } from './MaxWidthCenteredContent';
 import { AI2Banner } from './AI2Banner';
@@ -9,7 +10,7 @@ import { AI2Banner } from './AI2Banner';
 interface Props {
     alwaysVisible?: boolean;
     children: React.ReactNode | React.ReactNodeArray;
-    layoutVariant?: LayoutVariant;
+    layout?: LayoutVariant;
 }
 
 interface State {
@@ -36,11 +37,8 @@ export class Header extends React.PureComponent<Props, State> {
         if (this.banner.current !== null) {
             const distance = window.scrollY - this.lastScrollY;
             this.lastScrollY = window.scrollY;
-            if ( distance < 0 ) {
-                this.setState({ isCollapsed: false });
-            } else {
-                this.setState({ isCollapsed: true });
-            }
+            const isCollapsed = distance > 0;
+            this.setState({ isCollapsed })
         }
     };
 
@@ -68,8 +66,8 @@ export class Header extends React.PureComponent<Props, State> {
     render() {
         return (
             <Sticky style={{ top: `${this.getTopOffset()}px` }}>
-                <AI2Banner ref={this.banner} layoutVariant={this.props.layoutVariant} />
-                <Content layoutVariant={this.props.layoutVariant}>
+                <AI2Banner ref={this.banner} layout={this.props.layout} />
+                <Content layout={this.props.layout}>
                     {this.props.children}
                 </Content>
             </Sticky>
@@ -77,7 +75,7 @@ export class Header extends React.PureComponent<Props, State> {
     }
 }
 
-const Content = styled(MaxWidthCenteredContent)<{layoutVariant?: LayoutVariant}>`
+const Content = styled(MaxWidthCenteredContent)<{layout?: LayoutVariant}>`
     display: flex;
     align-items: center;
 `;
@@ -96,14 +94,14 @@ const Sticky = styled(LayoutHeader)`
     }
 `;
 
-export const Logo = styled.img`
-    margin-right: ${({theme}) => theme.spacing.sm};
+export const HeaderColumns = styled(Columns)`
+    width: 100%;
+    align-items: center;
 `;
 
 export const HeaderTitle = styled.h5`
     margin: 0;
     font-size: 1.9rem;
-    padding: ${({theme}) => `${theme.spacing.lg} 0`};
     line-height: 1.65rem;
     @media (max-width: ${({theme}) => theme.breakpoints.xs}) {
         font-size: 1.75rem;

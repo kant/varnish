@@ -5,7 +5,7 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 
 import { AppRoute } from '../../AppRoute';
 import {
-    TransparentLayout,
+    BackgroundLayout,
     LeftMenu,
     LeftSider,
     PaddedContent,
@@ -22,7 +22,7 @@ import {
 
 interface Props {
     parentPath: string;
-    routes: AppRoute[]
+    routes: AppRoute[];
 }
 
 interface State {
@@ -30,7 +30,7 @@ interface State {
 }
 
 export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Props, State> {
-    siderWidthExpanded = '14rem';
+    siderWidthExpanded = '12rem';
     siderWidthCollapsed = '5rem';
     constructor(props: RouteComponentProps & Props){
         super(props);
@@ -46,7 +46,7 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
 
     render() {
         return (
-            <TransparentLayout>
+            <BackgroundLayout>
                 <LeftSider
                     width={this.siderWidthExpanded}
                     collapsedWidth={this.siderWidthCollapsed}
@@ -59,21 +59,21 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                             <LeftMenuItem spacing={'lg'} key={path}>
                                 <InternalLink to={path}>
                                     {!this.state.menuCollapsed
-                                       ? (
-                                        <IconMenuItemColumns>
-                                            <Icon type={icon} />
-                                            <Wrapping>
-                                                <BodySmall>
-                                                    {label}
-                                                </BodySmall>
-                                            </Wrapping>
-                                        </IconMenuItemColumns>
-                                    )
-                                    : (
-                                        <React.Fragment>
-                                             <Icon type={icon} /><span>{label}</span>
-                                        </React.Fragment>
-                                    )
+                                        ? (
+                                            <IconMenuItemColumns>
+                                                <Icon type={icon} />
+                                                <Wrapping>
+                                                    <BodySmall>
+                                                        {label}
+                                                    </BodySmall>
+                                                </Wrapping>
+                                            </IconMenuItemColumns>
+                                        )
+                                        : (
+                                            <React.Fragment>
+                                                <Icon type={icon} /><span>{label}</span>
+                                            </React.Fragment>
+                                        )
                                     }
                                 </InternalLink>
                             </LeftMenuItem>
@@ -81,7 +81,7 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                     </LeftMenu>
                 </LeftSider>
                 <ContentAndFooterLayout marginleft={this.state.menuCollapsed ? this.siderWidthCollapsed : this.siderWidthExpanded}>
-                    <PaddedContent layoutVariant={'app'}>
+                    <PaddedContent layout={'app'}>
                         <Page>
                             <Switch>
                                 <Redirect from={this.props.parentPath} exact to={this.props.routes[0].path} />
@@ -91,9 +91,9 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                             </Switch>
                         </Page>
                     </PaddedContent>
-                    <Footer layoutVariant={'app'} />
+                    <Footer layout={'app'} />
                 </ContentAndFooterLayout>
-            </TransparentLayout>
+            </BackgroundLayout>
         )
     }
 }

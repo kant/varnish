@@ -15,7 +15,7 @@ interface Props {
     /* If true, the background of the parent "page" (the body and html elements)
        is adjusted to match that of the footer. */
     setPageBackground?: boolean;
-    layoutVariant?: LayoutVariant;
+    layout?: LayoutVariant;
 }
 
 export class Footer extends React.PureComponent<Props> {
@@ -25,7 +25,7 @@ export class Footer extends React.PureComponent<Props> {
     render() {
         let contrast = this.props.variant === 'dark' ? true : undefined
         return (
-            <StyledFooter contrast={contrast} layoutVariant={this.props.layoutVariant}>
+            <StyledFooter contrast={contrast} layout={this.props.layout}>
                 {this.props.setPageBackground ? (
                     <WithPageBackground
                         color={contrast
@@ -54,10 +54,10 @@ const WithPageBackground = createGlobalStyle<{ color: Color }>`
     }
 `;
 
-const StyledFooter = styled(LayoutFooter)<{contrast?: boolean, layoutVariant?: LayoutVariant}>`
+const StyledFooter = styled(LayoutFooter)<{contrast?: boolean, layout?: LayoutVariant}>`
     && {
         background: ${({theme, contrast}) => contrast ? theme.palette.background.dark : theme.palette.background.light};
         color: ${({theme, contrast}) => contrast ? theme.palette.text.contrast : theme.palette.text.default};
-        text-align: ${({layoutVariant}) => (layoutVariant !== 'app') ? 'center' : undefined};
+        text-align: ${({layout}) => (layout !== 'app') ? 'center' : undefined};
     }
 `;

@@ -8,13 +8,14 @@ import logoWithText from './varnishLogo.svg';
 import { About, Design } from './pages';
 import { AppRoute } from './AppRoute';
 import { ResponsiveWindowImage,
-    WhiteLayout,
+    BackgroundLayout,
     Header,
     TopMenu,
     InternalLink,
     Spacer,
     HeaderSubTitle,
-    TopMenuItem
+    TopMenuItem,
+    HeaderColumns
 } from '../lib/components';
 
 export default class Home extends React.PureComponent<RouteComponentProps> {
@@ -36,35 +37,33 @@ export default class Home extends React.PureComponent<RouteComponentProps> {
 
     render() {
         return (
-            <WhiteLayout>
-                <Header layoutVariant={'app'}>
-                    <ResponsiveWindowImage
-                        src={logoWithText}
-                        wideWidth={"194px"}
-                        skinnyWidth={"72px"}
-                        height={"56px"}
-                        alt="Varnish" />
-                    <SubHeader>{packageJson.version}</SubHeader>
-                    <Spacer />
-                    <TopMenu
-                        defaultSelectedKeys={[this.props.location.pathname]}>
-                        {this.routes.map(({ path, label }) => (
-                            <TopMenuItem key={path}>
-                                <InternalLink to={path}>{label}</InternalLink>
-                            </TopMenuItem>
-                        ))}
-                    </TopMenu>
+            <BackgroundLayout color="white">
+                <Header layout={'app'}>
+                    <HeaderColumns gridTemplateColumns="auto auto 1fr auto">
+                        <ResponsiveWindowImage
+                            src={logoWithText}
+                            wideWidth={"194px"}
+                            skinnyWidth={"72px"}
+                            height={"56px"}
+                            alt="Varnish" />
+                        <HeaderSubTitle>{packageJson.version}</HeaderSubTitle>
+                        <Spacer />
+                        <TopMenu
+                            defaultSelectedKeys={[this.props.location.pathname]}>
+                            {this.routes.map(({ path, label }) => (
+                                <TopMenuItem key={path}>
+                                    <InternalLink to={path}>{label}</InternalLink>
+                                </TopMenuItem>
+                            ))}
+                        </TopMenu>
+                    </HeaderColumns>
                 </Header>
                 <Switch>
                     {this.routes.map(({ path, exact, component }) => (
                         <Route key={path} path={path} exact={exact} component={component} />
                     ))}
                 </Switch>
-            </WhiteLayout>
+            </BackgroundLayout>
         );
     }
 }
-
-const SubHeader = styled(HeaderSubTitle)`
-    margin-left: ${({theme}) => theme.spacing.md};
-`;

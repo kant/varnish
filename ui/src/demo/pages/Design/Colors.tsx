@@ -5,7 +5,7 @@ import { RouteComponentProps } from 'react-router';
 import { PageTitle, DefaultLiveProvider, SectionWithDivider } from '../Shared';
 import { BodyJumbo, Body, BodyMicro } from '../../../lib/components';
 import { DefaultVarnishTheme, Color } from '../../../lib/theme';
-import { convertPixelsToRem } from '../../../lib/utils/base';
+import { convertPixelsToRem, dictionaryToArray } from '../../../lib/utils/base';
 
 const { color, chartingColor } = DefaultVarnishTheme;
 const colorGroups = {
@@ -105,7 +105,7 @@ const colorGroups = {
         color.N2,
         color.N1
     ],
-    charting: Object.keys(chartingColor).map(c => chartingColor[c]),
+    charting: dictionaryToArray(chartingColor)
 };
 
 const examples = {
@@ -336,6 +336,7 @@ const Col = styled(Body)`
 `;
 
 const ColorBox = styled.div<{color: string, borderColor: string}>`
+    display: flex;
     background: ${(props) => props.color};
     width: ${props => convertPixelsToRem(40)};
     height: ${props => convertPixelsToRem(40)};
@@ -344,8 +345,9 @@ const ColorBox = styled.div<{color: string, borderColor: string}>`
 `;
 
 const ColorText = styled.div`
-    margin-top: 7px;
-    margin-left: 13px;
+    align-self: center;
+    width: 100%;
+    text-align: center;
     color: ${(props) => props.color};
 `;
 

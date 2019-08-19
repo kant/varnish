@@ -9,7 +9,7 @@ export * from './link';
 export * from './MaxWidthCenteredContent';
 export * from './Menu';
 export * from './Modal';
-export * from './ResoponsiveWindowImage';
+export * from './ResponsiveWindowImage';
 export * from './shared';
 export * from './Table';
 export * from './typography';
