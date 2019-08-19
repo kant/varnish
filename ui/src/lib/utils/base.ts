@@ -19,3 +19,7 @@ export function convertPixelsToRem(px: number, dynamic = false): string {
 export function convertPixelsStrToRem(pxStr: string, dynamic = false): string {
     return convertPixelsToRem(parseFloat(pxStr), dynamic);
 }
+
+export function dictionaryToArray<T>(dict: Dictionary<T>) {
+    return Object.keys(dict).map(key => dict[key])
+}

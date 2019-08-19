@@ -4,6 +4,7 @@ import { RouteComponentProps } from 'react-router';
 
 import { PageTitle, SectionWithDivider, DefaultLiveProvider } from '../Shared';
 import { spacing, Spacing as ThemeSpacing } from '../../../lib/theme/spacing';
+import { dictionaryToArray } from '../../../lib/utils/base';
 
 const examples = {
 basic: `
@@ -40,8 +41,7 @@ export class Spacing extends React.PureComponent<RouteComponentProps> {
                 <SectionWithDivider>
                     <h4>Spacing</h4>
                     <SpacingGrid>
-                        {Object.keys(spacing).map((key: string) => {
-                            const spac = spacing[key];
+                        {dictionaryToArray(spacing).map((spac) => {
                             return <SpacingRow spacing={spac} key={spac.displayName} />
                         })}
                     </SpacingGrid>

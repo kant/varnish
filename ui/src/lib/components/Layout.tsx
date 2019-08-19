@@ -78,11 +78,8 @@ export class LeftSider extends React.PureComponent<LeftSiderProps, LeftSiderStat
         if (this.elRef.current !== null) {
             const distance = window.scrollY - this.lastScrollY;
             this.lastScrollY = window.scrollY;
-            if ( distance < 0 ) {
-                this.setState({ isCollapsed: false });
-            } else {
-                this.setState({ isCollapsed: true });
-            }
+            const isCollapsed = distance > 0 && window.scrollY > 15; // > 15 is a hack because the header does not scroll properly at the start
+            this.setState({ isCollapsed })
         }
     };
 
@@ -95,9 +92,9 @@ export class LeftSider extends React.PureComponent<LeftSiderProps, LeftSiderStat
     }
 
     getStyle() {
-        let top = 113; // magic numbers are from inspecting the header.... we could pass them in
+        let top = 125; // magic numbers are from inspecting the header.... we could pass them in
         if (!this.props.alwaysVisible && this.state.isCollapsed && this.elRef.current !== null) {
-           top = 84;
+           top = 93;
         }
         return {
             top: convertPixelsToRem(top),

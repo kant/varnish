@@ -37,11 +37,8 @@ export class Header extends React.PureComponent<Props, State> {
         if (this.banner.current !== null) {
             const distance = window.scrollY - this.lastScrollY;
             this.lastScrollY = window.scrollY;
-            if ( distance < 0 ) {
-                this.setState({ isCollapsed: false });
-            } else {
-                this.setState({ isCollapsed: true });
-            }
+            const isCollapsed = distance > 0;
+            this.setState({ isCollapsed })
         }
     };
 
@@ -97,9 +94,7 @@ const Sticky = styled(LayoutHeader)`
     }
 `;
 
-export const HeaderColumns = styled(Columns).attrs({
-    breakpoint: 'xs'
-})`
+export const HeaderColumns = styled(Columns)`
     width: 100%;
     align-items: center;
 `;

@@ -5,6 +5,7 @@ import { RouteComponentProps } from 'react-router';
 import { PageTitle, SectionWithDivider, DefaultLiveProvider } from '../Shared';
 import { Spacing } from '../../../lib/theme/spacing';
 import { breakpoints } from '../../../lib/theme/breakpoints';
+import { dictionaryToArray } from '../../../lib/utils/base';
 
 const examples = {
 basic: `
@@ -72,8 +73,7 @@ export class Breakpoints extends React.PureComponent<RouteComponentProps> {
                 <SectionWithDivider>
                     <h4>Breakpoints</h4>
                     <BreakpointGrid>
-                        {Object.keys(breakpoints).map((key: string) => {
-                            const breakpoint = breakpoints[key];
+                        {dictionaryToArray(breakpoints).map((breakpoint) => {
                             return <React.Fragment>
                                 <BreakpointRow breakpoint={breakpoint} key={breakpoint.displayName} />
                                 <Example width={breakpoint.rem} key={breakpoint.displayName} />
