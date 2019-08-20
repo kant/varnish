@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 
-import { BodySmall, ExternalLink } from '../../../lib/components';
+import { BodySmall, ExternalLink, Code } from '../../../lib/components';
 import { PageTitle, SectionWithDivider, DefaultLiveProvider } from '../Shared';
 
 const examples = {
 basic: `
 render(
   <div>
-    <Table 
+    <Table
       pagination={false}
       dataSource={[
         {
@@ -70,6 +70,35 @@ export class Tables extends React.PureComponent<RouteComponentProps> {
                     <h4>Basic Ant Table</h4>
                     The Basic Table includes support for tabular data.
                     <DefaultLiveProvider code={examples.basic} />
+                </SectionWithDivider>
+
+                <SectionWithDivider>
+                    <h4>Typescript</h4>
+                    To correctly pass typing info down the Table, you must extend a concrete Table
+                    class for your type:
+                    <Code variant='dark'>
+                    {`// define type for person
+interface Person {
+  key: string;
+  name: string;
+  age: number;
+  address: string;
+};
+
+// extend a concrete table class for person
+class TableOfPerson extends Table<Person> {}
+
+// optional: style table as you like
+const StyledPersonTable = styled(TableOfPerson)\`
+  border-width: 200px;
+
+// then use as normal in jsx
+<StyledPersonTable // or TableOfPerson
+  dataSource={[...]}
+  columns={[...]}
+/>
+\`;`}
+                    </Code>
                 </SectionWithDivider>
             </React.Fragment>
         )
