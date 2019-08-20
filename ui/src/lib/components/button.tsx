@@ -35,16 +35,11 @@ const toHexIfDefined = (c: Optional<Color>) => {
 }
 
 // todo: consider converting to use https://www.npmjs.com/package/styled-components-modifiers
-export const Button = styled(AntButton).attrs<{type?: string}>({
+export const Button = styled(AntButton).attrs<{type?: string}>((props: ComponentProps) => ({
     // only supporting types that we have styled
     // if the user wants an unsupported type, they should use Ant.Button directly
-    type: (props: ComponentProps) => {
-        if(!props.variant || props.variant === 'primary' || props.variant === 'link'){
-            return props.variant;
-        }
-        return 'default';
-    }
-})<ComponentProps>`
+    type: (!props.variant || props.variant === 'primary' || props.variant === 'link') ? props.variant : 'default',
+}))<ComponentProps>`
     && {
         height: auto;
         font-weight: ${props => valueOrDefault(props, b => b.fontWeight) };
