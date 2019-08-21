@@ -3,7 +3,14 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { palette } from '../theme/palette'
 import { Color } from '../theme/colors';
 
-import { ExternalLink } from './link';
+/*
+    NOTE: This must import `ExternalLink` individually, instead of using the
+    barrel file (i.e. `import { ExternalLink } from './link'`), as otherwise
+    `react-router-dom` is required by all users of the `Footer`. This ensures
+    sites that use an alternative router (i.e. those powered by say, NextJS)
+    to be able to use the `Footer`.
+*/
+import { ExternalLink } from './link/ExternalLink';
 import { Body } from './typography';
 import { LayoutFooter, LayoutVariant } from './Layout';
 
