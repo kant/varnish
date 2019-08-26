@@ -15,19 +15,65 @@ render(
           key: '1',
           name: 'John Brown',
           age: 32,
-          address: 'New York No. 1 Lake Park',
+          address: 'New York No. 1 Lake Park'
         },
         {
           key: '2',
           name: 'Jim Green',
           age: 42,
-          address: 'London No. 1 Lake Park',
+          address: 'London No. 1 Lake Park'
         },
         {
           key: '3',
           name: 'Joe Black',
           age: 32,
-          address: 'Sidney No. 1 Lake Park',
+          address: 'Sidney No. 1 Lake Park'
+        },
+      ]}
+      columns={[
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          key: 'name'
+        },
+        {
+          title: 'Age',
+          dataIndex: 'age',
+          key: 'age'
+        },
+        {
+          title: 'Address',
+          dataIndex: 'address',
+          key: 'address'
+        }
+      ]}
+    />
+  </div>
+)
+`.trim(),
+filtering: `
+render(
+  <div>
+    <Table
+      pagination={false}
+      dataSource={[
+        {
+          key: '1',
+          name: 'John Brown',
+          age: 32,
+          address: 'New York No. 1 Lake Park'
+        },
+        {
+          key: '2',
+          name: 'Jim Green',
+          age: 42,
+          address: 'London No. 1 Lake Park'
+        },
+        {
+          key: '3',
+          name: 'Joe Black',
+          age: 32,
+          address: 'Sidney No. 1 Lake Park'
         },
       ]}
       columns={[
@@ -35,16 +81,19 @@ render(
           title: 'Name',
           dataIndex: 'name',
           key: 'name',
+          filterFunc: Table.IncludesFilter((d) => d.name )
         },
         {
           title: 'Age',
           dataIndex: 'age',
           key: 'age',
+          filterFunc: (value, record) => { return record.age >= value }
         },
         {
           title: 'Address',
           dataIndex: 'address',
           key: 'address',
+          filterFunc: Table.IncludesFilter((d) => d.address )
         }
       ]}
     />
@@ -70,6 +119,10 @@ export class Tables extends React.PureComponent<RouteComponentProps> {
                     <h4>Basic Ant Table</h4>
                     The Basic Table includes support for tabular data.
                     <DefaultLiveProvider code={examples.basic} />
+
+                    <h4>Filtering</h4>
+                    Each column can filter the rows witha  custom filter function.
+                    <DefaultLiveProvider code={examples.filtering} />
                 </SectionWithDivider>
 
                 <SectionWithDivider>
