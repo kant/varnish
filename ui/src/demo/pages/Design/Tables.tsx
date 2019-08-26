@@ -74,7 +74,8 @@ export class Tables extends React.PureComponent<RouteComponentProps> {
 
                 <SectionWithDivider>
                     <h4>Typescript</h4>
-                    To correctly pass typing info down the Table, you must extend a concrete Table
+                    While not necessary, sometimes you will want to fully type a generic Table.
+                    To fully pass typing info down the Table, you can extend a concrete Table
                     class for your type:
                     <Code variant='dark'>
                     {`// define type for person
