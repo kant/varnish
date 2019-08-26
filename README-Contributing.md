@@ -37,6 +37,12 @@
         To solve, you need to add an empty file './ui/.git' [see here](https://github.com/npm/npm/issues/9111)
         Then, revert the change to packages.json and re-run npm version**
 
+     1. Publish the version change to master
+     
+        ```bash
+        git push origin master
+        ```
+
      1. Build the lib (from ui dir)
 
         ```bash
