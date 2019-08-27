@@ -81,19 +81,25 @@ render(
           title: 'Name',
           dataIndex: 'name',
           key: 'name',
-          textFilterFunc: (filter, record) => { return strIncludes(filter, record.name) }
+          filterDropdown: BasicFilterDropdown,
+          filterIcon: FilterIcon,
+          onFilter: (filter, record) => { return strIncludes(filter, record.name) }
         },
         {
           title: 'Age',
           dataIndex: 'age',
           key: 'age',
-          textFilterFunc: (filter, record) => { return record.age >= filter }
+          filterDropdown: BasicFilterDropdown,
+          filterIcon: FilterIcon,
+          onFilter: (filter, record) => { return record.age >= filter }
         },
         {
           title: 'Address',
           dataIndex: 'address',
           key: 'address',
-          textFilterFunc: (filter, record) => { return strIncludes(filter, record.address) }
+          filterDropdown: BasicFilterDropdown,
+          filterIcon: FilterIcon,
+          onFilter: (filter, record) => { return strIncludes(filter, record.address) }
         }
       ]}
     />

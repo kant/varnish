@@ -8,6 +8,7 @@ import { DefaultVarnishTheme } from '../../../lib/theme';
 import svgSrc from './other-14px.svg';
 import {
     Author,
+    BasicFilterDropdown,
     Body,
     BodyBold,
     BodyJumbo,
@@ -18,6 +19,7 @@ import {
     Code,
     DatePicker,
     ExternalLink,
+    FilterIcon,
     Footer,
     Header,
     HeaderColumns,
@@ -26,9 +28,8 @@ import {
     InlineCode,
     Input,
     InternalLink,
-    MenuItem,
-    TopMenuItem,
     LeftMenuItem,
+    MenuItem,
     Modal,
     Notification,
     NotificationBold,
@@ -44,7 +45,8 @@ import {
     SvgIcon,
     Table,
     TextArea,
-    TopMenu
+    TopMenu,
+    TopMenuItem
  } from '../../../lib/components';
  import { strIncludes } from '../../../lib/utils/base';
 
@@ -61,6 +63,7 @@ const globalScope = {
         WhitePaper
     },
     Author,
+    BasicFilterDropdown,
     Body,
     BodyBold,
     BodyJumbo,
@@ -72,6 +75,7 @@ const globalScope = {
     DatePicker,
     DefaultVarnishTheme,
     ExternalLink,
+    FilterIcon,
     Footer,
     Header,
     HeaderColumns,
