@@ -12,7 +12,7 @@ export interface TableState<T> extends AntTableState<T>{};
 
 // Needed in order to correctly pass typing info to the any table in typescript
 // See the demo app for usage
-export class Table<T> extends React.PureComponent<TableProps<T>> {
+export class Table<T> extends React.PureComponent<TableProps<T>, TableState<T>> {
     render() {
         return (
             <StyledTable {...this.props} />
