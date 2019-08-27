@@ -11,43 +11,35 @@ export interface TableState<T> extends AntTableState<T>{};
 
 // varnish extension of table column props, add more items here as needed
 export interface TableColumnProps<T> extends ColumnProps<T> {
-    filterFunc?: (value: string, record: T) => boolean;
-}
-
-interface State {
-    searchText?: string;
+    textFilterFunc?: (value: string, record: T) => boolean;
 }
 
 interface Props<T> extends TableProps<T> {
     columns: TableColumnProps<T>[];
 }
 
-interface FilterDropdownArgs {
+// filterdropdown is an overrideable react component with the following frops
+interface FilterDropdownProps {
     setSelectedKeys: (val: string[]) => void;
+    // selected keys is an array of values that can be used to do multi value filtering
+    // in our case below, we just use the first value, selectedKeys: ["car"]
+    // but you could imagine allowing filtering on > or < and a number: selectedKeys: [">", "5"]
     selectedKeys: string[];
     confirm: () => void;
     clearFilters: () => void;
 }
 
-export class Table<T> extends React.PureComponent<Props<T>, State> {
+export class Table<T> extends React.PureComponent<Props<T>> {
     searchInput: any; // todo: this is a ref, but connecting it fails if i type it
-
-    static IncludesFilter <T>(dataFunc: (record: T) => string) {
-        return (value: string, record: T): boolean => {
-            return dataFunc(record).toString().toLowerCase().includes(value.toLowerCase())
-        }
-    }
 
     constructor(props: Props<T>) {
         super(props)
-
-        this.state = {
-            searchText: '',
-        };
     }
 
-    getColumnSearchProps = (filterFunc: (value: string, record: T) => boolean) => ({
-        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }: FilterDropdownArgs) => (
+    getColumnSearchProps = (textFilterFunc: (value: string, record: T) => boolean) => ({
+        // filterdropdown has access to selectedKeys array, so multip values could be set.
+        // however, in our case, we st use the first value in the single input
+        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }: FilterDropdownProps) => (
             <DropWrap>
                 <DropDown gridTemplateColumns={"1fr 1fr"}>
                     <InputArea
@@ -55,14 +47,14 @@ export class Table<T> extends React.PureComponent<Props<T>, State> {
                         placeholder={'Search'}
                         value={selectedKeys[0]}
                         onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
-                        onPressEnter={() => this.handleSearch(selectedKeys, confirm)} />
+                        onPressEnter={confirm} />
                     <Button
                         variant="primary"
-                        onClick={() => this.handleSearch(selectedKeys, confirm)}
+                        onClick={confirm}
                         icon="search">
                         Search
                     </Button>
-                    <Button onClick={() => this.handleReset(clearFilters)}>
+                    <Button onClick={clearFilters}>
                         Reset
                     </Button>
                 </DropDown>
@@ -71,28 +63,21 @@ export class Table<T> extends React.PureComponent<Props<T>, State> {
         filterIcon: (filtered: boolean) => (
             <SearchIcon filtered={filtered} type="search" />
         ),
-        onFilter: filterFunc,
+        onFilter: textFilterFunc,
         onFilterDropdownVisibleChange: (visible: boolean) => {
             if (visible) {
+                // move cursor to input after component opens
                 setTimeout(() => this.searchInput.select());
             }
         }
     });
 
-    handleSearch = (selectedKeys: string[], confirm: ()=>void) => {
-        confirm();
-        this.setState({ searchText: selectedKeys[0] });
-    };
-
-    handleReset = (clearFilters: () => void) => {
-        clearFilters();
-        this.setState({ searchText: '' });
-    };
-
     render() {
         const columns: TableColumnProps<T>[] = this.props.columns.map((c) => {
-            if(c.filterFunc ){
-                return {...c, ...this.getColumnSearchProps(c.filterFunc) };
+            // for each column, if the user has specified a filterFunc, then we want to add
+            // additional columns attributes (from getColumnSearchProps)
+            if(c.textFilterFunc ){
+                return {...c, ...this.getColumnSearchProps(c.textFilterFunc) };
             }
             return c;
         });

@@ -81,19 +81,19 @@ render(
           title: 'Name',
           dataIndex: 'name',
           key: 'name',
-          filterFunc: Table.IncludesFilter((d) => d.name )
+          textFilterFunc: (filter, record) => { return strIncludes(filter, record.name) }
         },
         {
           title: 'Age',
           dataIndex: 'age',
           key: 'age',
-          filterFunc: (value, record) => { return record.age >= value }
+          textFilterFunc: (filter, record) => { return record.age >= filter }
         },
         {
           title: 'Address',
           dataIndex: 'address',
           key: 'address',
-          filterFunc: Table.IncludesFilter((d) => d.address )
+          textFilterFunc: (filter, record) => { return strIncludes(filter, record.address) }
         }
       ]}
     />
@@ -121,7 +121,7 @@ export class Tables extends React.PureComponent<RouteComponentProps> {
                     <DefaultLiveProvider code={examples.basic} />
 
                     <h4>Filtering</h4>
-                    Each column can filter the rows witha  custom filter function.
+                    Each column can filter the rows with a custom filter function.
                     <DefaultLiveProvider code={examples.filtering} />
                 </SectionWithDivider>
 

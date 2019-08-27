@@ -46,6 +46,7 @@ import {
     TextArea,
     TopMenu
  } from '../../../lib/components';
+ import { strIncludes } from '../../../lib/utils/base';
 
 const InlineSvg = () => {
     return <svg fill="currentColor" height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="m0 0h6v6h-6zm2 2h2v2h-2zm-2 6h6v6h-6zm2 2h2v2h-2zm12-2h-6v6h6zm-2 2h-2v2h2zm-4-10h6v6h-6zm2 2h2v2h-2z" fill-rule="evenodd"/></svg>
@@ -95,6 +96,7 @@ const globalScope = {
     SelectOptGroup,
     SelectOption,
     Spacer,
+    strIncludes,
     SvgIcon,
     svgSrc,
     Table,
