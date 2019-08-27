@@ -6,14 +6,16 @@ import { ColumnProps, TableProps as AntTableProps, TableState as AntTableState }
 import { Button, Icon, Columns, Input } from '../components';
 
 // export Ants as a convenience
+export interface TableColumnProps<T> extends ColumnProps<T>{};
 export interface TableProps<T> extends AntTableProps<T>{};
 export interface TableState<T> extends AntTableState<T>{};
-export interface TableColumnProps<T> extends ColumnProps<T>{};
 
+// Needed in order to correctly pass typing info to the any table in typescript
+// See the demo app for usage
 export class Table<T> extends React.PureComponent<TableProps<T>> {
     render() {
         return (
-            <StyledTable {...this.props}/>
+            <StyledTable {...this.props} />
         )
     }
 }

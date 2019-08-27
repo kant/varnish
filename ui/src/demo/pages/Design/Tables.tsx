@@ -83,7 +83,7 @@ render(
           key: 'name',
           filterDropdown: BasicFilterDropdown,
           filterIcon: FilterIcon,
-          onFilter: (filter, record) => { return strIncludes(filter, record.name) }
+          onFilter: (filter, record) => strIncludes(filter, record.name)
         },
         {
           title: 'Age',
@@ -91,7 +91,7 @@ render(
           key: 'age',
           filterDropdown: BasicFilterDropdown,
           filterIcon: FilterIcon,
-          onFilter: (filter, record) => { return record.age >= filter }
+          onFilter: (filter, record) => (record.age >= filter)
         },
         {
           title: 'Address',
@@ -99,7 +99,7 @@ render(
           key: 'address',
           filterDropdown: BasicFilterDropdown,
           filterIcon: FilterIcon,
-          onFilter: (filter, record) => { return strIncludes(filter, record.address) }
+          onFilter: (filter, record) => strIncludes(filter, record.address)
         }
       ]}
     />
