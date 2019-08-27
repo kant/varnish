@@ -15,19 +15,65 @@ render(
           key: '1',
           name: 'John Brown',
           age: 32,
-          address: 'New York No. 1 Lake Park',
+          address: 'New York No. 1 Lake Park'
         },
         {
           key: '2',
           name: 'Jim Green',
           age: 42,
-          address: 'London No. 1 Lake Park',
+          address: 'London No. 1 Lake Park'
         },
         {
           key: '3',
           name: 'Joe Black',
           age: 32,
-          address: 'Sidney No. 1 Lake Park',
+          address: 'Sidney No. 1 Lake Park'
+        },
+      ]}
+      columns={[
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          key: 'name'
+        },
+        {
+          title: 'Age',
+          dataIndex: 'age',
+          key: 'age'
+        },
+        {
+          title: 'Address',
+          dataIndex: 'address',
+          key: 'address'
+        }
+      ]}
+    />
+  </div>
+)
+`.trim(),
+filtering: `
+render(
+  <div>
+    <Table
+      pagination={false}
+      dataSource={[
+        {
+          key: '1',
+          name: 'John Brown',
+          age: 32,
+          address: 'New York No. 1 Lake Park'
+        },
+        {
+          key: '2',
+          name: 'Jim Green',
+          age: 42,
+          address: 'London No. 1 Lake Park'
+        },
+        {
+          key: '3',
+          name: 'Joe Black',
+          age: 32,
+          address: 'Sidney No. 1 Lake Park'
         },
       ]}
       columns={[
@@ -35,16 +81,25 @@ render(
           title: 'Name',
           dataIndex: 'name',
           key: 'name',
+          filterDropdown: BasicFilterDropdown,
+          filterIcon: FilterIcon,
+          onFilter: (filter, record) => strIncludes(filter, record.name)
         },
         {
           title: 'Age',
           dataIndex: 'age',
           key: 'age',
+          filterDropdown: BasicFilterDropdown,
+          filterIcon: FilterIcon,
+          onFilter: (filter, record) => (record.age >= filter)
         },
         {
           title: 'Address',
           dataIndex: 'address',
           key: 'address',
+          filterDropdown: BasicFilterDropdown,
+          filterIcon: FilterIcon,
+          onFilter: (filter, record) => strIncludes(filter, record.address)
         }
       ]}
     />
@@ -70,11 +125,16 @@ export class Tables extends React.PureComponent<RouteComponentProps> {
                     <h4>Basic Ant Table</h4>
                     The Basic Table includes support for tabular data.
                     <DefaultLiveProvider code={examples.basic} />
+
+                    <h4>Filtering</h4>
+                    Each column can filter the rows with a custom filter function.
+                    <DefaultLiveProvider code={examples.filtering} />
                 </SectionWithDivider>
 
                 <SectionWithDivider>
                     <h4>Typescript</h4>
-                    To correctly pass typing info down the Table, you must extend a concrete Table
+                    While not necessary, sometimes you will want to fully type a generic Table.
+                    To fully pass typing info down the Table, you can extend a concrete Table
                     class for your type:
                     <Code variant='dark'>
                     {`// define type for person

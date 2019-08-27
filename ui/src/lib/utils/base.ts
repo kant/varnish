@@ -23,3 +23,7 @@ export function convertPixelsStrToRem(pxStr: string, dynamic = false): string {
 export function dictionaryToArray<T>(dict: Dictionary<T>) {
     return Object.keys(dict).map(key => dict[key])
 }
+
+export function strIncludes (filter: string, value: string) {
+    return value.toLowerCase().includes(filter.toLowerCase())
+}
