@@ -14,11 +14,16 @@ export interface TableColumnProps<T> extends ColumnProps<T> {
     textFilterFunc?: (value: string, record: T) => boolean;
 }
 
+interface State {
+  searchInputRef: React.RefObject<any>;
+}
+
+
 interface Props<T> extends TableProps<T> {
     columns: TableColumnProps<T>[];
 }
 
-// filterdropdown is an overrideable react component with the following frops
+// filterdropdown is an overrideable react component with the following props
 interface FilterDropdownProps {
     setSelectedKeys: (val: string[]) => void;
     // selected keys is an array of values that can be used to do multi value filtering
@@ -29,11 +34,13 @@ interface FilterDropdownProps {
     clearFilters: () => void;
 }
 
-export class Table<T> extends React.PureComponent<Props<T>> {
-    searchInput: any; // todo: this is a ref, but connecting it fails if i type it
-
+export class Table<T> extends React.PureComponent<Props<T>, State> {
     constructor(props: Props<T>) {
-        super(props)
+        super(props);
+
+        this.state= {
+          searchInputRef: React.createRef()
+      }
     }
 
     getColumnSearchProps = (textFilterFunc: (value: string, record: T) => boolean) => ({
@@ -43,7 +50,7 @@ export class Table<T> extends React.PureComponent<Props<T>> {
             <DropWrap>
                 <DropDown gridTemplateColumns={"1fr 1fr"}>
                     <InputArea
-                        ref={node => { this.searchInput = node; }}
+                        ref={this.state.searchInputRef}
                         placeholder={'Search'}
                         value={selectedKeys[0]}
                         onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
@@ -66,8 +73,9 @@ export class Table<T> extends React.PureComponent<Props<T>> {
         onFilter: textFilterFunc,
         onFilterDropdownVisibleChange: (visible: boolean) => {
             if (visible) {
+                const searchInput = this.state.searchInputRef.current;
                 // move cursor to input after component opens
-                setTimeout(() => this.searchInput.select());
+                setTimeout(() => searchInput && searchInput.select());
             }
         }
     });
