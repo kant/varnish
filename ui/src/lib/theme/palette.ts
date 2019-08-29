@@ -9,10 +9,10 @@ export const palette = {
     background: {
         light: color.N2,
         dark: color.B9,
-        error: color.R2,
-        info: color.B2,
-        success: color.G2,
-        warning: color.O2
+        error: color.R1,
+        info: color.B1,
+        success: color.G1,
+        warning: color.O1
     },
     border: {
         light: color.N2,
