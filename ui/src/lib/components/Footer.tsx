@@ -23,6 +23,7 @@ interface Props {
        is adjusted to match that of the footer. */
     setPageBackground?: boolean;
     layout?: LayoutVariant;
+    className?: string;
 }
 
 export class Footer extends React.PureComponent<Props> {
@@ -30,9 +31,12 @@ export class Footer extends React.PureComponent<Props> {
         setPageBackground: true
     }
     render() {
-        let contrast = this.props.variant === 'dark' ? true : undefined
+        const contrast = this.props.variant === 'dark' ? true : undefined
         return (
-            <StyledFooter contrast={contrast} layout={this.props.layout}>
+            <StyledFooter
+                    contrast={contrast}
+                    layout={this.props.layout}
+                    className={this.props.className}>
                 {this.props.setPageBackground ? (
                     <WithPageBackground
                         color={contrast
