@@ -62,6 +62,11 @@ const bodyJumbo = {
     fontSize: convertPixelsToRem(24),
     lineHeight: convertPixelsToRem(30),
 };
+const bodyBig = {
+    fontFamily: [ bodyFontFamily, ...fallbackDefaultFonts ].join(", "),
+    fontSize: convertPixelsToRem(18),
+    lineHeight: convertPixelsToRem(27)
+};
 const body = {
     fontFamily: [ bodyFontFamily, ...fallbackDefaultFonts ].join(", "),
     fontSize: convertPixelsToRem(16),
@@ -147,6 +152,7 @@ export const typography = {
     // body
     bodyFontFamily,
     bodyJumbo,
+    bodyBig,
     body,
     bodyBold,
     bodySmall,

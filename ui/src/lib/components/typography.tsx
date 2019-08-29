@@ -15,6 +15,14 @@ export const Body = styled.span`
     line-height: ${({theme}) => theme.typography.body.lineHeight};
     font-weight: ${({theme}) => theme.typography.body.fontWeight};
 `;
+
+export const BodyBig = styled.span`
+    font-family: ${({theme}) => theme.typography.bodyBig.fontFamily};
+    font-size: ${({theme}) => theme.typography.bodyBig.fontSize};
+    line-height: ${({theme}) => theme.typography.bodyBig.lineHeight};
+    font-weight: ${({theme}) => theme.typography.bodyBig.fontWeight};
+`;
+
 export const BodyBold = styled.span`
     font-family: ${({theme}) => theme.typography.bodyBold.fontFamily};
     font-size: ${({theme}) => theme.typography.bodyBold.fontSize};

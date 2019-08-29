@@ -9,6 +9,7 @@ import {
     Body,
     BodyBold,
     BodyJumbo,
+    BodyBig,
     BodyMicro,
     BodySmall,
     BodySmallBold,
@@ -42,6 +43,8 @@ render(
     <div>
         <BodyJumbo>{text}</BodyJumbo>
         <br/>
+        <BodyBig>{text}</BodyBig>
+        <br />
         <Body>{text}</Body>
         <br/>
         <BodyBold>{text}</BodyBold>
@@ -149,6 +152,12 @@ export class Typography extends React.PureComponent<RouteComponentProps> {
                     <Example>
                         <BodyJumbo>{this.theBestWay}</BodyJumbo>
                         <Size>{DefaultVarnishTheme.typography.bodyJumbo.fontSize}/{DefaultVarnishTheme.typography.bodyJumbo.lineHeight}</Size>
+                    </Example>
+
+                    <Name>Body Big</Name>
+                    <Example>
+                        <BodyBig>{this.theBestWay}</BodyBig>
+                        <Size>{DefaultVarnishTheme.typography.bodyBig.fontSize}/{DefaultVarnishTheme.typography.bodyBig.lineHeight}</Size>
                     </Example>
 
                     <Name>Body</Name>
