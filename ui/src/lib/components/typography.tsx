@@ -1,4 +1,3 @@
-import * as React from 'react';
 import styled, { css } from 'styled-components';
 
 // TODO: add optional contrast attribute to typography elements

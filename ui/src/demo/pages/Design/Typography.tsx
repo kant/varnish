@@ -30,6 +30,7 @@ render(
         <h3>{text}</h3>
         <h4>{text}</h4>
         <h5>{text}</h5>
+        <h6>{text}</h6>
     </div>
 )
 `.trim(),
@@ -131,6 +132,12 @@ export class Typography extends React.PureComponent<RouteComponentProps> {
                     <Example>
                         <h5>{this.aiForGood}</h5>
                         <Size>{DefaultVarnishTheme.typography.h5.fontSize}/{DefaultVarnishTheme.typography.h5.lineHeight}</Size>
+                    </Example>
+
+                    <Name>h6</Name>
+                    <Example>
+                        <h6>{this.aiForGood}</h6>
+                        <Size>{DefaultVarnishTheme.typography.h6.fontSize}/{DefaultVarnishTheme.typography.h6.lineHeight}</Size>
                     </Example>
 
                     <HeadRow>

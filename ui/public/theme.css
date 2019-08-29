@@ -21047,16 +21047,21 @@ h2 {
   font-weight: 700;
 }
 h3 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+h4 {
   font-size: 1.5rem;
   line-height: 1.75rem;
   font-weight: 700;
 }
-h4 {
+h5 {
   font-size: 1.125rem;
   line-height: 1.375rem;
   font-weight: 700;
+  text-transform: uppercase;
 }
-h5,
 h6 {
   font-size: 0.8125rem;
   line-height: 1.125rem;

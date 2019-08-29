@@ -32,17 +32,23 @@ const h2 = {
 };
 const h3 = {
     fontFamily: [ headlineFontFamily, ...fallbackDefaultFonts ].join(", "),
+    fontSize: convertPixelsToRem(30),
+    lineHeight: convertPixelsToRem(36),
+    fontWeight: fontWeightBold
+};
+const h4 = {
+    fontFamily: [ headlineFontFamily, ...fallbackDefaultFonts ].join(", "),
     fontSize: convertPixelsToRem(24),
     lineHeight: convertPixelsToRem(28),
     fontWeight: fontWeightBold
 };
-const h4 = {
+const h5 = {
     fontFamily: [ headlineFontFamily, ...fallbackDefaultFonts ].join(", "),
     fontSize: convertPixelsToRem(18),
     lineHeight: convertPixelsToRem(22),
     fontWeight: fontWeightBold
 };
-const h5 = {
+const h6 = {
     fontFamily: [ headlineFontFamily, ...fallbackDefaultFonts ].join(", "),
     fontSize: convertPixelsToRem(13),
     lineHeight: convertPixelsToRem(18),
@@ -136,6 +142,7 @@ export const typography = {
     h3,
     h4,
     h5,
+    h6,
 
     // body
     bodyFontFamily,

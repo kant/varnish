@@ -66,10 +66,16 @@ const template =`
         line-height: ${typography.h4.lineHeight};
         font-weight: ${typography.h4.fontWeight};
     }
-    h5, h6 {
+    h5 {
         font-size: ${typography.h5.fontSize};
         line-height: ${typography.h5.lineHeight};
         font-weight: ${typography.h5.fontWeight};
+        text-transform: uppercase;
+    }
+    h6 {
+        font-size: ${typography.h6.fontSize};
+        line-height: ${typography.h6.lineHeight};
+        font-weight: ${typography.h6.fontWeight};
         text-transform: uppercase;
     }
 
