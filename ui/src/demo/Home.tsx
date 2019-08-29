@@ -8,7 +8,7 @@ import logoWithText from './varnishLogo.svg';
 import { About, Design } from './pages';
 import { AppRoute } from './AppRoute';
 import { ResponsiveWindowImage,
-    BackgroundLayout,
+    Layout,
     Header,
     TopMenu,
     InternalLink,
@@ -37,7 +37,7 @@ export default class Home extends React.PureComponent<RouteComponentProps> {
 
     render() {
         return (
-            <BackgroundLayout color="white">
+            <Layout bgcolor="white">
                 <Header layout={'app'}>
                     <HeaderColumns gridTemplateColumns="auto auto 1fr auto">
                         <ResponsiveWindowImage
@@ -63,7 +63,7 @@ export default class Home extends React.PureComponent<RouteComponentProps> {
                         <Route key={path} path={path} exact={exact} component={component} />
                     ))}
                 </Switch>
-            </BackgroundLayout>
+            </Layout>
         );
     }
 }

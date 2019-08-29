@@ -2,7 +2,7 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 
 import {
-    BackgroundLayout,
+    Layout,
     PaddedContent,
     Page,
     Footer
@@ -16,14 +16,14 @@ interface Props {
 export class FullPage extends React.PureComponent<RouteComponentProps & Props> {
     render() {
         return (
-            <BackgroundLayout color="white">
+            <Layout bgcolor="white">
                 <PaddedContent>
                     <Page>
                         {this.props.children}
                     </Page>
                 </PaddedContent>
                 <Footer />
-            </BackgroundLayout>
+            </Layout>
         )
     }
 }

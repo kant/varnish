@@ -1,29 +1,28 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { Layout } from 'antd';
+import { Layout as AntLayout } from 'antd';
 import { SiderProps } from 'antd/lib/layout/Sider';
 import { convertPixelsToRem } from '../utils/base';
 
 export type LayoutVariant = 'app' | 'default' | 'demo';
 
-export const LayoutHeader = styled(Layout.Header)``;
+export const LayoutHeader = styled(AntLayout.Header)``;
 
-export const LayoutFooter = styled(Layout.Footer)``;
+export const LayoutFooter = styled(AntLayout.Footer)``;
 
-export const BackgroundLayout = styled(Layout)<{ color?: string }>`
+export const Layout = styled(AntLayout)<{ bgcolor?: string }>`
     && {
-        background: ${({theme, color}) => color ? theme.color[color] : 'none'}
+        background: ${({theme, bgcolor}) => bgcolor ? theme.color[bgcolor] : 'none'}
     }
 `;
 
-export const ContentAndFooterLayout = styled(BackgroundLayout)<{marginleft?: string}>`
+export const ContentAndFooterLayout = styled(Layout)<{marginleft?: string}>`
     margin-left: ${({marginleft}) => marginleft};
-
     transition: margin-left 0.2s;
 `;
 
-export const PaddedContent = styled(Layout.Content)<{layout?: LayoutVariant}>`
+export const PaddedContent = styled(AntLayout.Content)<{layout?: LayoutVariant}>`
     && {
         max-width: ${({theme, layout}) => (layout === 'app') ? 'initial' : theme.breakpoints.xl};
         margin: ${({theme, layout}) => (layout === 'app') ? 0 : '0 auto'};
@@ -41,7 +40,7 @@ export const Page = styled.div`
     min-height: 44rem;
 `;
 
-const StyledSider = styled(Layout.Sider)`
+const StyledSider = styled(AntLayout.Sider)`
     && {
         border-right: ${({theme}) => `1px solid ${theme.palette.border.main}`};
         position: fixed;

@@ -5,7 +5,7 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 
 import { AppRoute } from '../../AppRoute';
 import {
-    BackgroundLayout,
+    Layout,
     LeftMenu,
     LeftSider,
     PaddedContent,
@@ -46,7 +46,7 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
 
     render() {
         return (
-            <BackgroundLayout>
+            <Layout>
                 <LeftSider
                     width={this.siderWidthExpanded}
                     collapsedWidth={this.siderWidthCollapsed}
@@ -93,7 +93,7 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                     </PaddedContent>
                     <Footer layout={'app'} />
                 </ContentAndFooterLayout>
-            </BackgroundLayout>
+            </Layout>
         )
     }
 }
