@@ -9,25 +9,30 @@ export const AI2Banner = React.forwardRef<HTMLDivElement, {layout?: LayoutVarian
     (props, ref) => (
         <DarkBanner ref={ref}>
             <MaxWidthCenteredContent layout={props.layout}>
-                <a href="https://allenai.org">
+                <BannerLink href="https://allenai.org">
                     <Logo
                         src={microLogo}
                         width="412"
                         height="25"
                         alt="Allen Institute for Artificial Intelligence"
                     />
-                </a>
+                </BannerLink>
             </MaxWidthCenteredContent>
         </DarkBanner>
     )
 );
 
+const BannerLink = styled.a`
+    display: inline-block;
+`;
+
 const Logo = styled.img`
-    display: block;
+    display: inline-block;
     max-width: 100%;
 `;
 
 const DarkBanner = styled.div`
     background: ${({theme}) => theme.palette.background.dark};
     padding: ${({theme}) => `${theme.spacing.xxs} 0`};
+    line-height: 1;
 `;
