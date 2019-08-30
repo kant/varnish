@@ -113,10 +113,10 @@ const template =`
     @purple-6: ${color.P6};
     @pink-6: ${color.P6};
     @magenta-6: ${color.M6};
-    @primary-color: @blue-6; // unchanged values are left in this file for clarity
+    @primary-color: ${color.B7};
     @info-color: ${DefaultVarnishTheme.palette.text.info};
     @success-color: ${DefaultVarnishTheme.palette.text.success};
-    @processing-color: @blue-6;
+    @processing-color: ${color.B7};
     @error-color: ${DefaultVarnishTheme.palette.text.error};
     @highlight-color: @red-6;
     @warning-color: ${DefaultVarnishTheme.palette.text.warning};

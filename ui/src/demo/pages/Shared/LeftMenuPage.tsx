@@ -56,7 +56,7 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                     <LeftMenu
                         defaultSelectedKeys={[this.props.location.pathname]}>
                         {this.props.routes.map(({ path, label, icon }) => (
-                            <LeftMenuItem spacing={'lg'} key={path}>
+                            <LeftMenuItem spacing={'md'} key={path}>
                                 <InternalLink to={path}>
                                     {!this.state.menuCollapsed
                                         ? (

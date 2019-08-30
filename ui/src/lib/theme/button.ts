@@ -89,11 +89,11 @@ export const button: Button = {
     link: {
         background: color.transparent,
         border: `2px solid transparent`,
-        color: palette.primary.light,
+        color: palette.primary.dark,
         contrastColor: whiteColor,
         padding: paddingWithBorderInside(2),
         hover: {
-            background: palette.background.info,
+            background: color.B2,
             contrastBackground: palette.primary.dark,
             border: `2px solid transparent`,
             padding: paddingWithBorderInside(2)
