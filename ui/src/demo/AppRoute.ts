@@ -5,5 +5,5 @@ export interface AppRoute {
     exact?: boolean;
     label: string;
     component: ComponentType<any>;
-    icon: string;
+    iconSrc: string;
 }

@@ -20,6 +20,19 @@ import {
 import {  LeftMenuPage } from '../Shared';
 import { AppRoute } from '../../AppRoute';
 
+import colorIcon from './icons/color-14px.svg';
+import paletteIcon from './icons/palette-14px.svg';
+import textIcon from './icons/text-14px.svg';
+import buttonsIcon from './icons/buttons-14px.svg';
+import linksIcon from './icons/links-14px.svg';
+import tutorialsIcon from './icons/tutorials-14px.svg';
+import icons2Icon from './icons/icons-2-14px.svg';
+import spacingIcon from './icons/spacing-14px.svg';
+import breakpointIcon from './icons/breakpoint-14px.svg';
+import headerFooterIcon from './icons/header-footer-14px.svg';
+import tablesIcon from './icons/tables-14px.svg';
+import modalIcon from './icons/modal-2-14px.svg';
+import tabIcon from './icons/tab-14px.svg';
 
 export class Design extends React.PureComponent<RouteComponentProps> {
     parentPath = '/design';
@@ -28,79 +41,79 @@ export class Design extends React.PureComponent<RouteComponentProps> {
             path: `${this.parentPath}/colors`,
             label: 'Colors',
             component: Colors,
-            icon: "bg-colors"
+            iconSrc: colorIcon
         },
         {
             path: `${this.parentPath}/palette`,
             label: 'Palette',
             component: Palette,
-            icon: "font-colors"
+            iconSrc: paletteIcon
         },
         {
             path: `${this.parentPath}/typography`,
             label: 'Typography',
             component: Typography,
-            icon: "font-size"
+            iconSrc: textIcon
         },
         {
             path: `${this.parentPath}/buttons`,
             label: 'Buttons',
             component: Buttons,
-            icon: "switcher"
+            iconSrc: buttonsIcon
         },
         {
             path: `${this.parentPath}/links`,
             label: 'Links',
             component: Links,
-            icon: "branches"
+            iconSrc: linksIcon
         },
         {
             path: `${this.parentPath}/forms`,
             label: 'Forms',
             component: Forms,
-            icon: "form"
+            iconSrc: tutorialsIcon
         },
         {
             path: `${this.parentPath}/icons`,
             label: 'Icons',
             component: Icons,
-            icon: "file-image"
+            iconSrc: icons2Icon
         },
         {
             path: `${this.parentPath}/spacing`,
             label: 'Spacing',
             component: Spacing,
-            icon: "column-width"
+            iconSrc: spacingIcon
         },
         {
             path: `${this.parentPath}/breakpoints`,
             label: 'Breakpoints',
             component: Breakpoints,
-            icon: "desktop"
+            iconSrc: breakpointIcon
         },
         {
             path: `${this.parentPath}/headers`,
             label: 'Header & Footer',
             component: Headers,
-            icon: "border-outer"
+            iconSrc: headerFooterIcon
         },
         {
             path: `${this.parentPath}/tables`,
             label: 'Tables',
             component: Tables,
-            icon: "table"
+            iconSrc: tablesIcon
         },
         {
             path: `${this.parentPath}/modals`,
             label: 'Modal',
             component: Modal,
-            icon: "pic-center"
+            iconSrc: modalIcon
         },
         {
             path: `${this.parentPath}/tabs`,
             label: 'Tabs',
             component: Tabs,
-            icon: "robot"
+            iconSrc: tabIcon
         }
     ];
 

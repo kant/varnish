@@ -17,7 +17,7 @@ import {
     Wrapping,
     BodySmall,
     IconMenuItemColumns,
-    Icon
+    ImgIcon
 } from '../../../lib/components';
 
 interface Props {
@@ -55,13 +55,13 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                     onCollapse={this.handleMenuCollapse}>
                     <LeftMenu
                         defaultSelectedKeys={[this.props.location.pathname]}>
-                        {this.props.routes.map(({ path, label, icon }) => (
+                        {this.props.routes.map(({ path, label, iconSrc }) => (
                             <LeftMenuItem spacing={'md'} key={path}>
                                 <InternalLink to={path}>
                                     {!this.state.menuCollapsed
                                         ? (
                                             <IconMenuItemColumns>
-                                                <Icon type={icon} />
+                                                <ImgIcon src={iconSrc} />
                                                 <Wrapping>
                                                     <BodySmall>
                                                         {label}
@@ -71,7 +71,7 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                                         )
                                         : (
                                             <React.Fragment>
-                                                <Icon type={icon} /><span>{label}</span>
+                                                <ImgIcon src={iconSrc} /><span>{label}</span>
                                             </React.Fragment>
                                         )
                                     }
