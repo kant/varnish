@@ -13,3 +13,4 @@ export * from './ResponsiveWindowImage';
 export * from './shared';
 export * from './Table';
 export * from './typography';
+export * from './Tabs';

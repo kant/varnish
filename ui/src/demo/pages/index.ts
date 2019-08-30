@@ -12,3 +12,4 @@ export * from './Design/Spacing';
 export * from './Design/Typography';
 export * from './Design/Tables';
 export * from './Design/Modal';
+export * from './Design/Tabs';

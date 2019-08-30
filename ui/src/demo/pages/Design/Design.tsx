@@ -14,7 +14,8 @@ import {
     Palette,
     Spacing,
     Typography,
-    Tables
+    Tables,
+    Tabs
 } from '..';
 import {  LeftMenuPage } from '../Shared';
 import { AppRoute } from '../../AppRoute';
@@ -94,6 +95,12 @@ export class Design extends React.PureComponent<RouteComponentProps> {
             label: 'Modal',
             component: Modal,
             icon: "pic-center"
+        },
+        {
+            path: `${this.parentPath}/tabs`,
+            label: 'Tabs',
+            component: Tabs,
+            icon: "robot"
         }
     ];
 
