@@ -1,6 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import * as Antd from 'antd';
+
+import calenderIronSrc from './icons/form-calendar.svg';
+import dropdownIconSrc from './icons/form-dropdown.svg';
 
 export const TextArea = styled(Antd.Input.TextArea)`
     padding: ${({theme}) => `${theme.spacing.xs} ${theme.spacing.md}`};
@@ -13,7 +16,7 @@ export const Input = styled(Antd.Input)`
     font-size: ${({theme}) => theme.typography.bodySmall.fontSize};
 `;
 
-export const DatePicker = styled(Antd.DatePicker)`
+export const DatePicker = styled(Antd.DatePicker).attrs(() => ({ suffixIcon: <img src={calenderIronSrc} /> }))`
     width: 100%;
 
     input {
@@ -23,7 +26,7 @@ export const DatePicker = styled(Antd.DatePicker)`
     }
 `;
 
-export const Select = styled(Antd.Select)`
+export const Select = styled(Antd.Select).attrs(() => ({ suffixIcon: <img src={dropdownIconSrc} /> }))`
     font-size: ${({theme}) => theme.typography.bodySmall.fontSize};
     width: 100%;
 
