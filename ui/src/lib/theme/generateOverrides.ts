@@ -11,6 +11,7 @@ import { spacing } from './spacing';
 import { DefaultVarnishTheme } from './DefaultVarnishTheme';
 import { fontWeight } from './fontWeight';
 import { shape } from './shape';
+import { zIndex } from './zIndex';
 
 console.log('Generating less overrides...');
 
@@ -161,6 +162,21 @@ const template =`
     // overrise buttons
     @btn-font-weight: ${fontWeight.regular};
     @btn-border-radius-base: ${shape.borderRadius}px;
+
+    @zindex-table-fixed: ${zIndex.fixedTable};
+    @zindex-affix: ${zIndex.affix};
+    @zindex-back-top: ${zIndex.backTop};
+    @zindex-badge: ${zIndex.badge};
+    @zindex-picker-panel: ${zIndex.pickerPanel};
+    @zindex-popup-close: ${zIndex.popupClose};
+    @zindex-modal: ${zIndex.modal};
+    @zindex-modal-mask: ${zIndex.modalMask};
+    @zindex-message: ${zIndex.message};
+    @zindex-notification: ${zIndex.notification};
+    @zindex-popover: ${zIndex.popover};
+    @zindex-dropdown: ${zIndex.dropdown};
+    @zindex-picker: ${zIndex.picker};
+    @zindex-tooltip: ${zIndex.tooltip};
 `;
 
 // All paths are relative to package.json.

@@ -85,7 +85,7 @@ const Sticky = styled(LayoutHeader)`
         position: sticky;
         top: 0;
         background: white;
-        z-index: 1;
+        z-index: ${({ theme }) => theme.zIndex.header};
         width: 100%;
         box-shadow: 0px 4px 16px rgba(10, 41, 57, 0.08);
         height: initial; /* Ant sets a height, we need to unset that. */
