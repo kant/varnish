@@ -29,13 +29,13 @@ const basicUsage = `
 import { Tabs } from '@allenai/varnish/components';
 */
 render(
-    <Tabs.Varnish>
+    <Tabs>
         <Tabs.TabPane tab="Tab 1" key="tab-1">
             First tab.
         </Tabs.TabPane>
         <Tabs.TabPane tab="Tab 2" key="tab-2">
             Second tab.
         </Tabs.TabPane>
-    </Tabs.Varnish>
+    </Tabs>
 )
 `.trim();
