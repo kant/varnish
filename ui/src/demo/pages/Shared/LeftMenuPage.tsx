@@ -8,11 +8,10 @@ import {
     Layout,
     LeftMenu,
     LeftSider,
-    PaddedContent,
-    Page,
     Footer,
     InternalLink,
     LeftMenuItem,
+    Content,
     ContentAndFooterLayout,
     Wrapping,
     BodySmall,
@@ -41,7 +40,7 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
     }
 
     handleMenuCollapse = () => {
-        this.setState({menuCollapsed: !this.state.menuCollapsed});
+        this.setState({ menuCollapsed: !this.state.menuCollapsed });
     }
 
     render() {
@@ -81,17 +80,15 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                     </LeftMenu>
                 </LeftSider>
                 <ContentAndFooterLayout marginleft={this.state.menuCollapsed ? this.siderWidthCollapsed : this.siderWidthExpanded}>
-                    <PaddedContent layout={'app'}>
-                        <Page>
-                            <Switch>
-                                <Redirect from={this.props.parentPath} exact to={this.props.routes[0].path} />
-                                {this.props.routes.map(({ path, component }) => (
-                                    <Route key={path} path={path} component={component} />
-                                ))}
-                            </Switch>
-                        </Page>
-                    </PaddedContent>
-                    <Footer layout={'app'} />
+                    <Content>
+                        <Switch>
+                            <Redirect from={this.props.parentPath} exact to={this.props.routes[0].path} />
+                            {this.props.routes.map(({ path, component }) => (
+                                <Route key={path} path={path} component={component} />
+                            ))}
+                        </Switch>
+                    </Content>
+                    <Footer />
                 </ContentAndFooterLayout>
             </Layout>
         )

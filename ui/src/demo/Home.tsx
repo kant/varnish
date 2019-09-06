@@ -17,6 +17,7 @@ import { ResponsiveWindowImage,
     TopMenuItem,
     HeaderColumns
 } from '../lib/components';
+import { LayoutContext } from '../lib/layout';
 
 export default class Home extends React.PureComponent<RouteComponentProps> {
     routes: AppRoute[] = [
@@ -24,46 +25,46 @@ export default class Home extends React.PureComponent<RouteComponentProps> {
             path: '/',
             exact: true,
             label: 'Welcome',
-            component: About,
-            icon: "home"
+            component: About
         },
         {
             path: '/design',
             label: 'Design',
-            component: Design,
-            icon: "ant-design"
+            component: Design
         }
     ];
 
     render() {
         return (
-            <Layout bgcolor="white">
-                <Header layout={'app'}>
-                    <HeaderColumns gridTemplateColumns="auto auto 1fr auto">
-                        <ResponsiveWindowImage
-                            src={logoWithText}
-                            wideWidth={"194px"}
-                            skinnyWidth={"72px"}
-                            height={"56px"}
-                            alt="Varnish" />
-                        <HeaderSubTitle>{packageJson.version}</HeaderSubTitle>
-                        <Spacer />
-                        <TopMenu
-                            defaultSelectedKeys={[this.props.location.pathname]}>
-                            {this.routes.map(({ path, label }) => (
-                                <TopMenuItem key={path}>
-                                    <InternalLink to={path}>{label}</InternalLink>
-                                </TopMenuItem>
-                            ))}
-                        </TopMenu>
-                    </HeaderColumns>
-                </Header>
-                <Switch>
-                    {this.routes.map(({ path, exact, component }) => (
-                        <Route key={path} path={path} exact={exact} component={component} />
-                    ))}
-                </Switch>
-            </Layout>
+            <LayoutContext.Provider value={{ layoutVariant: "app" }}>
+                <Layout bgcolor="white">
+                    <Header>
+                        <HeaderColumns gridTemplateColumns="auto auto 1fr auto">
+                            <ResponsiveWindowImage
+                                src={logoWithText}
+                                wideWidth={"194px"}
+                                skinnyWidth={"72px"}
+                                height={"56px"}
+                                alt="Varnish" />
+                            <HeaderSubTitle>{packageJson.version}</HeaderSubTitle>
+                            <Spacer />
+                            <TopMenu
+                                defaultSelectedKeys={[this.props.location.pathname]}>
+                                {this.routes.map(({ path, label }) => (
+                                    <TopMenuItem key={path}>
+                                        <InternalLink to={path}>{label}</InternalLink>
+                                    </TopMenuItem>
+                                ))}
+                            </TopMenu>
+                        </HeaderColumns>
+                    </Header>
+                    <Switch>
+                        {this.routes.map(({ path, exact, component }) => (
+                            <Route key={path} path={path} exact={exact} component={component} />
+                        ))}
+                    </Switch>
+                </Layout>
+            </LayoutContext.Provider>
         );
     }
 }

@@ -12,7 +12,8 @@ import { Color } from '../theme/colors';
 */
 import { ExternalLink } from './link/ExternalLink';
 import { Body } from './typography';
-import { LayoutFooter, LayoutVariant } from './Layout';
+import { LayoutFooter } from './Layout';
+import { LayoutVariant, LayoutContext } from '../layout';
 
 export type FooterVariant = 'default' | 'dark';
 
@@ -33,29 +34,33 @@ export class Footer extends React.PureComponent<Props> {
     render() {
         const contrast = this.props.variant === 'dark' ? true : undefined
         return (
-            <StyledFooter
-                    contrast={contrast}
-                    layout={this.props.layout}
-                    className={this.props.className}>
-                {this.props.setPageBackground ? (
-                    <WithPageBackground
-                        color={contrast
-                            ? palette.background.dark
-                            : palette.background.light} />
-                ) : null}
-                {this.props.children
-                    ? this.props.children
-                    : (
-                        <Body>
-                            © The
-                            {' '}<ExternalLink contrast={contrast} href="https://allenai.org">Allen Institute for Artificial Intelligence (AI2)</ExternalLink>
-                            {' '}- All Rights Reserved
-                            {' '}| <ExternalLink contrast={contrast} href="https://allenai.org/privacy-policy.html">Privacy Policy</ExternalLink>
-                            {' '}| <ExternalLink contrast={contrast} href="https://allenai.org/terms.html">Terms of Use</ExternalLink>
-                        </Body>
-                    )
-                }
-            </StyledFooter>
+            <LayoutContext.Consumer>
+                {({ layoutVariant }) => (
+                    <StyledFooter
+                            contrast={contrast}
+                            layout={layoutVariant}
+                            className={this.props.className}>
+                        {this.props.setPageBackground ? (
+                            <WithPageBackground
+                                color={contrast
+                                    ? palette.background.dark
+                                    : palette.background.light} />
+                        ) : null}
+                        {this.props.children
+                            ? this.props.children
+                            : (
+                                <Body>
+                                    © The
+                                    {' '}<ExternalLink contrast={contrast} href="https://allenai.org">Allen Institute for Artificial Intelligence (AI2)</ExternalLink>
+                                    {' '}- All Rights Reserved
+                                    {' '}| <ExternalLink contrast={contrast} href="https://allenai.org/privacy-policy.html">Privacy Policy</ExternalLink>
+                                    {' '}| <ExternalLink contrast={contrast} href="https://allenai.org/terms.html">Terms of Use</ExternalLink>
+                                </Body>
+                            )
+                        }
+                    </StyledFooter>
+                )}
+            </LayoutContext.Consumer>
         )
     }
 }

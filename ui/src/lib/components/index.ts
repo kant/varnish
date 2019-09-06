@@ -6,7 +6,6 @@ export * from './Header';
 export * from './icon';
 export * from './Layout';
 export * from './link';
-export * from './MaxWidthCenteredContent';
 export * from './Menu';
 export * from './Modal';
 export * from './ResponsiveWindowImage';

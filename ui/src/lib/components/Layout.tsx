@@ -3,9 +3,10 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Layout as AntLayout } from 'antd';
 import { SiderProps } from 'antd/lib/layout/Sider';
-import { convertPixelsToRem } from '../utils/base';
+import { BasicProps } from 'antd/lib/layout/layout';
 
-export type LayoutVariant = 'app' | 'default' | 'demo';
+import { convertPixelsToRem } from '../utils/base';
+import { LayoutVariant, LayoutContext } from '../layout';
 
 export const LayoutHeader = styled(AntLayout.Header)``;
 
@@ -22,24 +23,6 @@ export const ContentAndFooterLayout = styled(Layout)<{marginleft?: string}>`
     transition: margin-left 0.2s;
 `;
 
-export const PaddedContent = styled(AntLayout.Content)<{layout?: LayoutVariant}>`
-    && {
-        max-width: ${({theme, layout}) => (layout === 'app') ? 'initial' : theme.breakpoints.xl};
-        margin: ${({theme, layout}) => (layout === 'app') ? 0 : '0 auto'};
-        padding: ${({theme}) => `0 ${theme.spacing.lg} ${theme.spacing.xxl}`};
-        width: 100%;
-
-        @media (max-width: ${({theme}) => theme.breakpoints.sm}) {
-            padding: ${({theme}) => `0 ${theme.spacing.sm}`};
-        }
-    }
-`;
-
-export const Page = styled.div`
-    padding: ${({theme}) => `${theme.spacing.lg} 0`};
-    min-height: 44rem;
-`;
-
 const StyledSider = styled(AntLayout.Sider)`
     && {
         border-right: ${({theme}) => `1px solid ${theme.palette.border.main}`};
@@ -51,6 +34,35 @@ const StyledSider = styled(AntLayout.Sider)`
             border-right: none;
             height: 100%;
         }
+    }
+`;
+
+interface ContentProps extends BasicProps {
+    children: React.ReactNode | React.ReactNodeArray;
+    className?: string;
+}
+
+export const Content = ({ children, className, ...basicProps }: ContentProps) => (
+    <LayoutContext.Consumer>
+        {({ layoutVariant }) => (
+            <ContentContainer
+                layout={layoutVariant}
+                className={className}
+                {...basicProps}
+            >
+                {children}
+            </ContentContainer>
+        )}
+    </LayoutContext.Consumer>
+);
+
+const ContentContainer = styled(AntLayout.Content)<{layout?: LayoutVariant}>`
+    max-width: ${({theme, layout}) => (layout === 'default') ? theme.breakpoints.xl : undefined};
+    ${({ layout }) => layout === 'default' ? 'margin: 0 auto;' : ''}
+    padding: ${({theme}) => theme.spacing.lg};
+
+    @media (max-width: ${({theme}) => theme.breakpoints.sm}) {
+        padding: ${({theme}) => theme.spacing.sm};
     }
 `;
 

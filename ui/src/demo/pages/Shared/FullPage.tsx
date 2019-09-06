@@ -3,8 +3,7 @@ import { RouteComponentProps } from 'react-router';
 
 import {
     Layout,
-    PaddedContent,
-    Page,
+    Content,
     Footer
 } from '../../../lib/components';
 
@@ -17,11 +16,9 @@ export class FullPage extends React.PureComponent<RouteComponentProps & Props> {
     render() {
         return (
             <Layout bgcolor="white">
-                <PaddedContent>
-                    <Page>
-                        {this.props.children}
-                    </Page>
-                </PaddedContent>
+                <Content>
+                    {this.props.children}
+                </Content>
                 <Footer />
             </Layout>
         )

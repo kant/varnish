@@ -2,13 +2,13 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import microLogo from './logo-ai2-micro-25.svg';
-import { MaxWidthCenteredContent } from './MaxWidthCenteredContent';
-import { LayoutVariant } from './Layout';
+import { Content } from './Layout';
+import { LayoutVariant } from '../layout';
 
 export const AI2Banner = React.forwardRef<HTMLDivElement, {layout?: LayoutVariant}>(
     (props, ref) => (
         <DarkBanner ref={ref}>
-            <MaxWidthCenteredContent layout={props.layout}>
+            <BannerContent>
                 <BannerLink href="https://allenai.org">
                     <Logo
                         src={microLogo}
@@ -17,13 +17,18 @@ export const AI2Banner = React.forwardRef<HTMLDivElement, {layout?: LayoutVarian
                         alt="Allen Institute for Artificial Intelligence"
                     />
                 </BannerLink>
-            </MaxWidthCenteredContent>
+            </BannerContent>
         </DarkBanner>
     )
 );
 
 const BannerLink = styled.a`
     display: inline-block;
+`;
+
+const BannerContent = styled(Content)`
+    padding-top: 0;
+    padding-bottom: 0;
 `;
 
 const Logo = styled.img`
