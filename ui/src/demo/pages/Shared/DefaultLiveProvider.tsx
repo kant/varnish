@@ -23,8 +23,7 @@ const globalScope = {
     },
     DefaultVarnishTheme,
     InlineSvg,
-    logoWithText,
-    Notification,
+    logoWithText,    
     strIncludes,
     svgSrc,
     ...components
