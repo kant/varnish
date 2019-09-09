@@ -11,30 +11,37 @@ export const TopMenu = styled(Menu).attrs({
     && {
         display: flex;
         line-height: 77px;
+        border-bottom: 0;
     }
 `;
 
 export const MenuItem = styled(Menu.Item)``;
 
 export const TopMenuItem = styled(MenuItem)`
-    &&& {
-       
+    a:hover {
+        text-decoration: none;
     }
 `;
 
-
-export const LeftMenu = styled(Menu).attrs({
-    mode: "inline"
-})``;
+export const LeftMenu = styled(Menu).attrs(() => ({
+    mode: 'inline'
+}))`
+    border-right: none;
+    transition: none;
+`;
 
 export const LeftMenuItem = styled(MenuItem)<{spacing?: string}>`
     &&& {
-        height: initial;
-        line-height: 1.4;
-        padding-bottom: ${({theme, spacing}) => theme.spacing[spacing || 'sm']};
+        height: auto;
+        line-height: ${({ theme }) => theme.typography.body.lineHeight};
         padding-top: ${({theme, spacing}) => theme.spacing[spacing || 'sm']};
-        margin-bottom: ${({theme, spacing}) => `-${theme.spacing[spacing || 'sm'].getRemValue() / 2}rem`};
-        margin-top: ${({theme, spacing}) => `-${theme.spacing[spacing || 'sm'].getRemValue() / 2}rem`};
+        padding-bottom: ${({theme, spacing}) => theme.spacing[spacing || 'sm']};
+        margin: 0;
+        transition: none;
+
+        a:hover {
+            text-decoration: none;
+        }
     }
 `;
 
@@ -45,8 +52,4 @@ export const IconMenuItemColumns = styled(Columns).attrs({
     justify-items: start;
     align-items: baseline;
     grid-gap: 0;
-
-    svg {
-        vertical-align: middle;
-    }
 `;

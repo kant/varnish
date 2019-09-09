@@ -17,7 +17,7 @@ import { ResponsiveWindowImage,
     TopMenuItem,
     HeaderColumns
 } from '../lib/components';
-import { LayoutContext } from '../lib/layout';
+import { DefaultLayoutProvider } from '../lib/layout';
 
 export default class Home extends React.PureComponent<RouteComponentProps> {
     routes: AppRoute[] = [
@@ -33,10 +33,9 @@ export default class Home extends React.PureComponent<RouteComponentProps> {
             component: Design
         }
     ];
-
     render() {
         return (
-            <LayoutContext.Provider value={{ layoutVariant: "app" }}>
+            <DefaultLayoutProvider layoutVariant="app">
                 <Layout bgcolor="white">
                     <Header>
                         <HeaderColumns gridTemplateColumns="auto auto 1fr auto">
@@ -49,7 +48,7 @@ export default class Home extends React.PureComponent<RouteComponentProps> {
                             <HeaderSubTitle>{packageJson.version}</HeaderSubTitle>
                             <Spacer />
                             <TopMenu
-                                defaultSelectedKeys={[this.props.location.pathname]}>
+                                defaultSelectedKeys={[`/${this.props.location.pathname.split('/')[1]}`]}>
                                 {this.routes.map(({ path, label }) => (
                                     <TopMenuItem key={path}>
                                         <InternalLink to={path}>{label}</InternalLink>
@@ -64,7 +63,7 @@ export default class Home extends React.PureComponent<RouteComponentProps> {
                         ))}
                     </Switch>
                 </Layout>
-            </LayoutContext.Provider>
+            </DefaultLayoutProvider>
         );
     }
 }

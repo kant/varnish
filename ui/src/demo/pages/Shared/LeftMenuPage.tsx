@@ -12,7 +12,6 @@ import {
     InternalLink,
     LeftMenuItem,
     Content,
-    ContentAndFooterLayout,
     Wrapping,
     BodySmall,
     IconMenuItemColumns,
@@ -29,8 +28,13 @@ interface State {
 }
 
 export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Props, State> {
-    siderWidthExpanded = '12rem';
-    siderWidthCollapsed = '5rem';
+    siderWidthExpanded = '200px';
+    /**
+     * TODO: Figure out why this must be 80px, and no other value, antd
+     * sets this explicitly in CSS, so I'm not sure why the collapsedWidth
+     * property is provided.
+     */
+    siderWidthCollapsed = '80px';
     constructor(props: RouteComponentProps & Props){
         super(props);
 
@@ -44,16 +48,23 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
     }
 
     render() {
+        // If the user navigates directly to the parent path, we "redirect". For
+        // some reason the redirect doesn't update the location, so we need to
+        // explicitly handle this when setting the active navigation.
+        const activePath =
+            this.props.location.pathname === this.props.parentPath
+                ? this.props.routes[0].path
+                : this.props.location.pathname;
         return (
             <Layout>
                 <LeftSider
+                    collapsible
                     width={this.siderWidthExpanded}
                     collapsedWidth={this.siderWidthCollapsed}
-                    collapsible
                     collapsed={this.state.menuCollapsed}
                     onCollapse={this.handleMenuCollapse}>
                     <LeftMenu
-                        defaultSelectedKeys={[this.props.location.pathname]}>
+                        defaultSelectedKeys={[ activePath ]}>
                         {this.props.routes.map(({ path, label, iconSrc }) => (
                             <LeftMenuItem spacing={'md'} key={path}>
                                 <InternalLink to={path}>
@@ -70,7 +81,8 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                                         )
                                         : (
                                             <React.Fragment>
-                                                <ImgIcon src={iconSrc} /><span>{label}</span>
+                                                <ImgIcon src={iconSrc} />
+                                                <span>{label}</span>
                                             </React.Fragment>
                                         )
                                     }
@@ -79,7 +91,7 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                         ))}
                     </LeftMenu>
                 </LeftSider>
-                <ContentAndFooterLayout marginleft={this.state.menuCollapsed ? this.siderWidthCollapsed : this.siderWidthExpanded}>
+                <Layout>
                     <Content>
                         <Switch>
                             <Redirect from={this.props.parentPath} exact to={this.props.routes[0].path} />
@@ -89,7 +101,7 @@ export class LeftMenuPage extends React.PureComponent<RouteComponentProps & Prop
                         </Switch>
                     </Content>
                     <Footer />
-                </ContentAndFooterLayout>
+                </Layout>
             </Layout>
         )
     }

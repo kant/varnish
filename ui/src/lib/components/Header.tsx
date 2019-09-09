@@ -1,9 +1,11 @@
 import * as React from 'react';
+import { findDOMNode } from 'react-dom';
 import styled from 'styled-components';
 
 import { Columns } from './Columns';
 import { LayoutHeader } from './Layout';
 import { Content } from './Layout';
+import { LayoutContext } from '../layout';
 import { AI2Banner } from './AI2Banner';
 
 interface Props {
@@ -14,16 +16,19 @@ interface Props {
 interface State {
     // isMobileNavVisible: boolean; // todo: support showing a different menu based on breakpoint
     isCollapsed: boolean;
+    currentHeaderHeight: number;
 }
 
 export class Header extends React.PureComponent<Props, State> {
+    private container: React.Component | null = null;
     private banner: React.RefObject<HTMLDivElement>;
     private lastScrollY: number = 0;
 
     constructor(props: Props) {
         super(props);
         this.state = {
-            isCollapsed: false
+            isCollapsed: false,
+            currentHeaderHeight: 0
         };
         this.banner = React.createRef();
     }
@@ -42,6 +47,14 @@ export class Header extends React.PureComponent<Props, State> {
 
     componentDidMount() {
         window.addEventListener("scroll", this.onScroll);
+        if (this.container !== null) {
+            const maybeNode = findDOMNode(this.container);
+            if (maybeNode instanceof HTMLElement) {
+                const currentHeaderHeight =
+                    maybeNode.getBoundingClientRect().height
+                this.setState({  currentHeaderHeight });
+            }
+        }
     }
 
     componentWillUnmount() {
@@ -63,12 +76,23 @@ export class Header extends React.PureComponent<Props, State> {
 
     render() {
         return (
-            <Sticky style={{ top: `${this.getTopOffset()}px` }}>
-                <AI2Banner ref={this.banner} />
-                <HeaderContent>
-                    {this.props.children}
-                </HeaderContent>
-            </Sticky>
+            <LayoutContext.Consumer>
+                {({ setHeaderHeight }) => {
+                    const offset = this.getTopOffset();
+                    setHeaderHeight(this.state.currentHeaderHeight + offset);
+                    return (
+                        <Sticky
+                            ref={instance => this.container = instance}
+                            style={{ top: `${offset}px` }}
+                        >
+                            <AI2Banner ref={this.banner} />
+                            <HeaderContent>
+                                {this.props.children}
+                            </HeaderContent>
+                        </Sticky>
+                    );
+                }}
+            </LayoutContext.Consumer>
         )
     }
 }
