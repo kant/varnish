@@ -1,80 +1,88 @@
 # Varnish
 
-Varnish makes it easy to build AI2 branded, polished demos, websites, and 
-applications quickly.
+Varnish makes it easy to build AI2 branded demos, websites, and  applications.
 
 For a preview of what your application will look like by using Varnish, visit
 the [demo](https://varnish.staging.apps.allenai.org).
 
-## What do I get by using Varnish? 
+## What do I get by using Varnish?
 
-* CSS that updates default HTML elements so that they follow general AI2
-  branding conventions.
-* A custom theme provider for both [Ant Design](https://ant.design) and [Styled-Components](https://www.styled-components.com/)
-  that can be used in React applications.
-* A collection of prestyled React components. 
+* CSS that updates the default presentation of  HTML elements so that they
+  follow general AI2 branding conventions.
+* A custom theme provider for both [Ant Design](https://ant.design) and
+  [Styled-Components](https://www.styled-components.com/) that can be used in
+  React applications.
+* A collection of prestyled React components.
 
-## Example Sites using Varnish 
+## Some sites that use Varnish:
 
-* [Varnish Demo](https://varnish.staging.apps.allenai.org/) ([code](https://github.com/allenai/varnish/tree/master/ui/src/demo))
-* [Skiff Template](https://skiff-template.apps.allenai.org/) ([code](https://github.com/allenai/skiff-template/tree/master/ui))
-* [Grover](https://grover.apps.allenai.org/) ([code](https://github.com/allenai/grover-demo/tree/master/ui))
-* [Aristo Demo](https://aristo-demo-2019.apps.allenai.org/) ([code](https://github.com/allenai/aristo-demo-2019/tree/master/ui))
-
+* [Varnish Demo](https://varnish.staging.apps.allenai.org/)
+* [Skiff Template](https://skiff-template.apps.allenai.org/)
+* [Grover](https://grover.apps.allenai.org/)
+* [Aristo Demo](https://aristo-demo-2019.apps.allenai.org/)
 
 ## Getting Started
 
-Varnish can be used in one of three ways: 
+Varnish can be used in one of three ways:
 
 1. ### By starting from the [Skiff Template](https://github.com/allenai/skiff-template/):
 
-    The skiff-tamplate takes care of all the setup needed to use Varnish.  To get started with the skiff template, follow the instructions in the [README](https://github.com/allenai/skiff-template/blob/master/README.md).
+    The skiff-tamplate takes care of all the setup needed to use Varnish.
+    To get started with the skiff template, follow the instructions in
+    the [README](https://github.com/allenai/skiff-template/blob/master/README.md).
 
 1. ### By embedding the CSS file into an HTML page (sans React):
 
-    Simply add `<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.3.18/theme.css" />` to the head of your html file.
+    Simply add `<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.3.18/theme.css" />`
+    in the `<head>` tag of your HTML:
 
     ```html
     <html lang="en">
         <head>
-            <title>My Demo</title>
+            <title>️⛵</title>
             <link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.3.18/theme.css" />
         </head>
         <body>
-            bla...
+            🎨
         </body>
     </html>
     ```
 
-    | Without Varnish | With Varnish Applied |
-    | ----------- | ----------- |
+    | Without Varnish                                | With Varnish Applied                          |
+    | ---------------------------------------------- | --------------------------------------------- |
     | <img src="./before.png" alt="without varnish"> | <img src="./after.png" alt="without varnish"> |
 
-1. ### By adding the dependency and it's peer dependencies (with React): 
+1. ### Using NPM:
 
-    1. Add `<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.3.18/theme.css" />` to the head of your html file.
+    1. Add `<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.3.18/theme.css" />`
+       to the `<head>` of your html file, as described above.
 
-    1. Install Varnish (you can use `npm` instead of `yarn` if you prefer):
-        ```
+    1. Install Varnish (you can use either `npm` or `yarn`):
+
+        ```bash
         yarn add @allenai/varnish
         ```
 
-    1. Install peer depencies:
-        ```
+    1. Install Varnish's peer depencies:
+
+        ```bash
         yarn add antd react react-dom react-router-dom styled-components
         ```
-    
-    1. If you're using Typescript (highly recommended):
-        ```
-        yarn add @types/react @types/react-dom @types/react-router-dom @types/styled-components
+
+    1. Add [TypeScript](https://www.typescriptlang.org/), if you'd like
+       (we'd highly recommend you do so):
+
+        ```bash
+        yarn add typescript @types/react @types/react-dom @types/react-router-dom @types/styled-components
         ```
 
-    1. Integrate Varnish into your application: 
+    1. Integrate Varnish into your application:
 
         ```typescript
         import React from 'react';
         import ReactDOM from 'react-dom';
-        // Import the parts of Varnish you want. At minimum, you need to import the ThemeProvider
+        // Import the parts of Varnish you want. At minimum, you need to import
+        // the ThemeProvider
         import { ThemeProvider } from '@allenai/varnish/theme';
 
         // Wrap your App with the Varnish ThemeProvider
@@ -98,7 +106,7 @@ Varnish can be used in one of three ways:
         // use as any other React component
         const MyComponent = () => (
             <div>
-                <h1>Hello World</h1>
+                <h1>👋 Hello World</h1>
                 <Button>Click Me</Button>
             </div>
         );
@@ -106,24 +114,15 @@ Varnish can be used in one of three ways:
 
 ## Components
 
-Varnish is built on top of [Ant Design](https://ant.design/).
-If Varnish does not have a component, use an Ant Design component instead.
-A list of Ant Design components is available [here](https://ant.design/docs/react/introduce).
-If you end up using an Ant Design component, but feel the output could be 
+Varnish is built on top of [Ant Design](https://ant.design/). To see a full
+list of the Varnish specific components visit the [demo](https://varnish.staging.apps.allenai.org/design/colors).
+
+If you don't find what you're looking for, you can use one of the
+[Ant components](https://ant.design/docs/react/introduce) instead.
+
+
+If you end up using an Ant Design component, but feel the output could be
 improved, [let us know](mailto:reviz@allenai.org).
-
-Varnish currently supports:
-
-* [Colors](https://varnish.staging.apps.allenai.org/design/colors)
-* [Common Palette](https://varnish.staging.apps.allenai.org/design/palette)
-* [Typography](https://varnish.staging.apps.allenai.org/design/typography)
-* [Buttons](https://varnish.staging.apps.allenai.org/design/buttons)
-* [Links](https://varnish.staging.apps.allenai.org/design/links)
-* [Form Controls](https://varnish.staging.apps.allenai.org/design/forms)
-* [Icons](https://varnish.staging.apps.allenai.org/design/icons)
-* [Common spacing](https://varnish.staging.apps.allenai.org/design/spacing)
-* [Breakpoints](https://varnish.staging.apps.allenai.org/design/breakpoints)
-* [Header & Footer](https://varnish.staging.apps.allenai.org/design/header)
 
 ## Helpful Links
 
@@ -142,3 +141,8 @@ If you're stuck don't hesitate to reach out:
 * Asking a question in the `#skiff-users` slack channel.
 
 We're eager to improve Varnish and need your feedback to do so!
+
+## Contributing
+
+We welcome and encourage contributions. For more information on how to get
+your development environment setup, review [this document](./Contributing.md).
