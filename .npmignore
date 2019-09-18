@@ -1,6 +1,8 @@
-**/*.md
+*.md
 after.png
 before.png
+.dockerignore
+.skiff/
 bin/
 demo/
 docker-compose.yml
