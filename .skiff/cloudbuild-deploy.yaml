@@ -46,7 +46,7 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: [
     'cp',
-    '$REPO_NAME-ui:/usr/local/src/skiff/app/ui/build',
+    '$REPO_NAME-ui:/usr/local/src/varnish/demo/build',
     '/workspace/proxy/dist'
   ]
   waitFor: ['ui.dist.create']

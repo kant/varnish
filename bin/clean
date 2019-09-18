@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+/**
+ * This script removes all TypeScript built artifacts from the repository.
+ */
+const path = require('path');
+const cp = require('child_process');
+const fs = require('fs');
+
+const root = path.resolve(__dirname, '..');
+const ts = require('typescript');
+
+const tsconfig = ts.readConfigFile(
+    path.resolve(root, 'tsconfig.json'),
+    path => fs.readFileSync(path, 'utf-8')
+);
+
+tsconfig.config.include.filter(
+    includePath => !includePath.startsWith('@types')
+).forEach(includePath => {
+    const [ base ] = includePath.split(path.sep);
+
+    // These are the file extensions that TypeScript generates
+    const exts = [ "*.js", "*.d.ts", "*.map", "*.less"];
+
+    // We could do this with a single, fancy `find` statement and `-o` (or)
+    // operators -- but we do it this way for simplicity
+    exts.forEach(ext => {
+        console.log(`🗑  executing: 'find ${base} -type f -name ${ext} -exec rm {} \\;'`)
+        cp.execSync(`find ${base} -type f -name ${ext} -exec rm {} \\;`);
+    });
+});
+
+console.log('🧼  all done')

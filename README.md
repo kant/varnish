@@ -33,14 +33,14 @@ Varnish can be used in one of three ways:
 
 1. ### By embedding the CSS file into an HTML page (sans React):
 
-    Simply add `<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.3.18/theme.css" />`
+    Simply add `<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.5.0/dist/theme.min.css" />`
     in the `<head>` tag of your HTML:
 
     ```html
     <html lang="en">
         <head>
             <title>️⛵</title>
-            <link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.3.18/theme.css" />
+            <link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.5.0/dist/theme.min.css" />
         </head>
         <body>
             🎨
@@ -48,13 +48,13 @@ Varnish can be used in one of three ways:
     </html>
     ```
 
-    | Without Varnish                                | With Varnish Applied                          |
-    | ---------------------------------------------- | --------------------------------------------- |
+    | Without Varnish                                    | With Varnish Applied                              |
+    | -------------------------------------------------- | ------------------------------------------------- |
     | <img src="./before.png" alt="without varnish"> | <img src="./after.png" alt="without varnish"> |
 
 1. ### Using NPM:
 
-    1. Add `<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.3.18/theme.css" />`
+    1. Add `<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.5.0/dist/theme.min.css" />`
        to the `<head>` of your html file, as described above.
 
     1. Install Varnish (you can use either `npm` or `yarn`):
@@ -145,4 +145,4 @@ We're eager to improve Varnish and need your feedback to do so!
 ## Contributing
 
 We welcome and encourage contributions. For more information on how to get
-your development environment setup, review [this document](./Contributing.md).
+your development environment setup, review [this document](./CONTRIBUTING.md).

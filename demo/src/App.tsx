@@ -1,0 +1,23 @@
+import * as React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { ThemeProvider } from '@allenai/varnish/theme';
+import { ScrollToTopOnPageChange } from '@allenai/varnish/components/ScrollToTopOnPageChange';
+
+import '@allenai/varnish/theme/theme.less';
+
+import Home from './Home';
+
+export default class App extends React.PureComponent {
+    render() {
+        return (
+            <BrowserRouter>
+                <React.Fragment>
+                    <ScrollToTopOnPageChange />
+                    <ThemeProvider>
+                        <Route path="/" component={Home} />
+                    </ThemeProvider>
+                </React.Fragment>
+            </BrowserRouter>
+        );
+    }
+}

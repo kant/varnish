@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+/**
+ * This script generates an `antd` `theme.less` file from Varnish's default
+ * theme. See ../theme/theme.less.ts for more information.
+ */
+const fs = require('fs');
+const path = require('path');
+const { less } = require('../theme/theme.less.js');
+
+const out = path.resolve(__dirname, '../theme/theme.less');
+fs.writeFileSync(out, less);
+console.log(`📝 wrote ${out}`);

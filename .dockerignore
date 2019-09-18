@@ -2,24 +2,25 @@
 .gitignore
 .git
 
-# Python cache files
-**.pyc
-**/__pycache__
-.dockerignore
+# Skiff stuff
+.skiff/
 
 # Docker artifacts
 docker-compose.yaml
 Dockerfile
-ui/Dockerfile
+
+# Proxy
+proxy/
 
 # Documentation
 **/*.md
 
 # UI dependencies
-ui/node_modules/
+node_modules/
 
-# UI build output
-ui/build/
+# Build artifacts
+dist/
+demo/build
 
-# UI package manager debug output
-ui/*.log
+# Log files
+**/*.log

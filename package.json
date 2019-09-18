@@ -1,0 +1,45 @@
+{
+  "name": "@allenai/varnish",
+  "version": "0.4.4",
+  "description": "Varnish makes it easy to build AI2 branded demos, websites, and  applications.",
+  "author": "reviz@allenai.org",
+  "license": "Apache-2.0",
+  "repository": "git@github.com:allenai/varnish.git",
+  "scripts": {
+    "build": "yarn build:ts && yarn build:theme",
+    "build:ts": "tsc -b tsconfig.json && node bin/genless",
+    "build:theme": "yarn theme:compile && yarn theme:optimize",
+    "theme:compile": "lessc --js theme/theme.less dist/theme.css",
+    "theme:optimize": "postcss dist/theme.css > dist/theme.min.css",
+    "watch:ts": "tsc -b tsconfig.json -w",
+    "watch:theme": "nodemon bin/genless",
+    "clean": "node bin/clean && rm -rf dist/",
+    "prepublishOnly": "yarn build"
+  },
+  "peerDependencies": {
+    "antd": "^3.23.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router-dom": "^5.0.1",
+    "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-router-dom": "^4.3.5",
+    "@types/styled-components": "^4.1.19",
+    "antd": "^3.23.2",
+    "cssnano": "^4.1.10",
+    "lessc": "^1.0.2",
+    "nodemon": "^1.19.2",
+    "postcss": "^7.0.18",
+    "postcss-cli": "^6.1.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "styled-components": "^4.3.2",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {}
+}

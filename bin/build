@@ -19,23 +19,21 @@ def build(image_prefix = None, tag = None, silent = False):
     proxy_image = "%s-proxy:%s" % (image_prefix, tag)
 
     check_call([ "docker", "build", "-t",
-        ui_image, "ui/",
+        ui_image, ".",
         "--build-arg", "NODE_ENV=production", "--build-arg", "BABEL_ENV=production"],
         stdout=stdout)
 
     # Copy the compiled UI assets into the local filesystem
     container_id = check_output([ "docker", "create", ui_image ]).decode("utf-8").strip()
     check_call([ "docker", "cp",
-        "%s:/usr/local/src/skiff/app/ui/build" % container_id,
+        "%s:/usr/local/src/varnish/demo/build" % container_id,
         "%s/proxy/dist/" % root ], stdout=stdout)
     check_call([ "docker", "rm", "-v", container_id ], stdout=stdout)
 
     # Build the proxy, which will include the compiled UI assets
-    check_call([ "docker", "build", "-t",
-        proxy_image, "--build-arg", "CONF_FILE=prod.conf", "proxy/" ],
-        stdout=stdout)
+    check_call([ "docker", "build", "-t", proxy_image, "proxy/" ], stdout=stdout)
 
-    return { "ui": ui_image, "proxy": proxy_image };
+    return { "proxy": proxy_image };
 
 if __name__ == "__main__":
     parser = ArgumentParser()

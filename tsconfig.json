@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noEmit": false,
+    "jsx": "react",
+    "sourceMap": true,
+    /**
+     * This fixes an issue where @types/styled-components includes a definition
+     * file that duplicates those in dom.
+     *
+     * See https://github.com/DefinitelyTyped/DefinitelyTyped/issues/33311
+     */
+    "types": ["react"]
+  },
+  "include": [
+    "@types/**/*",
+    "layout/**/*",
+    "theme/**/*",
+    "components/**/*",
+    "utils/**/*"
+  ]
+}
+
