@@ -28,7 +28,6 @@ RUN yarn build
 RUN yarn link
 
 # Link React
-# TODO: Link to Github Issue
 WORKDIR /usr/local/src/varnish/node_modules/react
 RUN yarn link
 
