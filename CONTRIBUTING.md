@@ -47,5 +47,5 @@ Then, follow these steps:
 1. Publish the version to `npm`:
 
    ```bash
-   npm publish --access public ./dist
+   npm publish --access public
    ```
