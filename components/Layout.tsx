@@ -38,6 +38,7 @@ export const Content = ({ children, className, ...basicProps }: ContentProps) =>
 
 const ContentContainer = styled(AntLayout.Content)<{layout?: LayoutVariant}>`
     max-width: ${({theme, layout}) => (layout === 'hcenter') ? theme.breakpoints.xl : undefined};
+    width: 100%;
     ${({ layout }) => layout === 'hcenter' ? 'margin: 0 auto;' : ''}
     padding: ${({theme}) => theme.spacing.lg};
 
