@@ -32,7 +32,6 @@ steps:
     '--build-arg', 'BABEL_ENV=production'
   ]
   waitFor: [ 'ui.pull' ]
-  dir: 'ui'
 - id: 'ui.dist.create'
   name: 'gcr.io/cloud-builders/docker'
   args: [
@@ -41,7 +40,6 @@ steps:
     'gcr.io/$PROJECT_ID/$REPO_NAME-ui:$COMMIT_SHA',
   ]
   waitFor: [ 'ui.build' ]
-  dir: 'ui'
 - id: 'ui.dist.cp'
   name: 'gcr.io/cloud-builders/docker'
   args: [
