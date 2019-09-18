@@ -27,7 +27,10 @@ To get your development environment setup, follow these instructions:
 
 ## Releasing a new Version
 
-To release a new version, follow these steps:
+To release a new version, you'll need to install [NodeJs](https://nodejs.org/en/)
+and [yarn](https://yarnpkg.com/lang/en/).
+
+Then, follow these steps:
 
 1. Create a new version, we follow [semantic versioning](https://semver.org/):
 
