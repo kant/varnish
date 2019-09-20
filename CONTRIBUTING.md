@@ -49,3 +49,15 @@ Then, follow these steps:
    ```bash
    npm publish --access public
    ```
+
+1. Draft and publish a new [Github Release](https://github.com/allenai/varnish/releases).
+   To get a list of changes since the last tag, run this command:
+
+   ```bash
+   ~ git log vX.X.X...vY.Y.Y
+   ```
+
+   Where `vX.X.X` is the previous version, and `vY.Y.Y` is the new one.
+
+1. Announce the new version by linking to the Github release in the
+   `#varnish-releases` Slack channel.

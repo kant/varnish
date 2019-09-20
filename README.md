@@ -124,6 +124,11 @@ If you don't find what you're looking for, you can use one of the
 If you end up using an Ant Design component, but feel the output could be
 improved, [let us know](mailto:reviz@allenai.org).
 
+## Staying Up to Date
+
+Varnish is changing quickly. To stay up to date as we release new versions,
+join the `#varnish-releases` Slack channel.
+
 ## Helpful Links
 
 Here's a list of resources that might be helpful as you get started:
