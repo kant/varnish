@@ -12,7 +12,7 @@
     "theme:compile": "lessc --js theme/theme.less dist/theme.css",
     "theme:optimize": "postcss dist/theme.css > dist/theme.min.css",
     "watch:ts": "tsc -b tsconfig.json -w",
-    "watch:theme": "nodemon bin/genless",
+    "watch:theme": "nodemon -w theme/theme.less.js bin/genless",
     "clean": "node bin/clean && rm -rf dist/",
     "prepublishOnly": "yarn build"
   },
