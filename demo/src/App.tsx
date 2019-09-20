@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { ThemeProvider } from '@allenai/varnish/theme';
-import { ScrollToTopOnPageChange } from '@allenai/varnish/components/ScrollToTopOnPageChange';
+import { ScrollToTopOnPageChange } from '@allenai/varnish/components';
 
 import '@allenai/varnish/theme/theme.less';
 
