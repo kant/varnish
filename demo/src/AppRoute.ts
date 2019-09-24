@@ -18,7 +18,7 @@ export interface AppRoute {
     /* gray out in menu */
     disabled?: boolean;
 
-    new?: boolean;
+    tag?: string;
 
     /* icon to display */
     iconSrc?: string;

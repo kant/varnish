@@ -112,14 +112,16 @@ export const componentGroups: AppRouteGroup[] = [
                 label: 'Grid',
                 iconSrc: tablesIcon,
                 component: Breakpoints,
-                disabled: true
+                disabled: true,
+                tag: 'coming soon'
             },
             {
                 path: `${componentRoot}/layout`,
                 label: 'Layout',
                 iconSrc: headerFooterIcon,
                 component: Breakpoints,
-                disabled: true
+                disabled: true,
+                tag: 'coming soon'
             }
         ]
     },
@@ -153,7 +155,7 @@ export const componentGroups: AppRouteGroup[] = [
                 label: 'Tabs',
                 iconSrc: tabIcon,
                 component: Tabs,
-                new: true
+                tag: 'new'
             },
             {
                 path: `${componentRoot}/tables`,

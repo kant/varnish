@@ -149,11 +149,8 @@ class IconMenuItem extends React.PureComponent<{ route: AppRoute, menuCollapsed:
                             <Wrapping>
                                 <BodySmall>
                                     {route.label}
-                                    {route.disabled
-                                        ? <React.Fragment>{` `}<Tag color="blue">Coming Soon</Tag></React.Fragment>
-                                        : null}
-                                    {route.new
-                                        ? <React.Fragment>{` `}<Tag color="green">New</Tag></React.Fragment>
+                                    {route.tag
+                                        ? <React.Fragment>{` `}<Tag color="blue">{route.tag}</Tag></React.Fragment>
                                         : null}
                                 </BodySmall>
                             </Wrapping>
