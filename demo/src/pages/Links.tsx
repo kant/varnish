@@ -15,7 +15,7 @@ contrast: `
 const Links = () => (
     <React.Fragment>
         <ExternalLink href="http://google.com" target="_blank">Go to Google (External)</ExternalLink>
-        <br /><InternalLink to="../design/buttons">Go to Buttons (Internal)</InternalLink>
+        <br /><InternalLink to="../buttons">Go to Buttons (Internal)</InternalLink>
     </React.Fragment>);
 
 render(

@@ -21,7 +21,7 @@ To get your development environment setup, follow these instructions:
    ```
 
 1. Visit [http://localhost:3000](http://localhost:3000) and use the demo to
-   verify the change syou're making.
+   verify the changes you're making.
 
 1. Once you're complete, open a pull-request with your changes.
 

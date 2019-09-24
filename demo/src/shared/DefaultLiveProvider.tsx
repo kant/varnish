@@ -6,7 +6,7 @@ import * as components from '@allenai/varnish/components';
 import { strIncludes } from '@allenai/varnish/utils/base';
 
 import { DarkPaper, LightPaper, WhitePaper } from './Paper';
-import logoWithText from '../../varnishLogo.svg';
+import logoWithText from '../varnishLogo.svg';
 import svgSrc from './other-14px.svg';
 
 const InlineSvg = () => (

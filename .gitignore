@@ -28,3 +28,5 @@ demo/build/
 # Parcel files
 .cache
 dist/
+
+.vscode

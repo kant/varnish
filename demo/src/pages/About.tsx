@@ -2,12 +2,10 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { ExternalLink, Body } from '@allenai/varnish/components';
 
-import { FullPage } from '../shared/FullPage'
-
 export class About extends React.PureComponent<RouteComponentProps> {
     render() {
         return (
-            <FullPage {...this.props}>
+            <React.Fragment>
                 <h2> Welcome </h2>
                 <br />
                 <Body>
@@ -45,7 +43,7 @@ export class About extends React.PureComponent<RouteComponentProps> {
                         {' '}<ExternalLink href="mailto:reviz@allenai.org">reviz@allenai.org</ExternalLink>.
                     </p>
                 </Body>
-            </FullPage>
+            </React.Fragment>
         )
     }
 }
