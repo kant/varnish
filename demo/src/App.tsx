@@ -5,7 +5,7 @@ import { ScrollToTopOnPageChange } from '@allenai/varnish/components';
 
 import '@allenai/varnish/theme/theme.less';
 
-import Home from './Home';
+import AppChrome from './AppChrome';
 
 export default class App extends React.PureComponent {
     render() {
@@ -14,7 +14,7 @@ export default class App extends React.PureComponent {
                 <React.Fragment>
                     <ScrollToTopOnPageChange />
                     <ThemeProvider>
-                        <Route path="/" component={Home} />
+                        <Route path="/" component={AppChrome} />
                     </ThemeProvider>
                 </React.Fragment>
             </BrowserRouter>

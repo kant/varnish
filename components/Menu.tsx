@@ -5,11 +5,11 @@ import { Menu } from 'antd';
 
 import { Columns } from './Columns';
 
-// Styled version of Menu statics.
-export const MenuSubMenu = styled(Menu.SubMenu)``;
-export const MenuItem = styled(Menu.Item)``;
-export const MenuDivider = styled(Menu.Divider)``;
-export const MenuItemGroup = styled(Menu.ItemGroup)``;
+// Styled version of Menu statics
+const MenuSubMenu = styled(Menu.SubMenu)``;
+const MenuItem = styled(Menu.Item)``;
+const MenuDivider = styled(Menu.Divider)``;
+const MenuItemGroup = styled(Menu.ItemGroup)``;
 
 
 // Menu Item styled for top menu
@@ -58,9 +58,8 @@ class VarnishMenu extends Menu {
 const StyledLeftMenu = styled(VarnishMenu).attrs(() => ({
     mode: 'inline'
 }))`
-    border-right: none;
+    border-right-color: transparent;
     transition: none;
-    width: calc(100% - 1px);
 `;
 
 // Styled top version of Menu.
@@ -69,7 +68,7 @@ const StyledTopMenu = styled(VarnishMenu).attrs({
 })`
     && {
         display: flex;
-        line-height: 77px;
+        line-height: 77px; /* TODO: get rid of the line-height based approach, ideally we'd use padding instead, so the text could wrap cleanly */
         border-bottom: 0;
     }
 `;

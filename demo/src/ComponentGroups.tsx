@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { DefaultVarnishTheme } from '@allenai/varnish/theme';
 
 import { AppRoute, AppRouteGroup } from './AppRoute';
 import {
@@ -113,7 +114,7 @@ export const componentGroups: AppRouteGroup[] = [
                 iconSrc: tablesIcon,
                 component: Breakpoints,
                 disabled: true,
-                tag: 'coming soon'
+                tag: {label: 'Coming Soon', color: DefaultVarnishTheme.color.B4}
             },
             {
                 path: `${componentRoot}/layout`,
@@ -121,7 +122,7 @@ export const componentGroups: AppRouteGroup[] = [
                 iconSrc: headerFooterIcon,
                 component: Breakpoints,
                 disabled: true,
-                tag: 'coming soon'
+                tag: {label: 'Coming Soon', color: DefaultVarnishTheme.color.B4}
             }
         ]
     },
@@ -155,7 +156,7 @@ export const componentGroups: AppRouteGroup[] = [
                 label: 'Tabs',
                 iconSrc: tabIcon,
                 component: Tabs,
-                tag: 'new'
+                tag: {label: 'NEW', color: DefaultVarnishTheme.color.O4}
             },
             {
                 path: `${componentRoot}/tables`,

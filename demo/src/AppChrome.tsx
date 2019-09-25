@@ -37,8 +37,8 @@ interface State {
     menuCollapsed: boolean;
 }
 
-export default class Home extends React.PureComponent<RouteComponentProps, State> {
-    siderWidthExpanded = '220px';
+export default class AppChrome extends React.PureComponent<RouteComponentProps, State> {
+    siderWidthExpanded = '225px';
     /**
      * TODO: Figure out why this must be 80px, and no other value, antd
      * sets this explicitly in CSS, so I'm not sure why the collapsedWidth
@@ -134,35 +134,32 @@ export default class Home extends React.PureComponent<RouteComponentProps, State
 }
 
 const HeaderColumnsWithSpace = styled(HeaderColumns)`
-    margin: 11.5px 0;
+    padding: 11.5px 0;
 `;
 
-class IconMenuItem extends React.PureComponent<{ route: AppRoute, menuCollapsed: boolean }> {
-    render() {
-        const { route, menuCollapsed } = this.props;
-        return (
-            <InternalLink to={route.path}>
-                {!menuCollapsed
-                    ? (
-                        <IconMenuItemColumns>
-                            {route.iconSrc ? <ImgIcon src={route.iconSrc} /> : null}
-                            <Wrapping>
-                                <BodySmall>
-                                    {route.label}
-                                    {route.tag
-                                        ? <React.Fragment>{` `}<Tag color="blue">{route.tag}</Tag></React.Fragment>
-                                        : null}
-                                </BodySmall>
-                            </Wrapping>
-                        </IconMenuItemColumns>
-                    )
-                    : (
-                        <React.Fragment>
-                            {route.iconSrc ? <ImgIcon src={route.iconSrc} /> : null}<span>{route.label}</span>
-                        </React.Fragment>
-                    )
-                }
-            </InternalLink>
-        )
-    }
+const IconMenuItem = ({ route, menuCollapsed }: { route: AppRoute, menuCollapsed: boolean }) => {
+    return (
+        <InternalLink to={route.path}>
+            {!menuCollapsed
+                ? (
+                    <IconMenuItemColumns>
+                        {route.iconSrc ? <ImgIcon src={route.iconSrc} /> : null}
+                        <Wrapping>
+                            <BodySmall>
+                                {route.label}
+                                {route.tag
+                                    ? <React.Fragment>{`  `}<Tag color={route.tag.color.toString()}>{route.tag.label}</Tag></React.Fragment>
+                                    : null}
+                            </BodySmall>
+                        </Wrapping>
+                    </IconMenuItemColumns>
+                )
+                : (
+                    <React.Fragment>
+                        {route.iconSrc ? <ImgIcon src={route.iconSrc} /> : null}<span>{route.label}</span>
+                    </React.Fragment>
+                )
+            }
+        </InternalLink>
+    )
 }

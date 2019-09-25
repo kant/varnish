@@ -1,4 +1,5 @@
 import { ComponentType } from 'react';
+import { Color } from '@allenai/varnish/theme';
 
 export interface AppRoute {
     /* The url path, i.e. in the url `http://localhost/about`, `/about` is the path. */
@@ -18,7 +19,8 @@ export interface AppRoute {
     /* gray out in menu */
     disabled?: boolean;
 
-    tag?: string;
+    /* an optional tag we can display next to the link, eg. NEW */
+    tag?: {label: string, color: Color };
 
     /* icon to display */
     iconSrc?: string;
