@@ -80,7 +80,7 @@ export const color = {
     B8: new Color('B8', '#1576B0', true),
     B9: new Color('B9', '#08426C', true),
     B10: new Color('B10', '#052C47', true),
-    P1: new Color('P1', '##F8F7FD'),
+    P1: new Color('P1', '#F8F7FD'),
     P2: new Color('P2', '#E6E3F7'),
     P3: new Color('P3', '#CFC9F1'),
     P4: new Color('P4', '#B7AFEB'),
