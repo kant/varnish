@@ -20,7 +20,7 @@ export interface AppRoute {
     disabled?: boolean;
 
     /* an optional tag we can display next to the link, eg. NEW */
-    tag?: {label: string, color: Color };
+    tag?: { label: string; color: Color };
 
     /* icon to display */
     iconSrc?: string;

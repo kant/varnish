@@ -5,15 +5,19 @@ export class Spacing {
     static fromPixels(displayName: string, px: number) {
         return new Spacing(displayName, `${px}px`, convertPixelsToRem(px));
     }
+
     static fromRems(displayName: string, rem: number) {
         return new Spacing(displayName, convertRemToPx(rem), `${rem}rem`);
     }
+
     toString() {
         return this.rem;
     }
+
     getRemValue() {
         return parseFloat(this.rem);
     }
+
     getPxValue() {
         return parseFloat(this.px);
     }
@@ -27,4 +31,4 @@ export const spacing = {
     lg: Spacing.fromPixels('lg', 24),
     xl: Spacing.fromPixels('xl', 36),
     xxl: Spacing.fromPixels('xxl', 64)
-}
+};
