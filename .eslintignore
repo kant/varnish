@@ -1,19 +1,13 @@
-.git/
-.skiff/
-.vscode/
 *.log
 bin/
-dist/
-node_modules/
 proxy/
 
-# Demo
-demo/build/
+# Demo scripts and dependencies
 demo/config/
 demo/node_modules/
 demo/scripts/
 
-# Lib
+# Lib built files
 components/**/*.js
 components/**/*.map
 components/**/*.d.ts
@@ -27,5 +21,3 @@ theme/**/*.js
 theme/**/*.map
 theme/**/*.d.ts
 theme/theme.less
-
-
