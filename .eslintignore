@@ -1,0 +1,31 @@
+.git/
+.skiff/
+.vscode/
+*.log
+bin/
+dist/
+node_modules/
+proxy/
+
+# Demo
+demo/build/
+demo/config/
+demo/node_modules/
+demo/scripts/
+
+# Lib
+components/**/*.js
+components/**/*.map
+components/**/*.d.ts
+utils/**/*.js
+utils/**/*.map
+utils/**/*.d.ts
+layout/**/*.js
+layout/**/*.map
+layout/**/*.d.ts
+theme/**/*.js
+theme/**/*.map
+theme/**/*.d.ts
+theme/theme.less
+
+
