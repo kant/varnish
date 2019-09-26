@@ -1,11 +1,17 @@
 *.log
 bin/
 proxy/
+package.json
+tsconfig.json
+docker-compose.yml
+skiff.json
 
 # Demo scripts and dependencies
 demo/config/
 demo/node_modules/
 demo/scripts/
+demo/package.json
+demo/tsconfig.json
 
 # Lib built files
 components/**/*.js
