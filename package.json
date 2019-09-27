@@ -6,8 +6,8 @@
   "license": "Apache-2.0",
   "repository": "git@github.com:allenai/varnish.git",
   "scripts": {
-    "lint": "eslint . --ext .ts,.js,.json,.yml,.yaml",
-    "lint-fix": "eslint . --ext .ts,.js,.json,.yml,.yaml --fix",
+    "lint": "eslint '**/*.{js,ts,tsx,json,yml,yaml}' && echo 'Lint complete.'",
+    "lint-fix": "eslint '**/*.{js,ts,tsx,json,yml,yaml}' --fix && echo 'Lint complete.'",
     "build": "yarn build:ts && yarn build:theme",
     "build:ts": "tsc -b tsconfig.json && node bin/genless",
     "build:theme": "yarn theme:compile && yarn theme:optimize",

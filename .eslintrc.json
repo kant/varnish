@@ -25,6 +25,13 @@
         "prettier"
     ],
     "rules": {
-        "prettier/prettier": "error"
+        "prettier/prettier": [
+            "error",
+            {
+                "printWidth": 100,
+                "tabWidth": 4,
+                "singleQuote": true,
+                "jsxBracketSameLine": true
+            }]
     }
 }

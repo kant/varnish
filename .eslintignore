@@ -14,16 +14,14 @@ demo/package.json
 demo/tsconfig.json
 
 # Lib built files
+**/*.map
 components/**/*.js
-components/**/*.map
 components/**/*.d.ts
 utils/**/*.js
-utils/**/*.map
 utils/**/*.d.ts
 layout/**/*.js
-layout/**/*.map
 layout/**/*.d.ts
 theme/**/*.js
-theme/**/*.map
 theme/**/*.d.ts
+theme/theme.less
 theme/theme.less
