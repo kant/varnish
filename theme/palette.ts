@@ -1,7 +1,7 @@
 import { color, Color } from './colors';
 
-export const palette: { [k: string]: { [k: string]: Color } } = {
-    common: {
+export const palette: { [k: string ]: { [ k: string ]: Color } } = {
+    common:{
         black: color.black,
         white: color.white,
         transparent: color.transparent

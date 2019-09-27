@@ -29,10 +29,8 @@ export const defaultSpacing = [spacing.md, spacing.xs];
 const marketingSpacing = [spacing.lg, spacing.sm];
 const paddingWithBorderInside = (borderWidth: number, initialPadding = defaultSpacing) => {
     // initial pad minus the border width + a single pixel for the standard border width expected by other components
-    return `${convertPixelsToRem(
-        initialPadding[1].getPxValue() - borderWidth + 1
-    )} ${convertPixelsToRem(initialPadding[0].getPxValue() - borderWidth + 1)}`;
-};
+    return `${convertPixelsToRem(initialPadding[1].getPxValue() - borderWidth + 1)} ${convertPixelsToRem(initialPadding[0].getPxValue() - borderWidth + 1)}`;
+}
 export const borderColor = palette.border.dark;
 const marketingColor = palette.secondary.main;
 const whiteColor = palette.text.contrast;
@@ -153,5 +151,5 @@ export const button = {
  *
  * TODO: Use TypeGuards instead.
  */
-function isButtonStyle(def: Button): void {}
+function isButtonStyle(def: Button): void { return; }
 isButtonStyle(button);

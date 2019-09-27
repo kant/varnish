@@ -11,7 +11,6 @@ export class Color {
         this.hex = hex.toUpperCase();
         this.rgb = hexToRgb(hex);
     }
-
     toString() {
         return this.hex;
     }
@@ -26,8 +25,8 @@ export function hexToRgb(hex: string): RGB {
     });
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result
-        ? new RGB(parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16))
-        : new RGB(0, 0, 0);
+    ? new RGB(parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16))
+    : new RGB(0,0,0);
 }
 
 export const color = {
@@ -113,7 +112,7 @@ export const color = {
     N10: new Color('N10', '#333A3E', true),
     black: new Color('Black', '#000', true),
     white: new Color('White', '#FFF'),
-    transparent: new Color('Transparent', 'transparent')
+    transparent: new Color('Transparent', 'transparent'),
 };
 
 // use for charts and viz on top of images
@@ -130,4 +129,4 @@ export const chartingColor = {
     Teal: new Color('Teal', '#2fffa8'),
     Pink: new Color('Pink', '#e73fa0', true),
     Tangerine: new Color('Tangerine', '#ffad06')
-};
+}

@@ -1,3 +1,4 @@
+
 import { Spacing } from './spacing';
 
 export const breakpoints = {
@@ -7,4 +8,4 @@ export const breakpoints = {
     lg: Spacing.fromPixels('lg', 992),
     xl: Spacing.fromPixels('xl', 1200),
     xxl: Spacing.fromPixels('xxl', 1600)
-};
+}

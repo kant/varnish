@@ -1,12 +1,7 @@
-export type Dictionary<T> = { [id: string]: T };
+export type Dictionary<T> = { [id:string]: T };
 
 function getRootFontSize(dynamic = false): number {
-    return parseFloat(
-        (dynamic &&
-            typeof getComputedStyle !== 'undefined' &&
-            getComputedStyle(document.documentElement).fontSize) ||
-            '16'
-    );
+    return parseFloat((dynamic && typeof getComputedStyle !== 'undefined' && getComputedStyle(document.documentElement).fontSize) || '16');
 }
 
 // convert rems to px using document font size
@@ -26,9 +21,9 @@ export function convertPixelsStrToRem(pxStr: string, dynamic = false): string {
 }
 
 export function dictionaryToArray<T>(dict: Dictionary<T>) {
-    return Object.keys(dict).map(key => dict[key]);
+    return Object.keys(dict).map(key => dict[key])
 }
 
-export function strIncludes(filter: string, value: string) {
-    return value.toLowerCase().includes(filter.toLowerCase());
+export function strIncludes (filter: string, value: string) {
+    return value.toLowerCase().includes(filter.toLowerCase())
 }
