@@ -7,7 +7,7 @@
   "repository": "git@github.com:allenai/varnish.git",
   "scripts": {
     "lint": "eslint '**/*.{js,ts,tsx,json,yml,yaml}' && echo 'Lint complete.'",
-    "lint-fix": "eslint '**/*.{js,ts,tsx,json,yml,yaml}' --fix && echo 'Lint complete.'",
+    "lint:fix": "eslint '**/*.{js,ts,tsx,json,yml,yaml}' --fix && echo 'Lint --fix complete.'",
     "build": "yarn build:ts && yarn build:theme",
     "build:ts": "tsc -b tsconfig.json && node bin/genless",
     "build:theme": "yarn theme:compile && yarn theme:optimize",
@@ -18,6 +18,69 @@
     "clean": "node bin/clean && rm -rf dist/",
     "prepublishOnly": "yarn build"
   },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "extends": [
+      "standard",
+      "plugin:prettier/recommended"
+    ],
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "@typescript-eslint",
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "printWidth": 100,
+          "tabWidth": 4,
+          "singleQuote": true,
+          "jsxBracketSameLine": true
+        }
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "*.log",
+    "bin/",
+    "proxy/",
+    "package.json",
+    "tsconfig.json",
+    "docker-compose.yml",
+    "skiff.json",
+    "demo/config/",
+    "demo/node_modules/",
+    "demo/scripts/",
+    "demo/package.json",
+    "demo/tsconfig.json",
+    "**/*.map",
+    "components/**/*.js",
+    "components/**/*.d.ts",
+    "utils/**/*.js",
+    "utils/**/*.d.ts",
+    "layout/**/*.js",
+    "layout/**/*.d.ts",
+    "theme/**/*.js",
+    "theme/**/*.d.ts",
+    "theme/theme.less",
+    "theme/theme.less"
+  ],
   "peerDependencies": {
     "antd": "^3.23.2",
     "react": "^16.9.0",

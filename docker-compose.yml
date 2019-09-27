@@ -11,8 +11,6 @@ services:
             - './dist:/usr/local/src/varnish/dist'
             - './package.json:/usr/local/src/varnish/package.json'
             - './yarn.lock:/usr/local/src/varnish/yarn.lock'
-            - './.eslintignore:/usr/local/src/varnish/.eslintignore'
-            - './.eslintrc.json:/usr/local/src/varnish/.eslintrc.json'
             - './demo/config:/usr/local/src/varnish/demo/config'
             - './demo/scripts:/usr/local/src/varnish/demo/scripts'
             - './demo/public:/usr/local/src/varnish/demo/public'
@@ -34,8 +32,6 @@ services:
             - './dist:/usr/local/src/varnish/dist'
             - './package.json:/usr/local/src/varnish/package.json'
             - './yarn.lock:/usr/local/src/varnish/yarn.lock'
-            - './.eslintignore:/usr/local/src/varnish/.eslintignore'
-            - './.eslintrc.json:/usr/local/src/varnish/.eslintrc.json'
             - './postcss.config.js:/usr/local/src/varnish/postcss.config.js'
         working_dir: '/usr/local/src/varnish'
         command: [ 'watch:ts' ]
@@ -50,8 +46,6 @@ services:
             - './dist:/usr/local/src/varnish/dist'
             - './package.json:/usr/local/src/varnish/package.json'
             - './yarn.lock:/usr/local/src/varnish/yarn.lock'
-            - './.eslintignore:/usr/local/src/varnish/.eslintignore'
-            - './.eslintrc.json:/usr/local/src/varnish/.eslintrc.json'
             - './postcss.config.js:/usr/local/src/varnish/postcss.config.js'
         working_dir: '/usr/local/src/varnish'
         command: [ 'watch:theme' ]
