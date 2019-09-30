@@ -130,13 +130,13 @@ const PaletteName = styled(Col)`
 
 const ColorBox = styled.div`
     background: ${props => props.color};
-    width: ${_ => convertPixelsToRem(40)};
-    height: ${_ => convertPixelsToRem(40)};
+    width: ${() => convertPixelsToRem(40)};
+    height: ${() => convertPixelsToRem(40)};
     border-radius: ${({ theme }) => `${theme.shape.borderRadius}px`};
 `;
 
 const ColorBoxWrapper = styled(Col)`
-    padding: ${_ => convertPixelsToRem(7)};
+    padding: ${() => convertPixelsToRem(7)};
     grid-column: 2;
 `;
 

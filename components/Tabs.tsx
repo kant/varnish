@@ -13,7 +13,7 @@ class VarnishTabs extends AntTabs {
 }
 
 // Styled version of Tabs.
-const StyledTabs = styled(VarnishTabs).attrs(_ => ({
+const StyledTabs = styled(VarnishTabs).attrs(() => ({
     animated: false
 }))`
     &,
