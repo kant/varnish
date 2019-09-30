@@ -3,8 +3,8 @@ import { findDOMNode } from 'react-dom';
 import styled from 'styled-components';
 
 import { Columns } from './Columns';
-import { LayoutHeader } from './Layout';
-import { Content } from './Layout';
+import { LayoutHeader, Content } from './Layout';
+
 import { LayoutContext } from '../layout';
 import { AI2Banner } from './AI2Banner';
 
@@ -41,24 +41,23 @@ export class Header extends React.PureComponent<Props, State> {
             const distance = window.scrollY - this.lastScrollY;
             this.lastScrollY = window.scrollY;
             const isCollapsed = distance > 0;
-            this.setState({ isCollapsed })
+            this.setState({ isCollapsed });
         }
     };
 
     componentDidMount() {
-        window.addEventListener("scroll", this.onScroll);
+        window.addEventListener('scroll', this.onScroll);
         if (this.container !== null) {
             const maybeNode = findDOMNode(this.container);
             if (maybeNode instanceof HTMLElement) {
-                const currentHeaderHeight =
-                    maybeNode.getBoundingClientRect().height
-                this.setState({  currentHeaderHeight });
+                const currentHeaderHeight = maybeNode.getBoundingClientRect().height;
+                this.setState({ currentHeaderHeight });
             }
         }
     }
 
     componentWillUnmount() {
-        window.removeEventListener("scroll", this.onScroll);
+        window.removeEventListener('scroll', this.onScroll);
     }
 
     getTopOffset() {
@@ -66,9 +65,7 @@ export class Header extends React.PureComponent<Props, State> {
             return (
                 -1 *
                 (this.banner.current.getBoundingClientRect().height -
-                    parseFloat(
-                        window.getComputedStyle(this.banner.current).paddingBottom || "0"
-                    ))
+                    parseFloat(window.getComputedStyle(this.banner.current).paddingBottom || '0'))
             );
         }
         return 0;
@@ -82,18 +79,15 @@ export class Header extends React.PureComponent<Props, State> {
                     setHeaderHeight(this.state.currentHeaderHeight + offset);
                     return (
                         <Sticky
-                            ref={instance => this.container = instance}
-                            style={{ top: `${offset}px` }}
-                        >
+                            ref={instance => (this.container = instance)}
+                            style={{ top: `${offset}px` }}>
                             <AI2Banner ref={this.banner} />
-                            <HeaderContent>
-                                {this.props.children}
-                            </HeaderContent>
+                            <HeaderContent>{this.props.children}</HeaderContent>
                         </Sticky>
                     );
                 }}
             </LayoutContext.Consumer>
-        )
+        );
     }
 }
 
@@ -127,7 +121,7 @@ export const HeaderTitle = styled.h5`
     margin: 0;
     font-size: 1.9rem;
     line-height: 1.65rem;
-    @media (max-width: ${({theme}) => theme.breakpoints.xs}) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
         font-size: 1.75rem;
         line-height: 1.5rem;
     }

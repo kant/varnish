@@ -5,7 +5,7 @@ import { BodySmall, ExternalLink } from '@allenai/varnish/components';
 import { PageTitle, SectionWithDivider, DefaultLiveProvider } from '../shared';
 
 const examples = {
-basic: `
+    basic: `
 class MyModal extends React.Component {
   constructor(props) {
     super(props);
@@ -30,8 +30,8 @@ class MyModal extends React.Component {
     )
   }
 }
-`.trim(),
-}
+`.trim()
+};
 
 export class Modal extends React.PureComponent<RouteComponentProps> {
     render() {
@@ -41,8 +41,13 @@ export class Modal extends React.PureComponent<RouteComponentProps> {
 
                 <h3>Appearance and Behavior</h3>
                 <BodySmall>
-                    <br/>We are extending the Ant Design Modal component.
-                    <br/>For more information see the: <ExternalLink target="_blank" href="https://ant.design/components/modal/">Ant Design Component</ExternalLink>
+                    <br />
+                    We are extending the Ant Design Modal component.
+                    <br />
+                    For more information see the:{' '}
+                    <ExternalLink target="_blank" href="https://ant.design/components/modal/">
+                        Ant Design Component
+                    </ExternalLink>
                 </BodySmall>
 
                 <SectionWithDivider>
@@ -51,6 +56,6 @@ export class Modal extends React.PureComponent<RouteComponentProps> {
                     <DefaultLiveProvider code={examples.basic} noInline={false} />
                 </SectionWithDivider>
             </React.Fragment>
-        )
+        );
     }
 }

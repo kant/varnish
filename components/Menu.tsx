@@ -1,5 +1,3 @@
-
-import * as React from 'react';
 import styled, { StyledComponentBase } from 'styled-components';
 import { Menu } from 'antd';
 
@@ -11,7 +9,6 @@ const MenuItem = styled(Menu.Item)``;
 const MenuDivider = styled(Menu.Divider)``;
 const MenuItemGroup = styled(Menu.ItemGroup)``;
 
-
 // Menu Item styled for top menu
 export const TopMenuItem = styled(MenuItem)`
     a:hover {
@@ -20,7 +17,7 @@ export const TopMenuItem = styled(MenuItem)`
 `;
 
 // Menu Item styled for left menu
-export const LeftMenuItem = styled(MenuItem) <{ spacing?: string }>`
+export const LeftMenuItem = styled(MenuItem)<{ spacing?: string }>`
     &&& {
         height: auto;
         line-height: ${({ theme }) => theme.typography.body.lineHeight};
@@ -64,7 +61,7 @@ const StyledLeftMenu = styled(VarnishMenu).attrs(() => ({
 
 // Styled top version of Menu.
 const StyledTopMenu = styled(VarnishMenu).attrs({
-    mode: "horizontal"
+    mode: 'horizontal'
 })`
     && {
         display: flex;
@@ -84,5 +81,5 @@ interface WithStaticProps extends StyledComponentBase<typeof Menu, any, any, any
 
 // We trick Typescript here by first casting to unknown and then casting to the type we'd like to export.
 // We do this so that the exported type includes the static properties, which we lose otherwise.
-export const LeftMenu = StyledLeftMenu as unknown as WithStaticProps;
-export const TopMenu = StyledTopMenu as unknown as WithStaticProps;
+export const LeftMenu = (StyledLeftMenu as unknown) as WithStaticProps;
+export const TopMenu = (StyledTopMenu as unknown) as WithStaticProps;

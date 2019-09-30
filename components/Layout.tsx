@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import styled from 'styled-components';
 import { Layout as AntLayout } from 'antd';
@@ -13,7 +12,7 @@ export const LayoutFooter = styled(AntLayout.Footer)``;
 
 export const Layout = styled(AntLayout)<{ bgcolor?: string }>`
     && {
-        background: ${({theme, bgcolor}) => bgcolor ? theme.color[bgcolor] : 'none'}
+        background: ${({ theme, bgcolor }) => (bgcolor ? theme.color[bgcolor] : 'none')};
     }
 `;
 
@@ -25,25 +24,21 @@ interface ContentProps extends BasicProps {
 export const Content = ({ children, className, ...basicProps }: ContentProps) => (
     <LayoutContext.Consumer>
         {({ layoutVariant }) => (
-            <ContentContainer
-                layout={layoutVariant}
-                className={className}
-                {...basicProps}
-            >
+            <ContentContainer layout={layoutVariant} className={className} {...basicProps}>
                 {children}
             </ContentContainer>
         )}
     </LayoutContext.Consumer>
 );
 
-const ContentContainer = styled(AntLayout.Content)<{layout?: LayoutVariant}>`
-    max-width: ${({theme, layout}) => (layout === 'hcenter') ? theme.breakpoints.xl : undefined};
+const ContentContainer = styled(AntLayout.Content)<{ layout?: LayoutVariant }>`
+    max-width: ${({ theme, layout }) => (layout === 'hcenter' ? theme.breakpoints.xl : undefined)};
     width: 100%;
-    ${({ layout }) => layout === 'hcenter' ? 'margin: 0 auto;' : ''}
-    padding: ${({theme}) => theme.spacing.lg};
+    ${({ layout }) => (layout === 'hcenter' ? 'margin: 0 auto;' : '')}
+    padding: ${({ theme }) => theme.spacing.lg};
 
-    @media (max-width: ${({theme}) => theme.breakpoints.sm}) {
-        padding: ${({theme}) => theme.spacing.sm};
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+        padding: ${({ theme }) => theme.spacing.sm};
     }
 `;
 
@@ -55,23 +50,17 @@ interface LeftSiderProps extends SiderProps {
 export const LeftSider = (props: LeftSiderProps) => (
     <LayoutContext.Consumer>
         {({ currentHeaderHeight }) => (
-            <StyledLeftSider
-                trigger={null}
-                breakpoint="md"
-                {...props}
-            >
+            <StyledLeftSider trigger={null} breakpoint="md" {...props}>
                 <FixedContainer
                     paddingTop={currentHeaderHeight}
-                    breakpoint={props.breakpoint || "md"}
+                    breakpoint={props.breakpoint || 'md'}
                     width={props.width}
-                    collapsedWidth={props.collapsedWidth}
-                >
+                    collapsedWidth={props.collapsedWidth}>
                     {props.children}
                 </FixedContainer>
             </StyledLeftSider>
         )}
     </LayoutContext.Consumer>
-
 );
 
 const StyledLeftSider = styled(AntLayout.Sider)`
@@ -79,7 +68,12 @@ const StyledLeftSider = styled(AntLayout.Sider)`
     transition: none;
 `;
 
-const FixedContainer = styled.div<{ paddingTop: number, width: number | string, collapsedWidth: number | string, breakpoint: string }>`
+const FixedContainer = styled.div<{
+    paddingTop: number;
+    width: number | string;
+    collapsedWidth: number | string;
+    breakpoint: string;
+}>`
     border-right: 1px solid ${({ theme }) => theme.palette.border.main};
     position: fixed;
     top: 0;

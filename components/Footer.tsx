@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { palette } from '../theme/palette'
+import { palette } from '../theme/palette';
 import { Color } from '../theme/colors';
 
 /*
@@ -30,38 +30,50 @@ interface Props {
 export class Footer extends React.PureComponent<Props> {
     static defaultProps = {
         setPageBackground: true
-    }
+    };
+
     render() {
-        const contrast = this.props.variant === 'dark' ? true : undefined
+        const contrast = this.props.variant === 'dark' ? true : undefined;
         return (
             <LayoutContext.Consumer>
                 {({ layoutVariant }) => (
                     <StyledFooter
-                            contrast={contrast}
-                            layout={layoutVariant}
-                            className={this.props.className}>
+                        contrast={contrast}
+                        layout={layoutVariant}
+                        className={this.props.className}>
                         {this.props.setPageBackground ? (
                             <WithPageBackground
-                                color={contrast
-                                    ? palette.background.dark
-                                    : palette.background.light} />
+                                color={
+                                    contrast ? palette.background.dark : palette.background.light
+                                }
+                            />
                         ) : null}
-                        {this.props.children
-                            ? this.props.children
-                            : (
-                                <Body>
-                                    © The
-                                    {' '}<ExternalLink contrast={contrast} href="https://allenai.org">Allen Institute for Artificial Intelligence (AI2)</ExternalLink>
-                                    {' '}- All Rights Reserved
-                                    {' '}| <ExternalLink contrast={contrast} href="https://allenai.org/privacy-policy.html">Privacy Policy</ExternalLink>
-                                    {' '}| <ExternalLink contrast={contrast} href="https://allenai.org/terms.html">Terms of Use</ExternalLink>
-                                </Body>
-                            )
-                        }
+                        {this.props.children ? (
+                            this.props.children
+                        ) : (
+                            <Body>
+                                © The{' '}
+                                <ExternalLink contrast={contrast} href="https://allenai.org">
+                                    Allen Institute for Artificial Intelligence (AI2)
+                                </ExternalLink>{' '}
+                                - All Rights Reserved |{' '}
+                                <ExternalLink
+                                    contrast={contrast}
+                                    href="https://allenai.org/privacy-policy.html">
+                                    Privacy Policy
+                                </ExternalLink>{' '}
+                                |{' '}
+                                <ExternalLink
+                                    contrast={contrast}
+                                    href="https://allenai.org/terms.html">
+                                    Terms of Use
+                                </ExternalLink>
+                            </Body>
+                        )}
                     </StyledFooter>
                 )}
             </LayoutContext.Consumer>
-        )
+        );
     }
 }
 
@@ -71,10 +83,12 @@ const WithPageBackground = createGlobalStyle<{ color: Color }>`
     }
 `;
 
-const StyledFooter = styled(LayoutFooter)<{contrast?: boolean, layout?: LayoutVariant}>`
+const StyledFooter = styled(LayoutFooter)<{ contrast?: boolean; layout?: LayoutVariant }>`
     && {
-        background: ${({theme, contrast}) => contrast ? theme.palette.background.dark : theme.palette.background.light};
-        color: ${({theme, contrast}) => contrast ? theme.palette.text.contrast : theme.palette.text.default};
-        text-align: ${({layout}) => (layout !== 'app') ? 'center' : undefined};
+        background: ${({ theme, contrast }) =>
+            contrast ? theme.palette.background.dark : theme.palette.background.light};
+        color: ${({ theme, contrast }) =>
+            contrast ? theme.palette.text.contrast : theme.palette.text.default};
+        text-align: ${({ layout }) => (layout !== 'app' ? 'center' : undefined)};
     }
 `;

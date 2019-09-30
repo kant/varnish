@@ -10,11 +10,12 @@ export const Tabs = (_: RouteComponentProps) => (
 
         <h3>Appearance and Behavior</h3>
         <BodySmall>
-            Varnish extends the
-            {' '}<ExternalLink target="_blank" href="https://ant.design/components/tabs/">
+            Varnish extends the{' '}
+            <ExternalLink target="_blank" href="https://ant.design/components/tabs/">
                 Ant Design Tab component
-            </ExternalLink>, by overriding several default settings
-            as to adjust the default presentation to conform to AI2 brand standards.
+            </ExternalLink>
+            , by overriding several default settings as to adjust the default presentation to
+            conform to AI2 brand standards.
         </BodySmall>
 
         <SectionWithDivider>

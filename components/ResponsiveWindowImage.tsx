@@ -20,21 +20,18 @@ export const ResponsiveWindowImage = (props: Props) => {
             breakWidth={props.breakWidth}
             width={props.skinnyWidth}
             height={props.height}>
-            <img src={props.src}
-                width={props.wideWidth}
-                height={props.height}
-                alt={props.alt} />
+            <img src={props.src} width={props.wideWidth} height={props.height} alt={props.alt} />
         </ResponsiveImageContainer>
     );
 };
 
-const ResponsiveImageContainer = styled.div<{width: string, height: string, breakWidth?: string}>`
+const ResponsiveImageContainer = styled.div<{ width: string; height: string; breakWidth?: string }>`
     img {
         display: block;
     }
-    @media (max-width: ${({theme, breakWidth}) => breakWidth ? breakWidth : theme.breakpoints.sm}) {
-        width: ${({width}) => width};
-        height: ${({height}) => height};
+    @media (max-width: ${({ theme, breakWidth }) => breakWidth || theme.breakpoints.sm}) {
+        width: ${({ width }) => width};
+        height: ${({ height }) => height};
         overflow: hidden;
     }
 `;

@@ -48,13 +48,14 @@ interface LayoutProviderProps {
  * Most of the time you should use this.
  */
 export const DefaultLayoutProvider = ({ layoutVariant, children }: LayoutProviderProps) => {
-    const [ currentHeaderHeight, setHeaderHeight ] = React.useState(0);
+    const [currentHeaderHeight, setHeaderHeight] = React.useState(0);
     return (
-        <LayoutContext.Provider value={{
-            layoutVariant,
-            currentHeaderHeight,
-            setHeaderHeight
-        }}>
+        <LayoutContext.Provider
+            value={{
+                layoutVariant,
+                currentHeaderHeight,
+                setHeaderHeight
+            }}>
             {children}
         </LayoutContext.Provider>
     );

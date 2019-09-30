@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 
-import { PageTitle, SectionWithDivider, DefaultLiveProvider} from '../shared';
+import { PageTitle, SectionWithDivider, DefaultLiveProvider } from '../shared';
 
 // TODO: add best practices and any info on colors etc that we want to show about the headers/footers
 
 const examples = {
-header: `
+    header: `
 render(
     <div>
         <Header>
@@ -34,7 +34,7 @@ render(
     </div>
 )
 `.trim(),
-footer: `
+    footer: `
 render(
     <div>
         <Examples.WhitePaper>
@@ -47,7 +47,7 @@ render(
     </div>
 )
 `.trim(),
-darkFooter: `
+    darkFooter: `
 render(
     <div>
         <Examples.WhitePaper>
@@ -60,35 +60,31 @@ render(
     </div>
 )
 `.trim()
-}
+};
 
 export class Headers extends React.PureComponent<RouteComponentProps> {
     render() {
         return (
             <React.Fragment>
                 <PageTitle>Headers &amp; Footers</PageTitle>
-
                 <h3> Appearance and Behavior </h3>
                 Unified header for all AI2 properties.
-
                 <SectionWithDivider>
                     <h3>Usage</h3>
                     <h4>Header</h4>
                     <DefaultLiveProvider code={examples.header} />
                 </SectionWithDivider>
-
                 <SectionWithDivider>
                     <h4>Default Footer</h4>
                     Use for demos and applications
                     <DefaultLiveProvider code={examples.footer} />
                 </SectionWithDivider>
-
                 <SectionWithDivider>
                     <h4>Dark Footer</h4>
                     Use for marketing
                     <DefaultLiveProvider code={examples.darkFooter} />
                 </SectionWithDivider>
             </React.Fragment>
-        )
+        );
     }
 }

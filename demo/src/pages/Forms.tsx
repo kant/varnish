@@ -1,12 +1,11 @@
 import * as React from 'react';
-import styled from 'styled-components';
 import { RouteComponentProps } from 'react-router';
 import { ExternalLink } from '@allenai/varnish/components';
 
 import { PageTitle, SectionWithDivider, DefaultLiveProvider } from '../shared';
 
 const examples = {
-select: `
+    select: `
 render(
     <div>
         Standard:
@@ -36,14 +35,14 @@ render(
 )
 `.trim(),
 
-input: `
+    input: `
 render(
     <Input
         placeholder="type here"/>
 )
 `.trim(),
 
-textArea: `
+    textArea: `
 render(
     <TextArea
         autosize={{minRows:2, maxRows:7}}
@@ -51,13 +50,13 @@ render(
 )
 `.trim(),
 
-datePicker: `
+    datePicker: `
 render(
     <DatePicker />
 )
 `.trim(),
 
-radio: `
+    radio: `
 render(
     <div>
         Horizontal
@@ -79,59 +78,79 @@ render(
     </div>
 )
 `
-}
+};
 
 export class Forms extends React.PureComponent<RouteComponentProps> {
     render() {
         return (
             <React.Fragment>
                 <PageTitle>Forms</PageTitle>
-
                 <h3> Appearance and Behavior </h3>
-                We are extending the Ant Design Form components such as Select, Input, TextArea, and DatePicker.
-                <br/>For more information see the: <ExternalLink target="_blank" href="https://ant.design/components/">Ant Design Component</ExternalLink>
-
+                We are extending the Ant Design Form components such as Select, Input, TextArea, and
+                DatePicker.
+                <br />
+                For more information see the:{' '}
+                <ExternalLink target="_blank" href="https://ant.design/components/">
+                    Ant Design Component
+                </ExternalLink>
                 <SectionWithDivider>
                     <h3>Usage</h3>
                     <h4>Select</h4>
                     <DefaultLiveProvider code={examples.select} />
-                    <br/>For more information see the: <ExternalLink target="_blank" href="https://ant.design/components/select/">Ant Design Component</ExternalLink>
+                    <br />
+                    For more information see the:{' '}
+                    <ExternalLink target="_blank" href="https://ant.design/components/select/">
+                        Ant Design Component
+                    </ExternalLink>
                 </SectionWithDivider>
-
                 <SectionWithDivider>
                     <h4>Input</h4>
                     <DefaultLiveProvider code={examples.input} />
-                    <br/>For more information see the: <ExternalLink target="_blank" href="https://ant.design/components/input/">Ant Design Component</ExternalLink>
+                    <br />
+                    For more information see the:{' '}
+                    <ExternalLink target="_blank" href="https://ant.design/components/input/">
+                        Ant Design Component
+                    </ExternalLink>
                 </SectionWithDivider>
-
                 <SectionWithDivider>
                     <h4>TextArea</h4>
                     <DefaultLiveProvider code={examples.textArea} />
-                    <br/>For more information see the: <ExternalLink target="_blank" href="https://ant.design/components/input/">Ant Design Component</ExternalLink>
+                    <br />
+                    For more information see the:{' '}
+                    <ExternalLink target="_blank" href="https://ant.design/components/input/">
+                        Ant Design Component
+                    </ExternalLink>
                 </SectionWithDivider>
-
                 <SectionWithDivider>
                     <h4>Input</h4>
                     <DefaultLiveProvider code={examples.input} />
-                    <br/>For more information see the: <ExternalLink target="_blank" href="https://ant.design/components/input/#Input.TextArea">Ant Design Component</ExternalLink>
+                    <br />
+                    For more information see the:{' '}
+                    <ExternalLink
+                        target="_blank"
+                        href="https://ant.design/components/input/#Input.TextArea">
+                        Ant Design Component
+                    </ExternalLink>
                 </SectionWithDivider>
-
                 <SectionWithDivider>
                     <h4>DatePicker</h4>
                     <DefaultLiveProvider code={examples.datePicker} />
-                    <br/>For more information see the: <ExternalLink target="_blank" href="https://ant.design/components/date-picker/">Ant Design Component</ExternalLink>
+                    <br />
+                    For more information see the:{' '}
+                    <ExternalLink target="_blank" href="https://ant.design/components/date-picker/">
+                        Ant Design Component
+                    </ExternalLink>
                 </SectionWithDivider>
-
                 <SectionWithDivider>
                     <h4>Radio</h4>
                     <DefaultLiveProvider code={examples.radio} />
-                    <br/>For more information see the: <ExternalLink target="_blank" href="https://ant.design/components/radio/">Ant Design Component</ExternalLink>
+                    <br />
+                    For more information see the:{' '}
+                    <ExternalLink target="_blank" href="https://ant.design/components/radio/">
+                        Ant Design Component
+                    </ExternalLink>
                 </SectionWithDivider>
             </React.Fragment>
-        )
+        );
     }
 }
-
-const MaxWidth = styled.div`
-  max-width: ${({theme}) => theme.breakpoints.xs};
-`;

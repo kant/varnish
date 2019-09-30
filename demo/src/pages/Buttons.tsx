@@ -5,10 +5,16 @@ import { RouteComponentProps } from 'react-router';
 import { BodySmall, Body, Button, ButtonVariant, ExternalLink } from '@allenai/varnish/components';
 import { DefaultVarnishTheme } from '@allenai/varnish/theme';
 import { defaultSpacing, borderColor } from '@allenai/varnish/theme/button';
-import { PageTitle, SectionWithDivider, LightPaper, DarkPaper, DefaultLiveProvider } from '../shared';
+import {
+    PageTitle,
+    SectionWithDivider,
+    LightPaper,
+    DarkPaper,
+    DefaultLiveProvider
+} from '../shared';
 
 const examples = {
-basic: `
+    basic: `
 render(
     <Button
         variant='primary'
@@ -18,7 +24,7 @@ render(
     </Button>
 )
 `.trim(),
-all: `
+    all: `
 const Buttons = ({contrast}) =>
     [false, true].map(disabled => {
         return ['primary', 'default', 'link', 'marketing'].map(variant => {
@@ -64,7 +70,7 @@ render(
     </div>
 )
 `.trim()
-}
+};
 
 export class Buttons extends React.PureComponent<RouteComponentProps> {
     render() {
@@ -74,9 +80,15 @@ export class Buttons extends React.PureComponent<RouteComponentProps> {
 
                 <h3>Appearance and Behavior</h3>
                 <BodySmall>
-                    Basic buttons come in four style variants: primary, default, link, and marketing.
-                    <br/>We are extending the Ant Design Button component.
-                    <br/>For more information see the: <ExternalLink target="_blank" href="https://ant.design/components/button/">Ant Design Component</ExternalLink>
+                    Basic buttons come in four style variants: primary, default, link, and
+                    marketing.
+                    <br />
+                    We are extending the Ant Design Button component.
+                    <br />
+                    For more information see the:{' '}
+                    <ExternalLink target="_blank" href="https://ant.design/components/button/">
+                        Ant Design Component
+                    </ExternalLink>
                 </BodySmall>
 
                 <SectionWithDivider>
@@ -84,11 +96,22 @@ export class Buttons extends React.PureComponent<RouteComponentProps> {
                     <BodySmall>
                         <ul>
                             <li>Border radius: {`${DefaultVarnishTheme.shape.borderRadius}px`}</li>
-                            <li>Horizontal padding: {`${defaultSpacing[0].displayName} (${defaultSpacing[0]})`}</li>
-                            <li>Vertical padding: {`${defaultSpacing[1].displayName} (${defaultSpacing[1]})`}</li>
+                            <li>
+                                Horizontal padding:{' '}
+                                {`${defaultSpacing[0].displayName} (${defaultSpacing[0]})`}
+                            </li>
+                            <li>
+                                Vertical padding:{' '}
+                                {`${defaultSpacing[1].displayName} (${defaultSpacing[1]})`}
+                            </li>
                             <li>Border color: {borderColor.displayName}</li>
-                            <li>Dark text: {DefaultVarnishTheme.button.default.contrastColor.displayName}</li>
-                            <li>Light text: {DefaultVarnishTheme.button.default.color.displayName}</li>
+                            <li>
+                                Dark text:{' '}
+                                {DefaultVarnishTheme.button.default.contrastColor.displayName}
+                            </li>
+                            <li>
+                                Light text: {DefaultVarnishTheme.button.default.color.displayName}
+                            </li>
                         </ul>
                     </BodySmall>
                 </SectionWithDivider>
@@ -97,9 +120,18 @@ export class Buttons extends React.PureComponent<RouteComponentProps> {
                     <h4>Primary-style buttons</h4>
                     <BodySmall>
                         <ul>
-                            <li>Use the primary button style for the most prominent call to action on the page.</li>
-                            <li>These buttons guide users to and through the main happy path in a task flow.</li>
-                            <li>Background Color: {DefaultVarnishTheme.button.primary.background.displayName}</li>
+                            <li>
+                                Use the primary button style for the most prominent call to action
+                                on the page.
+                            </li>
+                            <li>
+                                These buttons guide users to and through the main happy path in a
+                                task flow.
+                            </li>
+                            <li>
+                                Background Color:{' '}
+                                {DefaultVarnishTheme.button.primary.background.displayName}
+                            </li>
                         </ul>
                     </BodySmall>
                     <ButtonExample variant={'primary'} />
@@ -109,13 +141,16 @@ export class Buttons extends React.PureComponent<RouteComponentProps> {
                     <h4>Default-style buttons</h4>
                     <BodySmall>
                         <ul>
-                            <li>Use the secondary button style for buttons that offer users additional
-                                action they can take in their task flow (examples: Cancel, Back).
+                            <li>
+                                Use the secondary button style for buttons that offer users
+                                additional action they can take in their task flow (examples:
+                                Cancel, Back).
                             </li>
-                            <li>You can have only one primary-styled button on a screen, but you can
-                                have more than one secondary-styled button. If you need to offer more
-                                than one alternate action, consider using text links instead of multiple
-                                secondary buttons.
+                            <li>
+                                You can have only one primary-styled button on a screen, but you can
+                                have more than one secondary-styled button. If you need to offer
+                                more than one alternate action, consider using text links instead of
+                                multiple secondary buttons.
                             </li>
                         </ul>
                     </BodySmall>
@@ -126,10 +161,13 @@ export class Buttons extends React.PureComponent<RouteComponentProps> {
                     <h4>Link-style buttons</h4>
                     <BodySmall>
                         <ul>
-                            <li>If you need to offer more than one alternate action, consider using text
-                                links instead of multiple secondary buttons.
+                            <li>
+                                If you need to offer more than one alternate action, consider using
+                                text links instead of multiple secondary buttons.
                             </li>
-                            <li>Bright text: {DefaultVarnishTheme.button.link.color.displayName}</li>
+                            <li>
+                                Bright text: {DefaultVarnishTheme.button.link.color.displayName}
+                            </li>
                         </ul>
                     </BodySmall>
                     <ButtonExample variant={'link'} />
@@ -139,11 +177,15 @@ export class Buttons extends React.PureComponent<RouteComponentProps> {
                     <h4>Marketing-style buttons</h4>
                     <BodySmall>
                         <ul>
-                            <li>Use only in marketing as an extra-large primary button for an important
-                                action.
+                            <li>
+                                Use only in marketing as an extra-large primary button for an
+                                important action.
                             </li>
                             <li>Only one jumbo button can exist on a page or screen.</li>
-                            <li>Bright text: {DefaultVarnishTheme.button.marketing.color.displayName}</li>
+                            <li>
+                                Bright text:{' '}
+                                {DefaultVarnishTheme.button.marketing.color.displayName}
+                            </li>
                         </ul>
                     </BodySmall>
                     <ButtonExample variant={'marketing'} />
@@ -153,7 +195,11 @@ export class Buttons extends React.PureComponent<RouteComponentProps> {
                     <h3>Usage</h3>
                     <h4>Basic button</h4>
                     <DefaultLiveProvider code={examples.basic} />
-                    <br/>For more information see the: <ExternalLink target="_blank" href="https://ant.design/components/button/">Ant Design Component</ExternalLink>
+                    <br />
+                    For more information see the:{' '}
+                    <ExternalLink target="_blank" href="https://ant.design/components/button/">
+                        Ant Design Component
+                    </ExternalLink>
                 </SectionWithDivider>
 
                 <SectionWithDivider>
@@ -161,11 +207,11 @@ export class Buttons extends React.PureComponent<RouteComponentProps> {
                     <DefaultLiveProvider code={examples.all} />
                 </SectionWithDivider>
             </React.Fragment>
-        )
+        );
     }
 }
 
-interface ButtonExampleProps{
+interface ButtonExampleProps {
     variant: ButtonVariant;
 }
 class ButtonExample extends React.PureComponent<ButtonExampleProps> {
@@ -175,19 +221,19 @@ class ButtonExample extends React.PureComponent<ButtonExampleProps> {
                 <ButtonRow variant={this.props.variant} />
                 <ButtonRow variant={this.props.variant} contrast />
             </React.Fragment>
-        )
+        );
     }
 }
 
-
-interface ButtonRowProps{
+interface ButtonRowProps {
     variant: ButtonVariant;
     contrast?: boolean;
 }
 class ButtonRow extends React.PureComponent<ButtonRowProps> {
     render() {
         const Paper = styled(this.props.contrast ? DarkPaper : LightPaper)`
-            margin-bottom: ${({theme}) => theme.spacing.md};`;
+            margin-bottom: ${({ theme }) => theme.spacing.md};
+        `;
         const { variant, contrast } = this.props;
         return (
             <React.Fragment>
@@ -207,7 +253,7 @@ class ButtonRow extends React.PureComponent<ButtonRowProps> {
                     </ButtonGrid>
                 </Paper>
             </React.Fragment>
-        )
+        );
     }
 }
 
@@ -216,7 +262,7 @@ const ButtonGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(2, max-content);
     align-items: center;
-    grid-gap: ${({theme}) => theme.spacing.lg};
+    grid-gap: ${({ theme }) => theme.spacing.lg};
 `;
 
 const ButtonSpace = styled.div``;

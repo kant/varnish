@@ -6,7 +6,7 @@ import { LayoutVariant } from '../layout';
 
 import microLogo from './logo-ai2-micro-25.svg';
 
-export const AI2Banner = React.forwardRef<HTMLDivElement, {layout?: LayoutVariant}>(
+export const AI2Banner = React.forwardRef<HTMLDivElement, { layout?: LayoutVariant }>(
     (props, ref) => (
         <DarkBanner ref={ref}>
             <BannerContent>
@@ -38,7 +38,7 @@ const Logo = styled.img`
 `;
 
 const DarkBanner = styled.div`
-    background: ${({theme}) => theme.palette.background.dark};
-    padding: ${({theme}) => `${theme.spacing.xxs} 0`};
+    background: ${({ theme }) => theme.palette.background.dark};
+    padding: ${({ theme }) => `${theme.spacing.xxs} 0`};
     line-height: 1;
 `;
