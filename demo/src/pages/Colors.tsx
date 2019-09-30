@@ -285,7 +285,7 @@ const PrimaryColorGrid = styled.div`
 const PrimaryColorBox = styled.div`
     background: ${props => props.color};
     width: 100%;
-    height: ${_ => convertPixelsToRem(76)};
+    height: ${() => convertPixelsToRem(76)};
     border-radius: ${({ theme }) =>
         `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`};
     grid-column: 1 / span 3;
@@ -349,8 +349,8 @@ const Col = styled(Body)`
 const ColorBox = styled.div<{ color: string; borderColor: string }>`
     display: flex;
     background: ${props => props.color};
-    width: ${_ => convertPixelsToRem(40)};
-    height: ${_ => convertPixelsToRem(40)};
+    width: ${() => convertPixelsToRem(40)};
+    height: ${() => convertPixelsToRem(40)};
     border-radius: ${({ theme }) => `${theme.shape.borderRadius}px`};
     border: ${props => `1px solid ${props.borderColor}`};
 `;
@@ -363,7 +363,7 @@ const ColorText = styled.div`
 `;
 
 const ColorBoxWrapper = styled(Col)`
-    padding: ${_ => convertPixelsToRem(7)};
+    padding: ${() => convertPixelsToRem(7)};
     grid-column: 1;
 `;
 
