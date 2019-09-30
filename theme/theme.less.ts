@@ -94,7 +94,7 @@ export const less = `
     // set default media breakpoint sizes
     @media (max-width: ${breakpoints.lg}) {
         html {
-            font-size: ${100 * 14/16}%;
+            font-size: ${(100 * 14) / 16}%;
         }
     }
 
@@ -132,8 +132,12 @@ export const less = `
     @primary-2: ${color.B2};
     @primary-3: ${color.B3};
     @primary-4: ${color.B4};
-    @primary-5: ${DefaultVarnishTheme.palette.primary.light}; // color used to control the text color in many active and hover states
-    @primary-6: ${DefaultVarnishTheme.palette.primary.main}; // color used to control the text color of active buttons
+    @primary-5: ${
+        DefaultVarnishTheme.palette.primary.light
+    }; // color used to control the text color in many active and hover states
+    @primary-6: ${
+        DefaultVarnishTheme.palette.primary.main
+    }; // color used to control the text color of active buttons
     @primary-7: ${color.B7};
     @primary-8: ${color.B8};
     @primary-9: ${color.B9};

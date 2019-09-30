@@ -8,7 +8,7 @@ import { dictionaryToArray } from '@allenai/varnish/utils/base';
 import { PageTitle, SectionWithDivider, DefaultLiveProvider } from '../shared';
 
 const examples = {
-basic: `
+    basic: `
 const BreakpointDiv = styled.div\`
     width: 9rem;
     height: 1.5rem;
@@ -59,36 +59,37 @@ render(
     </div>
 )
 `.trim()
-}
+};
 
 export class Breakpoints extends React.PureComponent<RouteComponentProps> {
     render() {
         return (
             <React.Fragment>
                 <PageTitle>Breakpoints</PageTitle>
-
                 <h3> Appearance and Behavior </h3>
                 Standard breakpoints values.
-
                 <SectionWithDivider>
                     <h4>Breakpoints</h4>
                     <BreakpointGrid>
-                        {dictionaryToArray(breakpoints).map((breakpoint) => {
-                            return <React.Fragment>
-                                <BreakpointRow breakpoint={breakpoint} key={breakpoint.displayName} />
-                                <Example width={breakpoint.rem} key={breakpoint.displayName} />
-                            </React.Fragment>
+                        {dictionaryToArray(breakpoints).map(breakpoint => {
+                            return (
+                                <React.Fragment>
+                                    <BreakpointRow
+                                        breakpoint={breakpoint}
+                                        key={breakpoint.displayName}
+                                    />
+                                    <Example width={breakpoint.rem} key={breakpoint.displayName} />
+                                </React.Fragment>
+                            );
                         })}
                     </BreakpointGrid>
-                </ SectionWithDivider>
-
+                </SectionWithDivider>
                 <SectionWithDivider>
                     <h3>Usage</h3>
                     <DefaultLiveProvider code={examples.basic} />
                 </SectionWithDivider>
-
             </React.Fragment>
-        )
+        );
     }
 }
 
@@ -103,14 +104,14 @@ class BreakpointRow extends React.PureComponent<BreakpointRowProps> {
                 <Px>{this.props.breakpoint.px}</Px>
                 <Rem>{this.props.breakpoint.rem}</Rem>
             </React.Fragment>
-        )
+        );
     }
 }
 
 const BreakpointGrid = styled.div`
     display: grid;
     align-items: center;
-    grid-column-gap: ${({theme}) => theme.spacing.lg};
+    grid-column-gap: ${({ theme }) => theme.spacing.lg};
 `;
 
 const Key = styled.div`
@@ -125,10 +126,10 @@ const Rem = styled.div`
     grid-column: 3;
 `;
 
-const Example = styled.div<{width: string}>`
+const Example = styled.div<{ width: string }>`
     grid-column: 1 / span 4;
-    width: ${({width}) => width};
-    margin-bottom: ${({theme}) => theme.spacing.xs};
-    height: ${({theme}) => theme.spacing.xs};
-    background: ${({theme}) => theme.palette.border.main};
+    width: ${({ width }) => width};
+    margin-bottom: ${({ theme }) => theme.spacing.xs};
+    height: ${({ theme }) => theme.spacing.xs};
+    background: ${({ theme }) => theme.palette.border.main};
 `;

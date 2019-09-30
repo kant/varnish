@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { DefaultVarnishTheme } from '@allenai/varnish/theme';
 
 import { AppRoute, AppRouteGroup } from './AppRoute';
@@ -114,7 +113,7 @@ export const componentGroups: AppRouteGroup[] = [
                 iconSrc: tablesIcon,
                 component: Breakpoints,
                 disabled: true,
-                tag: {label: 'Coming Soon', color: DefaultVarnishTheme.color.B4}
+                tag: { label: 'Coming Soon', color: DefaultVarnishTheme.color.B4 }
             },
             {
                 path: `${componentRoot}/layout`,
@@ -122,7 +121,7 @@ export const componentGroups: AppRouteGroup[] = [
                 iconSrc: headerFooterIcon,
                 component: Breakpoints,
                 disabled: true,
-                tag: {label: 'Coming Soon', color: DefaultVarnishTheme.color.B4}
+                tag: { label: 'Coming Soon', color: DefaultVarnishTheme.color.B4 }
             }
         ]
     },
@@ -134,7 +133,7 @@ export const componentGroups: AppRouteGroup[] = [
                 label: 'Header & Footer',
                 iconSrc: headerFooterIcon,
                 component: Headers
-            },
+            }
         ]
     },
     {
@@ -156,14 +155,14 @@ export const componentGroups: AppRouteGroup[] = [
                 label: 'Tabs',
                 iconSrc: tabIcon,
                 component: Tabs,
-                tag: {label: 'NEW', color: DefaultVarnishTheme.color.O4}
+                tag: { label: 'NEW', color: DefaultVarnishTheme.color.O4 }
             },
             {
                 path: `${componentRoot}/tables`,
                 label: 'Tables',
                 iconSrc: tablesIcon,
                 component: Tables
-            },
+            }
         ]
     },
     {
@@ -174,7 +173,7 @@ export const componentGroups: AppRouteGroup[] = [
                 label: 'Modal',
                 iconSrc: modalIcon,
                 component: Modal
-            },
+            }
         ]
     }
 ];

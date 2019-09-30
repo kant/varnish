@@ -3,15 +3,21 @@ import { RouteComponentProps } from 'react-router';
 import { BodySmall, Body, ExternalLink } from '@allenai/varnish/components';
 import { DefaultVarnishTheme } from '@allenai/varnish/theme';
 
-import { PageTitle, SectionWithDivider, LightPaper, DarkPaper, DefaultLiveProvider } from '../shared';
+import {
+    PageTitle,
+    SectionWithDivider,
+    LightPaper,
+    DarkPaper,
+    DefaultLiveProvider
+} from '../shared';
 
 const examples = {
-basic: `
+    basic: `
 render(
     <ExternalLink href="http://google.com" target="_blank">Go to Google (External)</ExternalLink>
 )
 `.trim(),
-contrast: `
+    contrast: `
 const Links = () => (
     <React.Fragment>
         <ExternalLink href="http://google.com" target="_blank">Go to Google (External)</ExternalLink>
@@ -31,7 +37,7 @@ render(
 
 
 `.trim()
-}
+};
 
 export class Links extends React.PureComponent<RouteComponentProps> {
     render() {
@@ -62,11 +68,11 @@ export class Links extends React.PureComponent<RouteComponentProps> {
                     <DefaultLiveProvider code={examples.contrast} />
                 </SectionWithDivider>
             </React.Fragment>
-        )
+        );
     }
 }
 
-interface LinkExampleProps{
+interface LinkExampleProps {
     contrast?: boolean;
 }
 class LinkExample extends React.PureComponent<LinkExampleProps> {
@@ -89,14 +95,18 @@ class LinkExample extends React.PureComponent<LinkExampleProps> {
                 <Paper>
                     <BodySmall>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a molestic
-                        metus. <ExternalLink contrast={this.props.contrast}>Suspendisse pharetra</ExternalLink>
-                        {' '}lobortis varius. Cras vulputate felis et mauris tincidunt, elementum
-                        volutpat <ExternalLink contrast={this.props.contrast}>urna euismod</ExternalLink>.
-                        Phasellus lacinia fringilla sapien. Quisque ac convallis elit, eget fringilla
-                        metus.
+                        metus.{' '}
+                        <ExternalLink contrast={this.props.contrast}>
+                            Suspendisse pharetra
+                        </ExternalLink>{' '}
+                        lobortis varius. Cras vulputate felis et mauris tincidunt, elementum
+                        volutpat{' '}
+                        <ExternalLink contrast={this.props.contrast}>urna euismod</ExternalLink>.
+                        Phasellus lacinia fringilla sapien. Quisque ac convallis elit, eget
+                        fringilla metus.
                     </BodySmall>
                 </Paper>
             </React.Fragment>
-        )
+        );
     }
 }

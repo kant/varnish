@@ -13,7 +13,7 @@ class VarnishTabs extends AntTabs {
 }
 
 // Styled version of Tabs.
-const StyledTabs = styled(VarnishTabs).attrs((props) => ({
+const StyledTabs = styled(VarnishTabs).attrs(_ => ({
     animated: false
 }))`
     &,
@@ -34,4 +34,4 @@ interface WithStaticProps extends StyledComponentBase<typeof AntTabs, any, any, 
 
 // We trick Typescript here by first casting to unknown and then casting to the type we'd like to export.
 // We do this so that the exported type includes the static properties, which we lose otherwise.
-export const Tabs = StyledTabs as unknown as WithStaticProps;
+export const Tabs = (StyledTabs as unknown) as WithStaticProps;

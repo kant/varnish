@@ -109,7 +109,7 @@ const colorGroups: { [k: string]: Color[] } = {
 };
 
 const examples = {
-basic: `
+    basic: `
 const ColorDiv = styled.div\`
     width: 100%;
     height: \${({theme}) => theme.spacing.xl };
@@ -127,7 +127,7 @@ render(
     </div>
 )
 `.trim(),
-palette: `
+    palette: `
 const Error = styled.div\`
     width: 100%;
     text-align: center;
@@ -141,7 +141,7 @@ render(
     <Error>I cant do that Dave.</Error>
 )
 `.trim()
-}
+};
 
 export class Colors extends React.PureComponent<RouteComponentProps> {
     render() {
@@ -151,35 +151,37 @@ export class Colors extends React.PureComponent<RouteComponentProps> {
 
                 <h3>Primary</h3>
                 <PrimaryGrid>
-                    {[DefaultVarnishTheme.palette.primary.veryDark,
-                    DefaultVarnishTheme.palette.primary.dark,
-                    DefaultVarnishTheme.palette.primary.main,
-                    DefaultVarnishTheme.palette.secondary.main].map((color: Color) =>
+                    {[
+                        DefaultVarnishTheme.palette.primary.veryDark,
+                        DefaultVarnishTheme.palette.primary.dark,
+                        DefaultVarnishTheme.palette.primary.main,
+                        DefaultVarnishTheme.palette.secondary.main
+                    ].map((color: Color) => (
                         <PrimaryColor key={color.displayName} color={color} />
-                    )}
+                    ))}
                 </PrimaryGrid>
 
                 <h3>Extended</h3>
                 <ExtendedGrid>
-                    {Object.keys(colorGroups).map((group: string) =>
+                    {Object.keys(colorGroups).map((group: string) => (
                         <ColorGroup key={group} colors={colorGroups[group]} group={group} />
-                    )}
+                    ))}
                 </ExtendedGrid>
 
                 <SectionWithDivider>
                     <h3>Usage</h3>
                     <h4>Direct</h4>
                     You can directly use a Varnish color via the theme.
-                    <DefaultLiveProvider code={examples.basic}/>
+                    <DefaultLiveProvider code={examples.basic} />
                 </SectionWithDivider>
 
                 <SectionWithDivider>
                     <h4>Indirect via palette</h4>
                     You can also access colors via the palette.
-                    <DefaultLiveProvider code={examples.palette}/>
+                    <DefaultLiveProvider code={examples.palette} />
                 </SectionWithDivider>
             </React.Fragment>
-        )
+        );
     }
 }
 
@@ -194,13 +196,13 @@ class PrimaryColor extends React.PureComponent<PrimaryColorProps> {
                 <PrimaryColorBox color={this.props.color.hex} />
                 <PrimaryColorName>{this.props.color.displayName}</PrimaryColorName>
                 <PrimaryColorHex>{this.props.color.hex}</PrimaryColorHex>
-                {this.props.color.rgb
-                ? <PrimaryColorRgb>
-                    {this.props.color.rgb.r}, {this.props.color.rgb.g}, {this.props.color.rgb.b}
-                </PrimaryColorRgb>
-                : null}
+                {this.props.color.rgb ? (
+                    <PrimaryColorRgb>
+                        {this.props.color.rgb.r}, {this.props.color.rgb.g}, {this.props.color.rgb.b}
+                    </PrimaryColorRgb>
+                ) : null}
             </PrimaryColorGrid>
-        )
+        );
     }
 }
 
@@ -212,16 +214,16 @@ interface ColorGroupProps {
 class ColorGroup extends React.PureComponent<ColorGroupProps> {
     render() {
         return (
-        <React.Fragment>
-            <ExtendedHeadRow>
-                <Label>{this.props.group}</Label>
-            </ExtendedHeadRow>
-            {this.props.colors.map((col: Color) => {
-                return col ? <ColorRow key={col.displayName} color={col}/>
-                : null;
-            })}
-        </React.Fragment>
-    )}
+            <React.Fragment>
+                <ExtendedHeadRow>
+                    <Label>{this.props.group}</Label>
+                </ExtendedHeadRow>
+                {this.props.colors.map((col: Color) => {
+                    return col ? <ColorRow key={col.displayName} color={col} /> : null;
+                })}
+            </React.Fragment>
+        );
+    }
 }
 
 interface ColorRowProps {
@@ -233,24 +235,32 @@ class ColorRow extends React.PureComponent<ColorRowProps> {
         return (
             <React.Fragment>
                 <ColorBoxWrapper>
-                    <ColorBox color={this.props.color.hex} borderColor={
-                        this.props.color.useContrastText
-                        ? DefaultVarnishTheme.palette.text.contrast.hex
-                        : DefaultVarnishTheme.palette.text.primary.hex}>
-                        <ColorText color={this.props.color.useContrastText
-                            ? DefaultVarnishTheme.palette.text.contrast.hex
-                            : DefaultVarnishTheme.palette.text.primary.hex}>A</ColorText>
+                    <ColorBox
+                        color={this.props.color.hex}
+                        borderColor={
+                            this.props.color.useContrastText
+                                ? DefaultVarnishTheme.palette.text.contrast.hex
+                                : DefaultVarnishTheme.palette.text.primary.hex
+                        }>
+                        <ColorText
+                            color={
+                                this.props.color.useContrastText
+                                    ? DefaultVarnishTheme.palette.text.contrast.hex
+                                    : DefaultVarnishTheme.palette.text.primary.hex
+                            }>
+                            A
+                        </ColorText>
                     </ColorBox>
                 </ColorBoxWrapper>
                 <ColorName>{this.props.color.displayName}</ColorName>
                 <ColorHex>{this.props.color.hex}</ColorHex>
-                {this.props.color.rgb
-                ? <ColorRgb>
-                    {this.props.color.rgb.r}, {this.props.color.rgb.g}, {this.props.color.rgb.b}
-                </ColorRgb>
-                : null}
+                {this.props.color.rgb ? (
+                    <ColorRgb>
+                        {this.props.color.rgb.r}, {this.props.color.rgb.g}, {this.props.color.rgb.b}
+                    </ColorRgb>
+                ) : null}
             </React.Fragment>
-        )
+        );
     }
 }
 
@@ -258,10 +268,10 @@ class ColorRow extends React.PureComponent<ColorRowProps> {
 const PrimaryGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(4, auto);
-    grid-gap: ${({theme}) => `0 ${theme.spacing.lg}`};
+    grid-gap: ${({ theme }) => `0 ${theme.spacing.lg}`};
     align-items: center;
-    margin-top: ${({theme}) => theme.spacing.lg};
-    margin-bottom: ${({theme}) => theme.spacing.xlg};
+    margin-top: ${({ theme }) => theme.spacing.lg};
+    margin-bottom: ${({ theme }) => theme.spacing.xlg};
 `;
 
 const PrimaryColorGrid = styled.div`
@@ -269,20 +279,21 @@ const PrimaryColorGrid = styled.div`
     grid-template-columns: max-content auto max-content;
     align-items: center;
     grid-template-rows: repeat(2, max-content);
-    margin-bottom: ${({theme}) => theme.spacing.lg};
+    margin-bottom: ${({ theme }) => theme.spacing.lg};
 `;
 
 const PrimaryColorBox = styled.div`
-    background: ${(props) => props.color};
+    background: ${props => props.color};
     width: 100%;
-    height: ${props => convertPixelsToRem(76)};
-    border-radius: ${({theme}) => `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`};
+    height: ${_ => convertPixelsToRem(76)};
+    border-radius: ${({ theme }) =>
+        `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`};
     grid-column: 1 / span 3;
 `;
 
 const MicroCol = styled(BodyMicro)`
-    background: ${({theme}) => theme.palette.background.light};
-    padding: ${({theme}) => theme.spacing.md};
+    background: ${({ theme }) => theme.palette.background.light};
+    padding: ${({ theme }) => theme.spacing.md};
 `;
 
 const PrimaryColorName = styled(MicroCol)`
@@ -293,7 +304,7 @@ const PrimaryColorName = styled(MicroCol)`
 const PrimaryColorHex = styled(MicroCol)`
     grid-column: 2;
     text-align: center;
-    padding: ${({theme}) => `${theme.spacing.md} ${theme.spacing.xs}`};
+    padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.xs}`};
 `;
 
 const PrimaryColorRgb = styled(MicroCol)`
@@ -315,14 +326,14 @@ const ExtendedGrid = styled.div`
         75px repeat(10, auto)
         75px repeat(10, auto)
         75px repeat(10, auto);
-    margin-top: ${({theme}) => theme.spacing.xs};
-    margin-bottom: ${({theme}) => theme.spacing.xl};
+    margin-top: ${({ theme }) => theme.spacing.xs};
+    margin-bottom: ${({ theme }) => theme.spacing.xl};
 `;
 
 const ExtendedHeadRow = styled.div`
     grid-column: 1 / span 4;
     align-self: end;
-    padding: ${({theme}) => `${theme.spacing.lg} 0`};
+    padding: ${({ theme }) => `${theme.spacing.lg} 0`};
 `;
 
 const Label = styled(BodyJumbo)`
@@ -330,34 +341,34 @@ const Label = styled(BodyJumbo)`
 `;
 
 const Col = styled(Body)`
-    padding: ${({theme}) => `${theme.spacing.md} 0`};
+    padding: ${({ theme }) => `${theme.spacing.md} 0`};
     display: inline-block;
-    border-top: 1px solid ${({theme}) => theme.palette.border.main};
+    border-top: 1px solid ${({ theme }) => theme.palette.border.main};
 `;
 
-const ColorBox = styled.div<{color: string, borderColor: string}>`
+const ColorBox = styled.div<{ color: string; borderColor: string }>`
     display: flex;
-    background: ${(props) => props.color};
-    width: ${props => convertPixelsToRem(40)};
-    height: ${props => convertPixelsToRem(40)};
-    border-radius: ${({theme}) => `${theme.shape.borderRadius}px`};
-    border: ${(props) => `1px solid ${props.borderColor}`};
+    background: ${props => props.color};
+    width: ${_ => convertPixelsToRem(40)};
+    height: ${_ => convertPixelsToRem(40)};
+    border-radius: ${({ theme }) => `${theme.shape.borderRadius}px`};
+    border: ${props => `1px solid ${props.borderColor}`};
 `;
 
 const ColorText = styled.div`
     align-self: center;
     width: 100%;
     text-align: center;
-    color: ${(props) => props.color};
+    color: ${props => props.color};
 `;
 
 const ColorBoxWrapper = styled(Col)`
-    padding: ${({theme}) => convertPixelsToRem(7)};
+    padding: ${_ => convertPixelsToRem(7)};
     grid-column: 1;
 `;
 
 const ColorName = styled(Col)`
-    padding-left: ${({theme}) => theme.spacing.xs};
+    padding-left: ${({ theme }) => theme.spacing.xs};
     grid-column: 2;
 `;
 

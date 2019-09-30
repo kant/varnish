@@ -5,7 +5,7 @@ import { BodySmall, ExternalLink, Code } from '@allenai/varnish/components';
 import { PageTitle, SectionWithDivider, DefaultLiveProvider } from '../shared';
 
 const examples = {
-basic: `
+    basic: `
 render(
   <div>
     <Table
@@ -51,7 +51,7 @@ render(
   </div>
 )
 `.trim(),
-filtering: `
+    filtering: `
 render(
   <div>
     <Table
@@ -105,8 +105,8 @@ render(
     />
   </div>
 )
-`.trim(),
-}
+`.trim()
+};
 
 export class Tables extends React.PureComponent<RouteComponentProps> {
     render() {
@@ -116,8 +116,13 @@ export class Tables extends React.PureComponent<RouteComponentProps> {
 
                 <h3>Appearance and Behavior</h3>
                 <BodySmall>
-                    <br/>We are extending the Ant Design Table component.
-                    <br/>For more information see the: <ExternalLink target="_blank" href="https://ant.design/components/table/">Ant Design Component</ExternalLink>
+                    <br />
+                    We are extending the Ant Design Table component.
+                    <br />
+                    For more information see the:{' '}
+                    <ExternalLink target="_blank" href="https://ant.design/components/table/">
+                        Ant Design Component
+                    </ExternalLink>
                 </BodySmall>
 
                 <SectionWithDivider>
@@ -125,7 +130,6 @@ export class Tables extends React.PureComponent<RouteComponentProps> {
                     <h4>Basic Ant Table</h4>
                     The Basic Table includes support for tabular data.
                     <DefaultLiveProvider code={examples.basic} />
-
                     <h4>Filtering</h4>
                     Each column can filter the rows with a custom filter function.
                     <DefaultLiveProvider code={examples.filtering} />
@@ -133,11 +137,11 @@ export class Tables extends React.PureComponent<RouteComponentProps> {
 
                 <SectionWithDivider>
                     <h4>Typescript</h4>
-                    While not necessary, sometimes you will want to fully type a generic Table.
-                    To fully pass typing info down the Table, you can extend a concrete Table
-                    class for your type:
-                    <Code variant='dark'>
-                    {`// define type for person
+                    While not necessary, sometimes you will want to fully type a generic Table. To
+                    fully pass typing info down the Table, you can extend a concrete Table class for
+                    your type:
+                    <Code variant="dark">
+                        {`// define type for person
 interface Person {
   key: string;
   name: string;
@@ -161,6 +165,6 @@ const StyledPersonTable = styled(TableOfPerson)\`
                     </Code>
                 </SectionWithDivider>
             </React.Fragment>
-        )
+        );
     }
 }

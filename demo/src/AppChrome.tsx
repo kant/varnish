@@ -50,12 +50,12 @@ export default class AppChrome extends React.PureComponent<RouteComponentProps, 
 
         this.state = {
             menuCollapsed: false
-        }
+        };
     }
 
     handleMenuCollapse = () => {
         this.setState({ menuCollapsed: !this.state.menuCollapsed });
-    }
+    };
 
     render() {
         return (
@@ -65,10 +65,11 @@ export default class AppChrome extends React.PureComponent<RouteComponentProps, 
                         <HeaderColumnsWithSpace gridTemplateColumns="auto auto 1fr">
                             <ResponsiveWindowImage
                                 src={logoWithText}
-                                wideWidth={"194px"}
-                                skinnyWidth={"72px"}
-                                height={"56px"}
-                                alt="Varnish" />
+                                wideWidth={'194px'}
+                                skinnyWidth={'72px'}
+                                height={'56px'}
+                                alt="Varnish"
+                            />
                             <HeaderSubTitle>{packageJson.version}</HeaderSubTitle>
                         </HeaderColumnsWithSpace>
                     </Header>
@@ -82,28 +83,35 @@ export default class AppChrome extends React.PureComponent<RouteComponentProps, 
                             <LeftMenu
                                 defaultSelectedKeys={[this.props.location.pathname]}
                                 defaultOpenKeys={componentGroups.map(c => c.label)}>
-                                {topLevelRoutes.map((route) => (
+                                {topLevelRoutes.map(route => (
                                     <LeftMenuItem key={route.label} disabled={route.disabled}>
-                                        <IconMenuItem route={route} menuCollapsed={this.state.menuCollapsed} />
+                                        <IconMenuItem
+                                            route={route}
+                                            menuCollapsed={this.state.menuCollapsed}
+                                        />
                                     </LeftMenuItem>
                                 ))}
                                 <LeftMenu.Divider />
-                                {componentGroups.map((group) => (
+                                {componentGroups.map(group => (
                                     <LeftMenu.ItemGroup
                                         key={group.label}
-                                        title={!this.state.menuCollapsed
-                                            ? (
+                                        title={
+                                            !this.state.menuCollapsed ? (
                                                 <Wrapping>
-                                                    <BodySmall>
-                                                        {group.label}
-                                                    </BodySmall>
+                                                    <BodySmall>{group.label}</BodySmall>
                                                 </Wrapping>
+                                            ) : (
+                                                <LeftMenu.Divider />
                                             )
-                                            : <LeftMenu.Divider />
                                         }>
-                                        {group.routes.map((route) => (
-                                            <LeftMenuItem key={route.label} disabled={route.disabled}>
-                                                <IconMenuItem route={route} menuCollapsed={this.state.menuCollapsed} />
+                                        {group.routes.map(route => (
+                                            <LeftMenuItem
+                                                key={route.label}
+                                                disabled={route.disabled}>
+                                                <IconMenuItem
+                                                    route={route}
+                                                    menuCollapsed={this.state.menuCollapsed}
+                                                />
                                             </LeftMenuItem>
                                         ))}
                                     </LeftMenu.ItemGroup>
@@ -113,15 +121,18 @@ export default class AppChrome extends React.PureComponent<RouteComponentProps, 
                         <Layout>
                             <Content>
                                 <Switch>
-                                    {ROUTES.map(({ path, exact, component: Component, componentProps }) => (
-                                        <Route exact={exact}
-                                            key={path}
-                                            path={path}
-                                            render={(props: any) => (
-                                                <Component {...props} {...componentProps} />
-                                            )}
-                                        />
-                                    ))}
+                                    {ROUTES.map(
+                                        ({ path, exact, component: Component, componentProps }) => (
+                                            <Route
+                                                exact={exact}
+                                                key={path}
+                                                path={path}
+                                                render={(props: any) => (
+                                                    <Component {...props} {...componentProps} />
+                                                )}
+                                            />
+                                        )
+                                    )}
                                 </Switch>
                             </Content>
                             <Footer />
@@ -129,7 +140,7 @@ export default class AppChrome extends React.PureComponent<RouteComponentProps, 
                     </Layout>
                 </Layout>
             </DefaultLayoutProvider>
-        )
+        );
     }
 }
 
@@ -137,29 +148,30 @@ const HeaderColumnsWithSpace = styled(HeaderColumns)`
     padding: 11.5px 0;
 `;
 
-const IconMenuItem = ({ route, menuCollapsed }: { route: AppRoute, menuCollapsed: boolean }) => {
+const IconMenuItem = ({ route, menuCollapsed }: { route: AppRoute; menuCollapsed: boolean }) => {
     return (
         <InternalLink to={route.path}>
-            {!menuCollapsed
-                ? (
-                    <IconMenuItemColumns>
-                        {route.iconSrc ? <ImgIcon src={route.iconSrc} /> : null}
-                        <Wrapping>
-                            <BodySmall>
-                                {route.label}
-                                {route.tag
-                                    ? <React.Fragment>{`  `}<Tag color={route.tag.color.toString()}>{route.tag.label}</Tag></React.Fragment>
-                                    : null}
-                            </BodySmall>
-                        </Wrapping>
-                    </IconMenuItemColumns>
-                )
-                : (
-                    <React.Fragment>
-                        {route.iconSrc ? <ImgIcon src={route.iconSrc} /> : null}<span>{route.label}</span>
-                    </React.Fragment>
-                )
-            }
+            {!menuCollapsed ? (
+                <IconMenuItemColumns>
+                    {route.iconSrc ? <ImgIcon src={route.iconSrc} /> : null}
+                    <Wrapping>
+                        <BodySmall>
+                            {route.label}
+                            {route.tag ? (
+                                <React.Fragment>
+                                    {`  `}
+                                    <Tag color={route.tag.color.toString()}>{route.tag.label}</Tag>
+                                </React.Fragment>
+                            ) : null}
+                        </BodySmall>
+                    </Wrapping>
+                </IconMenuItemColumns>
+            ) : (
+                <React.Fragment>
+                    {route.iconSrc ? <ImgIcon src={route.iconSrc} /> : null}
+                    <span>{route.label}</span>
+                </React.Fragment>
+            )}
         </InternalLink>
-    )
-}
+    );
+};

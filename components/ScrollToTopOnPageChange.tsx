@@ -12,7 +12,11 @@ import { History } from 'history';
  *     https://reacttraining.com/react-router/web/guides/scroll-restoration
  */
 const ScrollToTopOnPageChangeImpl = ({ history }: { history: History }) => {
-    useEffect(() => history.listen(() => { window.scrollTo(0, 0); }));
+    useEffect(() =>
+        history.listen(() => {
+            window.scrollTo(0, 0);
+        })
+    );
     return null;
 };
 
