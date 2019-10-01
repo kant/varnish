@@ -11,3 +11,5 @@ node_modules
 postcss.config.js
 skiff.json
 proxy/
+**/*.tsx?
+!**/*.d.ts
