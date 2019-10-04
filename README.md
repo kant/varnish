@@ -33,14 +33,14 @@ Varnish can be used in one of three ways:
 
 1. ### By embedding the CSS file into an HTML page (sans React):
 
-    Simply add `<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.5.0/dist/theme.min.css" />`
+    Simply add `<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.5.7/dist/theme.min.css" />`
     in the `<head>` tag of your HTML:
 
     ```html
     <html lang="en">
         <head>
             <title>️⛵</title>
-            <link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.5.0/dist/theme.min.css" />
+            <link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.5.7/dist/theme.min.css" />
         </head>
         <body>
             🎨
@@ -54,7 +54,7 @@ Varnish can be used in one of three ways:
 
 1. ### Using NPM:
 
-    1. Add `<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.5.0/dist/theme.min.css" />`
+    1. Add `<link rel=stylesheet href="https://cdn.jsdelivr.net/npm/@allenai/varnish@0.5.7/dist/theme.min.css" />`
        to the `<head>` of your html file, as described above.
 
     1. Install Varnish (you can use either `npm` or `yarn`):
