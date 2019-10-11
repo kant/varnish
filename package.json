@@ -6,8 +6,8 @@
   "license": "Apache-2.0",
   "repository": "git@github.com:allenai/varnish.git",
   "scripts": {
-    "lint": "eslint '**/*.{js,ts,tsx,json}' && echo 'Lint complete.'",
-    "lint:fix": "eslint '**/*.{js,ts,tsx,json}' --fix && echo 'Lint --fix complete.'",
+    "lint": "eslint '**/*.{js,ts,tsx,json}' && echo '💫  Lint complete.'",
+    "lint:fix": "eslint '**/*.{js,ts,tsx,json}' --fix && echo '🛠  Lint --fix complete.'",
     "build": "yarn build:ts && yarn build:theme",
     "build:ts": "tsc -b tsconfig.json && node bin/genless",
     "build:theme": "yarn theme:compile && yarn theme:optimize",
@@ -18,85 +18,6 @@
     "clean": "node bin/clean && rm -rf dist/",
     "prepublishOnly": "yarn build"
   },
-  "eslintConfig": {
-    "env": {
-      "browser": true,
-      "es6": true
-    },
-    "extends": [
-      "standard",
-      "plugin:prettier/recommended"
-    ],
-    "globals": {
-      "Atomics": "readonly",
-      "SharedArrayBuffer": "readonly"
-    },
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "ecmaVersion": 2018,
-      "sourceType": "module"
-    },
-    "plugins": [
-      "react",
-      "@typescript-eslint",
-      "prettier"
-    ],
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "printWidth": 100,
-          "tabWidth": 4,
-          "singleQuote": true,
-          "jsxBracketSameLine": true,
-          "jsxSingleQuote": false
-        }
-      ],
-      "react/jsx-uses-react": 1,
-      "react/jsx-uses-vars": 1,
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          "vars": "all",
-          "args": "after-used",
-          "ignoreRestSiblings": false,
-          "argsIgnorePattern": "^_"
-        }
-      ],
-      "no-useless-constructor": "off",
-      "@typescript-eslint/no-useless-constructor": "error"
-    }
-  },
-  "eslintIgnore": [
-    "build/",
-    "*.log",
-    "bin/",
-    "proxy/",
-    "package.json",
-    "tsconfig.json",
-    "docker-compose.yml",
-    "skiff.json",
-    "demo/config/",
-    "demo/node_modules/",
-    "demo/scripts/",
-    "demo/package.json",
-    "demo/tsconfig.json",
-    "**/*.map",
-    "components/**/*.js",
-    "components/**/*.d.ts",
-    "utils/**/*.js",
-    "utils/**/*.d.ts",
-    "layout/**/*.js",
-    "layout/**/*.d.ts",
-    "theme/**/*.js",
-    "theme/**/*.d.ts",
-    "theme/theme.less",
-    "theme/theme.less"
-  ],
   "peerDependencies": {
     "antd": "^3.23.2",
     "react": "^16.9.0",
@@ -105,6 +26,7 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
+    "@allenai/eslint-config-varnish": "^0.0.1",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^4.3.5",
@@ -133,6 +55,5 @@
     "react-router-dom": "^5.0.1",
     "styled-components": "^4.3.2",
     "typescript": "^3.6.3"
-  },
-  "dependencies": {}
+  }
 }

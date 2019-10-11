@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@allenai/eslint-config-varnish@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@allenai/eslint-config-varnish/-/eslint-config-varnish-0.0.1.tgz#82763a5992871f5a4600329e5449e73bc17bd4a7"
+  integrity sha512-qXj8Q32aqpMCTTkhA31k/YmotIMEKR9CG1uDEBQOQk0f/lVp/zwkzBOqRfFQlC2HucF7jSl9uR0Wr/QkkV/Qow==
+
 "@ant-design/colors@^3.1.0":
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/@ant-design/colors/-/colors-3.2.1.tgz#ad86cbf2d1a0039d01586aa73a7ea8a7ce0455a2"
