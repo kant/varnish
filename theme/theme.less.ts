@@ -17,6 +17,7 @@ import { fontWeight } from './fontWeight';
 import { shape } from './shape';
 import { zIndex } from './zIndex';
 
+// This note below is for the code that is generated.
 export const less = `
     /**
      * NOTE: This is a generated file. It should not be committed to the
@@ -53,6 +54,7 @@ export const less = `
     h1, h2, h3, h4, h5, h6 {
         font-family: ${typography.h1.fontFamily};
         color: ${DefaultVarnishTheme.palette.text.primary};
+        font-variant-numeric: lining-nums;
     }
     h1 {
         font-size: ${typography.h1.fontSize};
