@@ -8,7 +8,7 @@ export const palette: { [k: string]: { [k: string]: Color } } = {
     },
     background: {
         light: color.N2,
-        dark: color.B9,
+        dark: color.B10,
         error: color.R1,
         info: color.B1,
         success: color.G1,

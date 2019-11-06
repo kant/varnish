@@ -21,53 +21,29 @@ const colorGroups: { [k: string]: Color[] } = {
         color.B2,
         color.B1
     ],
-    purples: [
-        color.P10,
-        color.P9,
-        color.P8,
-        color.P7,
-        color.P6,
-        color.P5,
-        color.P4,
-        color.P3,
-        color.P2,
-        color.P1
+    aqua: [
+        color.A10,
+        color.A9,
+        color.A8,
+        color.A7,
+        color.A6,
+        color.A5,
+        color.A4,
+        color.A3,
+        color.A2,
+        color.A1
     ],
-    magentas: [
-        color.M10,
-        color.M9,
-        color.M8,
-        color.M7,
-        color.M6,
-        color.M5,
-        color.M4,
-        color.M3,
-        color.M2,
-        color.M1
-    ],
-    reds: [
-        color.R10,
-        color.R9,
-        color.R8,
-        color.R7,
-        color.R6,
-        color.R5,
-        color.R4,
-        color.R3,
-        color.R2,
-        color.R1
-    ],
-    oranges: [
-        color.O10,
-        color.O9,
-        color.O8,
-        color.O7,
-        color.O6,
-        color.O5,
-        color.O4,
-        color.O3,
-        color.O2,
-        color.O1
+    teals: [
+        color.T10,
+        color.T9,
+        color.T8,
+        color.T7,
+        color.T6,
+        color.T5,
+        color.T4,
+        color.T3,
+        color.T2,
+        color.T1
     ],
     greens: [
         color.G10,
@@ -81,17 +57,53 @@ const colorGroups: { [k: string]: Color[] } = {
         color.G2,
         color.G1
     ],
-    teals: [
-        color.T10,
-        color.T9,
-        color.T8,
-        color.T7,
-        color.T6,
-        color.T5,
-        color.T4,
-        color.T3,
-        color.T2,
-        color.T1
+    oranges: [
+        color.O10,
+        color.O9,
+        color.O8,
+        color.O7,
+        color.O6,
+        color.O5,
+        color.O4,
+        color.O3,
+        color.O2,
+        color.O1
+    ],
+    reds: [
+        color.R10,
+        color.R9,
+        color.R8,
+        color.R7,
+        color.R6,
+        color.R5,
+        color.R4,
+        color.R3,
+        color.R2,
+        color.R1
+    ],
+    magentas: [
+        color.M10,
+        color.M9,
+        color.M8,
+        color.M7,
+        color.M6,
+        color.M5,
+        color.M4,
+        color.M3,
+        color.M2,
+        color.M1
+    ],
+    purples: [
+        color.P10,
+        color.P9,
+        color.P8,
+        color.P7,
+        color.P6,
+        color.P5,
+        color.P4,
+        color.P3,
+        color.P2,
+        color.P1
     ],
     neutrals: [
         color.N10,
