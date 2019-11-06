@@ -155,7 +155,7 @@ export const componentGroups: AppRouteGroup[] = [
                 label: 'Tabs',
                 iconSrc: tabIcon,
                 component: Tabs,
-                tag: { label: 'NEW', color: DefaultVarnishTheme.color.O4 }
+                tag: { label: 'NEW', color: DefaultVarnishTheme.color.O5 }
             },
             {
                 path: `${componentRoot}/tables`,
