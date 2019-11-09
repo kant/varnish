@@ -52,9 +52,8 @@ export class Footer extends React.PureComponent<Props> {
                             this.props.children
                         ) : (
                             <Body>
-                                © The{' '}
                                 <ExternalLink contrast={contrast} href="https://allenai.org">
-                                    Allen Institute for Artificial Intelligence (AI2)
+                                    © The Allen Institute for Artificial Intelligence
                                 </ExternalLink>{' '}
                                 - All Rights Reserved |{' '}
                                 <ExternalLink
