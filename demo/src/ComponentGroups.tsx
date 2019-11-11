@@ -7,6 +7,7 @@ import {
     Colors,
     Forms,
     Headers,
+    Logos,
     Icons,
     Links,
     Modal,
@@ -24,6 +25,7 @@ import paletteIcon from './icons/palette-14px.svg';
 import textIcon from './icons/text-14px.svg';
 import buttonsIcon from './icons/buttons-14px.svg';
 import linksIcon from './icons/links-14px.svg';
+import logosIcon from './icons/logos-14px.svg';
 import tutorialsIcon from './icons/tutorials-14px.svg';
 import icons2Icon from './icons/icons-2-14px.svg';
 import spacingIcon from './icons/spacing-14px.svg';
@@ -89,6 +91,13 @@ export const componentGroups: AppRouteGroup[] = [
                 label: 'Links',
                 iconSrc: linksIcon,
                 component: Links
+            },
+            {
+                path: `${componentRoot}/logos`,
+                label: 'AI2 Logos',
+                iconSrc: logosIcon,
+                component: Logos,
+                tag: { label: 'NEW', color: DefaultVarnishTheme.color.O5 }
             }
         ]
     },
@@ -154,8 +163,7 @@ export const componentGroups: AppRouteGroup[] = [
                 path: `${componentRoot}/tabs`,
                 label: 'Tabs',
                 iconSrc: tabIcon,
-                component: Tabs,
-                tag: { label: 'NEW', color: DefaultVarnishTheme.color.O5 }
+                component: Tabs
             },
             {
                 path: `${componentRoot}/tables`,

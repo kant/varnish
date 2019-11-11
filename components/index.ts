@@ -1,3 +1,4 @@
+export * from './AI2Logo';
 export * from './button';
 export * from './Columns';
 export * from './Footer';

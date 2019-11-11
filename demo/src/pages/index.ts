@@ -4,6 +4,7 @@ export * from './Buttons';
 export * from './Colors';
 export * from './Forms';
 export * from './Headers';
+export * from './Logos';
 export * from './Icons';
 export * from './Links';
 export * from './Palette';
