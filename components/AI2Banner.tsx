@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { AI2Logo } from './';
+import { AI2Logo } from './AI2Logo';
 import { Content } from './Layout';
 import { LayoutVariant } from '../layout';
 
