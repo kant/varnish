@@ -58,4 +58,7 @@ export const RadioGroup = styled(Antd.Radio.Group)<{ vertical: boolean }>`
     ${Radio} {
         display: ${({ vertical }) => (vertical ? 'block' : 'inline-block')};
     }
+    .ant-radio-button-wrapper {
+        padding: ${({ theme }) => `0 ${theme.spacing.md}`};
+    }
 `;

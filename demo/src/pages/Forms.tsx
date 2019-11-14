@@ -77,6 +77,15 @@ render(
         </div>
     </div>
 )
+`,
+    toggle: `
+render(
+    <RadioGroup defaultValue="1">
+        <Radio.Button value="1">Option 1</Radio.Button>
+        <Radio.Button value="2">Option 2</Radio.Button>
+        <Radio.Button value="3">Option 2</Radio.Button>
+    </RadioGroup>
+)
 `
 };
 
@@ -144,6 +153,15 @@ export class Forms extends React.PureComponent<RouteComponentProps> {
                 <SectionWithDivider>
                     <h4>Radio</h4>
                     <DefaultLiveProvider code={examples.radio} />
+                    <br />
+                    For more information see the:{' '}
+                    <ExternalLink target="_blank" href="https://ant.design/components/radio/">
+                        Ant Design Component
+                    </ExternalLink>
+                </SectionWithDivider>
+                <SectionWithDivider>
+                    <h4>Radio Toggle</h4>
+                    <DefaultLiveProvider code={examples.toggle} />
                     <br />
                     For more information see the:{' '}
                     <ExternalLink target="_blank" href="https://ant.design/components/radio/">
