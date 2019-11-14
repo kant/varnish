@@ -10,26 +10,26 @@ render(
     <div>
         Standard:
         <Select placeholder="select item">
-            <SelectOption key="1" value="1">test 1a</SelectOption>
-            <SelectOption key="2" value="2">test 2a</SelectOption>
-            <SelectOption key="3" value="3">test 3a</SelectOption>
-            <SelectOption key="4" value="4">test 4a</SelectOption>
+            <Select.Option key="1" value="1">test 1a</Select.Option>
+            <Select.Option key="2" value="2">test 2a</Select.Option>
+            <Select.Option key="3" value="3">test 3a</Select.Option>
+            <Select.Option key="4" value="4">test 4a</Select.Option>
         </Select>
 
         With Groups:
         <Select placeholder="select item">
-            <SelectOptGroup label="group 1">
-                <SelectOption key="1" value="1">test 1a</SelectOption>
-                <SelectOption key="2" value="2">test 2a</SelectOption>
-                <SelectOption key="3" value="3">test 3a</SelectOption>
-                <SelectOption key="4" value="4">test 4a</SelectOption>
-            </SelectOptGroup>
-            <SelectOptGroup label="group 2">
-                <SelectOption key="5" value="5">test 1b</SelectOption>
-                <SelectOption key="6" value="6">test 2b</SelectOption>
-                <SelectOption key="7" value="7">test 3b</SelectOption>
-                <SelectOption key="8" value="8">test 4b</SelectOption>
-            </SelectOptGroup>
+            <Select.OptGroup label="group 1">
+                <Select.Option key="1" value="1">test 1a</Select.Option>
+                <Select.Option key="2" value="2">test 2a</Select.Option>
+                <Select.Option key="3" value="3">test 3a</Select.Option>
+                <Select.Option key="4" value="4">test 4a</Select.Option>
+            </Select.OptGroup>
+            <Select.OptGroup label="group 2">
+                <Select.Option key="5" value="5">test 1b</Select.Option>
+                <Select.Option key="6" value="6">test 2b</Select.Option>
+                <Select.Option key="7" value="7">test 3b</Select.Option>
+                <Select.Option key="8" value="8">test 4b</Select.Option>
+            </Select.OptGroup>
         </Select>
     </div>
 )
@@ -37,14 +37,18 @@ render(
 
     input: `
 render(
-    <Input
-        placeholder="type here"/>
+    <div>
+        <Input
+            placeholder="type here"/>
+        <Input prefix={<Icon type="user"/>} allowClear
+            placeholder="type here"/>
+    </div>
 )
 `.trim(),
 
     textArea: `
 render(
-    <TextArea
+    <Input.TextArea
         autosize={{minRows:2, maxRows:7}}
         placeholder="type here" />
 )
@@ -61,30 +65,43 @@ render(
     <div>
         Horizontal
         <div>
-            <RadioGroup defaultValue="1">
+            <Radio.Group defaultValue="1">
                 <Radio value="1">Option 1</Radio>
                 <Radio value="2">Option 2</Radio>
                 <Radio value="3">Option 2</Radio>
-            </RadioGroup>
+            </Radio.Group>
         </div>
         Vertical
         <div>
-            <RadioGroup defaultValue="1" vertical={true}>
+            <Radio.Group defaultValue="1" vertical={true}>
                 <Radio value="1">Option 1</Radio>
                 <Radio value="2">Option 2</Radio>
                 <Radio value="3">Option 2</Radio>
-            </RadioGroup>
+            </Radio.Group>
         </div>
     </div>
 )
 `,
     toggle: `
 render(
-    <RadioGroup defaultValue="1">
-        <Radio.Button value="1">Option 1</Radio.Button>
-        <Radio.Button value="2">Option 2</Radio.Button>
-        <Radio.Button value="3">Option 2</Radio.Button>
-    </RadioGroup>
+    <div>
+        Horizontal
+        <div>
+            <Radio.Group defaultValue="1">
+                <Radio.Button value="1">Option 1</Radio.Button>
+                <Radio.Button value="2">Option 2</Radio.Button>
+                <Radio.Button value="3">Option 2</Radio.Button>
+            </Radio.Group>
+        </div>
+        Vertical
+        <div>
+            <Radio.Group defaultValue="1" vertical={true}>
+                <Radio.Button value="1">Option 1</Radio.Button>
+                <Radio.Button value="2">Option 2</Radio.Button>
+                <Radio.Button value="3">Option 2</Radio.Button>
+            </Radio.Group>
+        </div>
+    </div>
 )
 `
 };
