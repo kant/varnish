@@ -65,7 +65,7 @@ const StyledTable = (styled(AntTable)`
 
 const SearchIcon = styled(Icon)<{ filtered: boolean }>`
     &&& {
-        color: ${({ theme, filtered }) => (filtered ? theme.palette.primary.main : undefined)};
+        color: ${({ theme, filtered }) => (filtered ? theme.palette.primary.main : null)};
     }
 `;
 

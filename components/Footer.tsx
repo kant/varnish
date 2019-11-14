@@ -88,6 +88,6 @@ const StyledFooter = styled(LayoutFooter)<{ contrast?: boolean; layout?: LayoutV
             contrast ? theme.palette.background.dark : theme.palette.background.light};
         color: ${({ theme, contrast }) =>
             contrast ? theme.palette.text.contrast : theme.palette.text.default};
-        text-align: ${({ layout }) => (layout !== 'app' ? 'center' : undefined)};
+        text-align: ${({ layout }) => (layout !== 'app' ? 'center' : null)};
     }
 `;

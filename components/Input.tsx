@@ -24,7 +24,7 @@ class VarnishInput extends Antd.Input {
 const StyledInput = styled(VarnishInput)<{ allowClear?: boolean, prefix?: any }>`
     &&& {
         padding: ${({ theme, allowClear, prefix }) =>
-            (allowClear || prefix) ? undefined : `${theme.spacing.xs} ${theme.spacing.md}`};
+            (allowClear || prefix) ? null : `${theme.spacing.xs} ${theme.spacing.md}`};
         height: initial;
         font-size: ${({ theme }) => theme.typography.bodySmall.fontSize};
 
