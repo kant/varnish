@@ -8,7 +8,6 @@ export const DatePicker = styled(Antd.DatePicker).attrs(() => ({
     suffixIcon: <img src={calenderIronSrc} />
 }))`
     width: 100%;
-
     input {
         padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.md}`};
         height: initial;
