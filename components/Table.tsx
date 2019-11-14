@@ -42,7 +42,7 @@ export const BasicFilterDropdown = ({
             <InputArea
                 placeholder={'Search'}
                 value={selectedKeys[0]}
-                onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+                onChange={(e: any) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
                 onPressEnter={confirm}
             />
             <Button variant="primary" onClick={confirm} icon="search">
@@ -65,7 +65,7 @@ const StyledTable = (styled(AntTable)`
 
 const SearchIcon = styled(Icon)<{ filtered: boolean }>`
     &&& {
-        color: ${({ theme, filtered }) => (filtered ? theme.palette.primary.main : undefined)};
+        color: ${({ theme, filtered }) => (filtered ? theme.palette.primary.main : null)};
     }
 `;
 
