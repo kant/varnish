@@ -1,6 +1,6 @@
 {
   "name": "@allenai/varnish",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Varnish makes it easy to build AI2 branded demos, websites, and  applications.",
   "author": "reviz@allenai.org",
   "license": "Apache-2.0",
