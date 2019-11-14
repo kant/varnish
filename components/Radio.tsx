@@ -1,10 +1,10 @@
-import React from 'react';
 import styled, { StyledComponentBase } from 'styled-components';
 import * as Antd from 'antd';
 
 // Styled version of statics
 const StyledGroup = styled(Antd.Radio.Group)<{ vertical?: boolean }>`
-    .ant-radio-wrapper, .ant-radio-button-wrapper {
+    .ant-radio-wrapper,
+    .ant-radio-button-wrapper {
         display: ${({ vertical }) => (vertical ? 'block' : 'inline-block')};
     }
     .ant-radio-button-wrapper {

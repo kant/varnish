@@ -38,10 +38,21 @@ render(
     input: `
 render(
     <div>
+        Basic
         <Input
             placeholder="type here"/>
+
+        With icon and clear button
         <Input prefix={<Icon type="user"/>} allowClear
             placeholder="type here"/>
+
+        Search
+        <Input.Search
+            placeholder="search"/>
+
+        Password
+        <Input.Password
+            placeholder="password"/>
     </div>
 )
 `.trim(),
