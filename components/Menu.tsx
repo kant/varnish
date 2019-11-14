@@ -6,8 +6,8 @@ import { Columns } from './Columns';
 // Styled version of Menu statics
 const MenuSubMenu = styled(Menu.SubMenu)``;
 const MenuItem = styled(Menu.Item)``;
-const MenuDivider = styled(Menu.Divider)``;
-const MenuItemGroup = styled(Menu.ItemGroup)``;
+const MenuDivider: any = styled(Menu.Divider)``;
+const MenuItemGroup: any = styled(Menu.ItemGroup)``;
 
 // Menu Item styled for top menu
 export const TopMenuItem = styled(MenuItem)`
@@ -49,6 +49,8 @@ export const IconMenuItemColumns = styled(Columns).attrs({
 class VarnishMenu extends Menu {
     static SubMenu = MenuSubMenu as any;
     static Item = MenuItem as any;
+    static Divider = MenuDivider as any;
+    static ItemGroup = MenuItemGroup as any;
 }
 
 // Styled left version of Menu.

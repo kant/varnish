@@ -95,7 +95,7 @@ export default class AppChrome extends React.PureComponent<RouteComponentProps, 
                                 {componentGroups.map(group => (
                                     <LeftMenu.ItemGroup
                                         key={group.label}
-                                        title={
+                                        title={() =>
                                             !this.state.menuCollapsed ? (
                                                 <Wrapping>
                                                     <BodySmall>{group.label}</BodySmall>
