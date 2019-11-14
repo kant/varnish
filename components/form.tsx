@@ -10,10 +10,22 @@ export const TextArea = styled(Antd.Input.TextArea)`
     font-size: ${({ theme }) => theme.typography.bodySmall.fontSize};
 `;
 
-export const Input = styled(Antd.Input)`
-    padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.md}`};
-    height: initial;
-    font-size: ${({ theme }) => theme.typography.bodySmall.fontSize};
+export const Input = styled(Antd.Input)<{ allowClear?: boolean }>`
+    &&& {
+        padding: ${({ theme, allowClear }) =>
+            allowClear ? undefined : `${theme.spacing.xs} ${theme.spacing.md}`};
+        height: initial;
+        font-size: ${({ theme }) => theme.typography.bodySmall.fontSize};
+
+        /* when the user uses allowClear attribute, the control swaps from an input to a span with
+        an input in it.  so we need specific crappy css for this case */
+        input {
+            padding: ${({ theme }) =>
+                `${theme.spacing.xs} ${theme.spacing.lg} ${theme.spacing.xs} ${theme.spacing.md}`};
+            height: initial;
+            font-size: ${({ theme }) => theme.typography.bodySmall.fontSize};
+        }
+    }
 `;
 
 export const DatePicker = styled(Antd.DatePicker).attrs(() => ({

@@ -131,17 +131,6 @@ export class Forms extends React.PureComponent<RouteComponentProps> {
                     </ExternalLink>
                 </SectionWithDivider>
                 <SectionWithDivider>
-                    <h4>Input</h4>
-                    <DefaultLiveProvider code={examples.input} />
-                    <br />
-                    For more information see the:{' '}
-                    <ExternalLink
-                        target="_blank"
-                        href="https://ant.design/components/input/#Input.TextArea">
-                        Ant Design Component
-                    </ExternalLink>
-                </SectionWithDivider>
-                <SectionWithDivider>
                     <h4>DatePicker</h4>
                     <DefaultLiveProvider code={examples.datePicker} />
                     <br />
