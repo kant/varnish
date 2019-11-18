@@ -22,6 +22,7 @@ interface Props {
     color?: ColorVariants;
     includeText?: boolean;
     size?: LogoSize | number;
+    className?: string;
 }
 
 const dimsByLogoSize = {
@@ -85,11 +86,17 @@ function getImageSrc(size: LogoSize | number, color: ColorVariants, includeText:
     }
 }
 
-export const AI2Logo = ({ color = 'default', size = 'default', includeText = true }: Props) => {
+export const AI2Logo = ({
+    color = 'default',
+    size = 'default',
+    includeText = true,
+    className
+}: Props) => {
     const { width, height } = getImageDimensions(size, includeText);
     return (
         <VectorImage
             src={getImageSrc(size, color, includeText)}
+            className={className}
             width={width}
             height={height}
             alt="Allen Institute for AI"
