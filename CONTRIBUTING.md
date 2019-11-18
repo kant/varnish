@@ -25,6 +25,12 @@ To get your development environment setup, follow these instructions:
 
 1. Once you're complete, open a pull-request with your changes.
 
+1. Before merging into master, make sure that your changes are properly formatted:
+
+   ```bash
+   yarn run lint:fix
+   ```
+
 ## Releasing a new Version
 
 To release a new version, you'll need to install [NodeJs](https://nodejs.org/en/)
@@ -94,4 +100,3 @@ Then, follow these steps:
 
 8. Announce the new version by linking to the Github release in the
    `#varnish-releases` Slack channel.
-
