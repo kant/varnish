@@ -30,5 +30,6 @@ export const spacing = {
     md: Spacing.fromPixels('md', 16),
     lg: Spacing.fromPixels('lg', 24),
     xl: Spacing.fromPixels('xl', 36),
-    xxl: Spacing.fromPixels('xxl', 64)
+    xxl: Spacing.fromPixels('xxl', 48),
+    xxxl: Spacing.fromPixels('xxxl', 64)
 };
