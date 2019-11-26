@@ -6,10 +6,9 @@ import { fontWeight } from './fontWeight';
 // general
 const defaultFontSize = convertPixelsToRem(16);
 const defaultFontFamily = 'Lato';
-const fontWeightLight = fontWeight.light;
 const fontWeightRegular = fontWeight.regular;
-const fontWeightMedium = fontWeight.medium;
 const fontWeightBold = fontWeight.bold;
+const fontWeightHeavy = fontWeight.heavy;
 const fallbackDefaultFonts = [
     'Helvetica Neue',
     'Helvetica',
@@ -35,30 +34,30 @@ const fallbackDefaultCodeFonts = [
 ];
 
 // headlines
-const headlineFontFamily = 'Raleway';
+const headlineFontFamily = defaultFontFamily;
 const h1 = {
     fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
     fontSize: convertPixelsToRem(46),
     lineHeight: convertPixelsToRem(50),
-    fontWeight: fontWeightBold
+    fontWeight: fontWeightHeavy
 };
 const h2 = {
     fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
     fontSize: convertPixelsToRem(36),
     lineHeight: convertPixelsToRem(40),
-    fontWeight: fontWeightBold
+    fontWeight: fontWeightHeavy
 };
 const h3 = {
     fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
     fontSize: convertPixelsToRem(30),
     lineHeight: convertPixelsToRem(36),
-    fontWeight: fontWeightBold
+    fontWeight: fontWeightHeavy
 };
 const h4 = {
     fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
     fontSize: convertPixelsToRem(24),
     lineHeight: convertPixelsToRem(28),
-    fontWeight: fontWeightBold
+    fontWeight: fontWeightHeavy
 };
 const h5 = {
     fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
@@ -70,7 +69,7 @@ const h6 = {
     fontFamily: [headlineFontFamily, ...fallbackDefaultFonts].join(', '),
     fontSize: convertPixelsToRem(13),
     lineHeight: convertPixelsToRem(18),
-    fontWeight: fontWeightMedium
+    fontWeight: fontWeightRegular
 };
 
 // body
@@ -153,10 +152,9 @@ export const typography = {
     // general
     fontSize: defaultFontSize,
     fontFamily: defaultFontFamily,
-    fontWeightLight,
     fontWeightRegular,
-    fontWeightMedium,
     fontWeightBold,
+    fontWeightHeavy,
 
     // headlines
     headlineFontFamily,

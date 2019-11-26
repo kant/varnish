@@ -29,7 +29,7 @@ export const less = `
      **/
 
     // the fonts we use
-    @import (css) url("https://fonts.googleapis.com/css?family=Raleway:400,600,700|Lato:400,700|Volkhov:400,700|RobotoMono:400,700");
+    @import (css) url("https://fonts.googleapis.com/css?family=Lato:400,700,900|Volkhov:400,700|RobotoMono:400,700");
 
     // start with ant design less
     @import '../node_modules/antd/dist/antd.less';
