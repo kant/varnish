@@ -27,7 +27,7 @@ Varnish can be used in one of three ways:
 
 1. ### By starting from the [Skiff Template](https://github.com/allenai/skiff-template/):
 
-    The skiff-tamplate takes care of all the setup needed to use Varnish.
+    The skiff-template takes care of all the setup needed to use Varnish.
     To get started with the skiff template, follow the instructions in
     the [README](https://github.com/allenai/skiff-template/blob/master/README.md).
 
@@ -63,7 +63,7 @@ Varnish can be used in one of three ways:
         yarn add @allenai/varnish
         ```
 
-    1. Install Varnish's peer depencies:
+    1. Install Varnish's peer dependencies:
 
         ```bash
         yarn add antd react react-dom react-router-dom styled-components
